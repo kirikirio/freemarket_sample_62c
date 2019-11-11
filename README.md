@@ -105,8 +105,8 @@
 - has_many :comments, dependent: :destroy
 - has_many :images, dependent: :destroy
 - has_many :likes, dependent: :destroy
-- has_many :categories, through: :items_categories, dependent: :destroy
-
+- has_many :items_categories, dependent: :destroy
+- has_many :categories, through: :items_categories
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -126,7 +126,7 @@
 |status|string|null: false|
 
 ### Association
-- has_many :item
+- has_many :items
 
 
 ## sale_statusesテーブル
@@ -138,7 +138,7 @@
 - has_many :items
 
 
-## prefectureテーブル
+## prefecturesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |prefecture|string|null: false, unique: true|
@@ -157,7 +157,7 @@
 
 ### Association
 - belongs_to :item
-- belongs_to :categories
+- belongs_to :category
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -213,4 +213,5 @@
 |name|string|null: false|
 
 ### Association
-- has_many :items
+- has_many :items_categories
+- has_many :items, through: :items_categories
