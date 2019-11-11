@@ -50,7 +50,7 @@
 |user|reference|foreign_key: true|
 
 ### Association
-- belongs_to user
+- belongs_to :user
 
 
 ## postalcodesテーブル
@@ -166,7 +166,7 @@
 |item|reference|null: false|
 
 ### Association
-- bolongs_to item
+- bolongs_to :item
 
 
 ## likesテーブル
@@ -176,8 +176,8 @@
 |user|references|foreign_key: true|
 
 ### Association
-- bolongs_to item
-- bolongs_to user
+- bolongs_to :item
+- bolongs_to :user
 
 
 ## sizesテーブル
