@@ -1,31 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-<!-- merukari DB設計 -->
-<!-- usersテーブル -->
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |firstname|string|null: false|
@@ -35,7 +10,7 @@ Things you may want to cover:
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|image_url|string||
+|user_image|string|null: false|
 |point|integer|null: false|
 |birthday|integer|null: false|
 |profile|text||
@@ -45,7 +20,7 @@ Things you may want to cover:
 |city_block|string||
 |building|string||
 
-<!-- Association -->
+### Association
 - has_many :credits, dependent: :destroy
 - has_many :items, dependent: :destroy
 - has_many :comments, dependent: :destroy
@@ -56,39 +31,39 @@ Things you may want to cover:
 - has_one :address, dependent: :delete
 
 
-<!-- creditsテーブル -->
+## creditsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user|reference|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
 
-<!-- Association -->
+### Association
 - belongs_to :user
 
 
-<!-- sns_credentialsテーブル -->
+## sns_credentialsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |provider|string||
 |uid|string||
 |user|reference|foreign_key: true|
 
-<!-- Association -->
+### Association
 - belongs_to user
 
 
-<!-- postalcodesテーブル -->
+## postalcodesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|string|unique: true|
 
-<!-- Association -->
+### Association
 - has_many :users
 - has_many :addresses
 
 
-<!-- addressesテーブル -->
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|reference|null: false, foreign_key: true|
@@ -99,13 +74,13 @@ Things you may want to cover:
 |tel_number|integer|unique: true|
 |user|reference|null: false, foreign_key: true|
 
-<!-- Association -->
+### Association
 - belongs_to :user
 - belongs_to :postal_code
 - belongs_to :prefecture
 
 
-<!-- itemsテーブル -->
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
@@ -115,127 +90,127 @@ Things you may want to cover:
 |sale_status|references|null: false, foreign_key: true|
 |size|references|null: false, foreign_key: true|
 |brand|references|null: false, foreign_key: true|
-|shipping_status|references|null: false, foreign_key: true|
+|delivery_status|references|null: false, foreign_key: true|
 |prefecture|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
 
-<!-- Association -->
+### Association
 - belongs_to :user
 - belongs_to :brand
 - belongs_to :size
 - belongs_to :item_status
 - belongs_to :sale_status
 - belongs_to :prefecture
-- belongs_to :shipping_status
+- belongs_to :delivery_status
 - has_many :comments, dependent: :destroy
 - has_many :images, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :categories, through: :items_categories, dependent: :destroy
 
 
-<!-- commentsテーブル -->
+## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |body|text|null: false|
 |user|references|null: false, foreign_key: true|
 |item|references|null: false, foreign_key: true|
 
-<!-- Association -->
+### Association
 - belongs_to :user
 - belongs_to :item
 
 
-<!-- item_statusesテーブル -->
+## item_statusesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |status|string|null: false|
 
-<!-- Association -->
+### Association
 - has_many :item
 
 
-<!-- sale_statusesテーブル -->
+## sale_statusesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |status|string|null: false|
 
-<!-- Association -->
+### Association
 - has_many :items
 
 
-<!-- prefectureテーブル -->
+## prefectureテーブル
 |Column|Type|Options|
 |------|----|-------|
 |prefecture|string|null: false, unique: true|
 
-<!-- Association -->
+### Association
 - has_many :items
 - has_many :users
 - has_many :addresses
 
 
-<!-- items_categoriesテーブル -->
+## items_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
 
-<!-- Association -->
+### Association
 - belongs_to :item
 - belongs_to :categories
 
-<!-- imagesテーブル -->
+## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
 |item|reference|null: false|
 
-<!-- Association -->
+### Association
 - bolongs_to item
 
 
-<!-- likesテーブル -->
+## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item|references|foreign_key: true|
 |user|references|foreign_key: true|
 
-<!-- Association -->
+### Association
 - bolongs_to item
 - bolongs_to user
 
 
-<!-- sizesテーブル -->
+## sizesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |size|string|null: false|
 
-<!-- Association -->
+### Association
 - has_many :items
 
 
-<!-- brandsテーブル -->
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true, unique: true|
 
-<!-- Association -->
+### Association
 - has_many :items
 
 
-<!-- shipping_statusesテーブル -->
+## delivery_statusesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |status|string|null: false|
 
-<!-- Association -->
+### Association
 - has_many :items
 
 
-<!-- categoriesテーブル -->
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
-<!-- Association -->
+### Association
 - has_many :items
