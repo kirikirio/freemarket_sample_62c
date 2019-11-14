@@ -1,0 +1,110 @@
+footer{
+  @include box(649px, 100%);
+  .top{
+    @include box(260px, 100%);
+    background-image: image-url("logo/footer-top.jpg");
+    &__contents{
+      display: flex;
+      justify-content:space-between;
+      @include box(260px, 750px);
+      margin: 0 auto;
+      &__left{
+        @include box(260px, 417px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &__unit1{
+          margin-bottom: 15px;
+          font-size: 24px;
+          color: $button;
+        }
+        &__unit2{
+          margin-bottom: 20px;
+          font-size: 35px;
+          color: $button;
+        }
+        &__unit3{
+          display: flex;
+          align-items: center;
+          &--app:hover{
+            opacity: 0.7;
+          }
+          &--google:hover{
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+  .bottom{
+    @include box(389px, 100%);
+    padding: 0px 20px 10px;
+    background-color: #222222;
+    &__articles{
+      display: flex;
+      // justify-content:space-between;
+      @include box(296px, 1020px);
+      margin: 0 auto;
+      &__list1{
+        padding-top: 18px;
+        color: $button;
+        font-size: 12px;
+        &__text1{
+          font-size: 16px;
+          font-weight: 600;
+        }
+        &__text2{
+          margin-top: 16px;
+        }
+        &__text3{
+          margin-top: 16px;
+        }
+        &__text4{
+          margin-top: 16px;
+        }
+        &__text5{
+          margin-top: 16px;
+        }
+        &__text6{
+          margin-top: 16px;
+        }
+      }
+      &__list2{
+        padding-top: 18px;
+        color: $button;
+        font-size: 12px;
+        &__text1{
+          font-size: 16px;
+          font-weight: 600;
+        }
+        &__text2{
+          margin-top: 16px;
+        }
+        &__text3{
+          margin-top: 16px;
+        }
+        &__text4{
+          margin-top: 16px;
+        }
+        &__text5{
+          margin-top: 16px;
+        }
+        &__text6{
+          margin-top: 16px;
+        }
+      }
+      &__list3{
+        padding-top: 18px;
+        &__text1{
+          color: $button;
+        }
+      }
+      &__list4{
+        padding-top: 18px;
+        &__text1{
+          color: $button;
+        }
+      }
+    }
+  }
+}
