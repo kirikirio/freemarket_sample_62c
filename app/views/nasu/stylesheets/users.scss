@@ -1,0 +1,664 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "reset";
+@import "mixin";
+
+.divider {
+  text-align: center;
+  font-size: 60px;
+  padding-bottom: 70px;
+}
+
+body {
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: "Source Sans Pro", "Helvetica", "Arial", "游ゴシック体",
+    "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+p {
+  font-family: "Source Sans Pro", "Helvetica", "Arial", "游ゴシック体",
+    "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  background: none;
+}
+* {
+  box-sizing: border-box;
+}
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline-width: 0px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  // background-position: 0 center;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+// .opacity:hover {
+//   opacity: 0.7;
+// //   text-decoration: underline;
+// }
+// body {
+//   background: rgb(245, 245, 245);
+//   font-size: 14px;
+//   color: #333;
+// }
+
+// 登録用のボタンの設定（新規登録、facebook,google
+// .btn {
+//   display: block;
+//   // color: #fff;
+//   width: 100%;
+//   line-height: 48px;
+//   border: 1px solid transparent;
+//   transition: all ease-out 0.3s;
+//   cursor: pointer;
+//   border-radius: 4px;
+//   box-sizing: border-box;
+//   // text-align: center;
+//   // position: relative;
+// }
+
+// stepbar
+.stepper {
+  position: relative;
+  text-align: center;
+  li {
+    position: relative;
+    &:first-child {
+      padding-left: 0;
+      &:after {
+        display: none;
+      }
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      background-color: #ccc;
+      bottom: 5px;
+      // left: 0;
+      left: 50%;
+      z-index: -1;
+      display: block;
+      width: 100%;
+      height: 2px;
+    }
+    div {
+      border-radius: 50%;
+      background-color: #ccc;
+      width: 10px;
+      height: 10px;
+      margin: 8px auto 0;
+    }
+  }
+}
+
+.btn-facebook {
+  @include btn;
+  color: #fff;
+  background-color: #385185;
+  position: relative;
+  // margin: 16px 0 0;
+  &:before {
+    font-family: FontAwesome;
+    content: "\f230";
+    font-size: 2em;
+    position: absolute;
+    top: 0;
+    left: 5%;
+  }
+  &:visited {
+    color: #fff;
+  }
+  &:hover {
+    background-color: #385185;
+  }
+}
+.btn-google {
+  @include btn;
+  background-color: #fff;
+  border: 1px solid #979797;
+  margin: 16px 0 0;
+  color: #333;
+  background: #fff url(/SVG/google.svg) no-repeat;
+  background-position: 3px top;
+  &:visited {
+    color: #333;
+  }
+  &:hover {
+    background: #fff url(/SVG/google.svg) no-repeat;
+    background-position: 3px top;
+  }
+}
+
+.sub-header {
+  // text-align: center;
+  height: 128px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+
+  &__logo {
+    height: 49px;
+    width: 185px;
+    margin-top: 40px;
+    margin-right: 8px;
+    &:hover {
+      @include opacity;
+    }
+  }
+}
+// 新規会員登録
+.main {
+  @include main;
+  .signup-box {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    &__title {
+      @include title;
+    }
+  }
+  &__signup-form {
+    width: 343px;
+    margin: 0 auto;
+    border-top: 1px solid #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 40px;
+    &__mail {
+      @include btn;
+      color: #fff;
+      background-color: #ea352d;
+      position: relative;
+      &:before {
+        font-family: FontAwesome;
+        content: "\f003";
+        font-size: 1.4em;
+        position: absolute;
+        top: 0;
+        left: 5%;
+      }
+      &:visited {
+        color: #fff;
+      }
+      &:hover {
+        @include opacity;
+        background-color: #ea352d;
+        text-decoration: none;
+      }
+    }
+    &__facebook {
+      margin: 16px 0 0;
+    }
+  }
+}
+
+.sub-footer {
+  margin: 0 auto;
+  height: 220px;
+  width: 456px;
+  text-align: center;
+  padding: 40px 0px;
+
+  &__links {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    font-size: 12px;
+    color: #333;
+    a:hover {
+      @include opacity;
+      color: #333;
+    }
+  }
+  &__logo {
+    width: 80px;
+    height: 65px;
+    margin: 40px 188px 0;
+    &:hover {
+      @include opacity;
+    }
+  }
+  .copy-right {
+    font-size: 11px;
+    margin-top: 8px;
+  }
+}
+
+.main {
+  .login-box {
+    width: 456px;
+    margin: 0 auto;
+    background-color: #fff;
+    &__new-account {
+      padding: 40px 64px;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      &__btn {
+        margin: 8px 0 0;
+        border: 1px solid #0099e8;
+        background: #0099e8;
+        color: #fff;
+        line-height: 40px;
+      }
+    }
+    .sns-account {
+      border-top: 1px solid #f5f5f5;
+      padding: 32px 64px;
+    }
+    &__form {
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 64px 32px;
+      &__input {
+        @include input;
+      }
+      input[type="password"] {
+        margin-top: 24px;
+      }
+      &__submit {
+        @include btn-red;
+      }
+      &__forget-pass {
+        color: #0099e8;
+        margin-top: 40px;
+        margin-right: auto;
+        &:visited {
+          color: #0099e8;
+        }
+        &:hover {
+          text-decoration: underline;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+// 会員情報入力
+.sub-header__bar {
+  padding: 40px 0 0 44px;
+  .stepper {
+    color: #888;
+    display: flex;
+    list-style: none;
+    width: 508px;
+    justify-content: space-around;
+  }
+}
+
+.main {
+  @include main;
+  .registration-box {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    &__title {
+      @include title;
+    }
+    &__contents {
+      border-top: 1px solid #f5f5f5;
+      padding: 24px 16px 40px;
+      &__form {
+        width: 343px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .form-group {
+          margin-top: 24px;
+          width: 100%;
+          &__label {
+            display: flex;
+            &__text {
+              font-weight: 600;
+            }
+            &__require {
+              @include label-require();
+            }
+          }
+          &__input {
+            @include input;
+            margin-top: 8px;
+          }
+          &__input--half {
+            margin-top: 8px;
+            @include input;
+            width: calc(50% - 6px);
+          }
+          &__input--half-first {
+            margin-right: 8px;
+            margin-top: 8px;
+            @include input;
+            width: calc(50% - 6px);
+          }
+          &__revelation-pass {
+            display: flex;
+            margin-top: 16px;
+            &__checkbox {
+              margin: 0;
+              transform: scale(1.3);
+              width: 20px;
+              height: 20px;
+            }
+            &__label {
+              padding-left: 9px;
+              cursor: pointer;
+            }
+          }
+          &__select {
+            margin-top: 8px;
+            width: 100%;
+            display: flex;
+            align-content: center;
+            &__item {
+              width: 100%;
+              position: relative;
+              .icon-arrow-down {
+                @include icon-arrow-down;
+              }
+              select {
+                width: 76px;
+                @include select;
+              }
+            }
+            span {
+              margin: auto 2px;
+            }
+          }
+          &__subtitle {
+            font-weight: bold;
+            text-align: left;
+          }
+          &__text {
+            text-align: left;
+            margin-top: 8px;
+            line-height: 1.5;
+          }
+        }
+        // 一部に適応させる
+        .full-width {
+          width: 100%;
+        }
+        .first-form {
+          margin: 0;
+        }
+        .text-right {
+          text-align: right;
+        }
+        // 本人情報はただしく、、、という説明文
+        .form-attention {
+          margin-top: 8px;
+          line-height: 1.5;
+          color: #888;
+          text-align: left;
+          // letter-spacing: -0.05em;
+        }
+        // 利用規約に同意
+        &__info {
+          text-align: center;
+          // letter-spacing: -0.05em;
+          // font-family: inherit;
+          a {
+            color: #0099e8;
+            &:hover {
+              color: #0099e8;
+              @include opacity;
+            }
+          }
+        }
+        &__submit {
+          @include btn-red;
+        }
+        &__info-link {
+          @extend %info-link;
+        }
+      }
+    }
+  }
+}
+.fixit {
+  margin: 20px;
+  border: 1px solid #000;
+}
+
+// .first-form {
+//   margin: 0;
+// }
+.main {
+  @include main;
+  .auth-phoneNum-box {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    &__title {
+      @include title;
+    }
+    &__contents {
+      border-top: 1px solid #f5f5f5;
+      padding: 24px 16px 40px;
+      &__form {
+        width: 343px;
+        margin: 0 auto;
+        .form-group {
+          margin-top: 24px;
+          width: 100%;
+          &__label {
+            display: flex;
+            &__text {
+              font-weight: 600;
+            }
+          }
+          &__input {
+            @include input;
+            margin-top: 8px;
+          }
+        }
+        .form-note {
+          @include form-note;
+        }
+        &__submit {
+          @include btn-red;
+        }
+        // 一部に適応させる
+        .first-form {
+          margin: 0;
+        }
+        ///////////
+        &__info-link {
+          @extend %info-link;
+          // @include icon-arrow-right;
+        }
+      }
+    }
+  }
+}
+
+// 住所登録
+.main {
+  @include main;
+  .address-box {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    &__title {
+      @include title;
+    }
+    &__contents {
+      border-top: 1px solid #f5f5f5;
+      padding: 24px 16px 40px;
+      &__form {
+        width: 343px;
+        margin: 0 auto;
+        .form-group {
+          margin-top: 24px;
+          width: 100%;
+          &__label {
+            @extend %label;
+            span.optional {
+              background-color: #888;
+            }
+          }
+          &__input {
+            @include input;
+            margin-top: 8px;
+          }
+          &__select__item {
+            width: 100%;
+            position: relative;
+            .icon-arrow-down {
+              @include icon-arrow-down;
+            }
+            select {
+              width: 100%;
+              margin-top: 8px;
+              @include select;
+            }
+          }
+        }
+        &__submit {
+          @include btn-red;
+          margin-top: 40px;
+        }
+        // 一部に適応させる
+        .first-form {
+          margin: 0;
+        }
+        ///////////
+      }
+    }
+  }
+}
+
+// 支払い方法
+.main {
+  @include main;
+  .payment-box {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    &__title {
+      @include title;
+    }
+    &__contents {
+      border-top: 1px solid #f5f5f5;
+      padding: 24px 16px 40px;
+      &__form {
+        width: 343px;
+        margin: 0 auto;
+        .form-group {
+          margin-top: 24px;
+          width: 100%;
+          &__label {
+            @extend %label;
+            span.optional {
+              background-color: #888;
+            }
+          }
+          &__input {
+            @include input;
+            margin-top: 8px;
+          }
+          &__image {
+            text-align: left;
+            margin-top: 8px;
+          }
+
+          &__select {
+            .flex-wrap {
+              display: flex;
+              align-content: center;
+              margin-top: 8px;
+            }
+            &__item {
+              @include half;
+              position: relative;
+              .icon-arrow-down {
+                @include icon-arrow-down;
+                // position: absolute;
+                // transform: translate(0, -50%);
+                // top: 50%;
+                // right: 20px;
+                // font-size: 1.2em;
+              }
+              select {
+                width: 100%;
+                @include select;
+              }
+            }
+            span {
+              margin: auto 8px;
+            }
+          }
+        }
+        .info-wrap {
+          margin-top: 8px;
+        }
+        &__info-link {
+          @extend %info-link;
+          .icon-question {
+            color: #0099e8;
+            position: absolute;
+            left: -9%;
+            cursor: pointer;
+          }
+        }
+        &__submit {
+          @include btn-red;
+        }
+        // 一部に適応させる
+        .first-form {
+          margin: 0;
+        }
+        ///////////
+      }
+    }
+  }
+}
+
+// 完了
+.main {
+  @include main;
+  .complete-box {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    &__title {
+      @include title;
+    }
+    &__contents {
+      border-top: 1px solid #f5f5f5;
+      padding: 24px 16px 40px;
+      &__message {
+        width: 343px;
+        margin: 0 auto;
+        font-size: 16px;
+        line-height: 1.5;
+        button {
+          @include btn-red;
+        }
+      }
+    }
+  }
+}
