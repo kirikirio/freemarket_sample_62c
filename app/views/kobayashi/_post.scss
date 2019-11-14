@@ -1,0 +1,43 @@
+// ログアウトページ
+
+body {
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: ‘Source Sans Pro’, Helvetica, Arial, ‘游ゴシック体’,
+  ‘YuGothic’, ‘メイリオ’, ‘Meiryo’, sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+a {
+  text-decoration: none;
+}
+
+
+.logout-content {
+  margin: 40px auto 0;
+  .logout-container {
+    background: #fff;
+    width: 700px;
+    margin: 0 auto;
+    .box-inner {
+      padding: 64px;
+      max-width: 320px;
+      margin: 0 auto;
+      .box-content {
+        .btn-logout {
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          padding: 0;
+          cursor: pointer;
+          outline: none;
+        }
+      }
+    }
+  }
+}

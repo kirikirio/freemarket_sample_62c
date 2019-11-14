@@ -1,0 +1,86 @@
+// 支払い方法
+
+body {
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: ‘Source Sans Pro’, Helvetica, Arial, ‘游ゴシック体’,
+  ‘YuGothic’, ‘メイリオ’, ‘Meiryo’, sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+a {
+  text-decoration: none;
+}
+
+h2 {
+  line-height: 1.4;
+}
+.main-content {
+  margin: 40px auto 0;
+  .payment-content {
+    
+    .payment-container {
+      background: #fff;
+      margin: 0 auto;
+      // border-style: solid;
+      // border-width: 0;
+      width: 700px;
+      // float: right;
+      text-align: center;
+      .payment-head{
+        font-size: 24px;
+        padding: 8px 24px;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
+      }
+      .payment-inner {
+        border-top: 1px solid #f5f5f5;
+        padding: 64px;
+        .single-content {
+          font-size: 16px;
+          max-width: 320px;
+          margin: 0 auto;
+          .head-menu {
+            text-align: left;
+          }
+        }
+        .add-credit {
+          padding: 24px 0;
+          border-bottom: 1px solid #eee;
+          .btn-credit {
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            margin-bottom: 8px !important;
+            .fa-credit-card {
+              margin-right: 16px;
+            }
+          }
+          .btn-credit:hover {
+            opacity: .7;
+          }
+        }
+        .payment-method {
+          a {
+            display: block;
+            margin: 40px 0 0;
+            text-align: right;
+            color: #0099e8;
+          }
+          a:hover {
+            text-decoration: underline;
+            opacity: .7;
+          }
+          .fa-chevron-right {
+            margin: 0 0 0 8px;
+          }
+        }
+      }
+    }
+  }
+}
