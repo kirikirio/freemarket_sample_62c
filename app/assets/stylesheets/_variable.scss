@@ -22,3 +22,9 @@ $link: #0099e8;
     font-size: $font-size;
     padding: $padding;
 }
+/*header icon*/
+@mixin icon (){
+    float: left;
+    font-size: 19px;
+    color: #cccccc;
+}
