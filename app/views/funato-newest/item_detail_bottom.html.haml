@@ -1,0 +1,70 @@
+%section.comment__container
+  .comment__container__box
+    %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+  %input{:type => "hidden"}/
+  %textarea.comment__container__comment{:type => "text"}
+    :preserve
+      
+  %button.comment__container__submit{:type => "submit"}
+    %span コメントする
+.page_nav__area
+  %ul.page_nav__area__box
+    %li.page_nav__area__box-prev
+      %a{:href => "###"}
+        %i.fas.fa-angle-left>
+        前のページ
+    %li.page_nav__area__box-next
+      %a{:href => "###"}
+        次のページ
+        %i.fas.fa-angle-right
+%section.social__icon__area
+  .social__icon__area__container
+    .social__icon__area__container__icon
+      %a{:href => "###"}
+        .social__icon__area__container__icon-facebook
+          %i.fab.fa-facebook-square
+    .social__icon__area__container__icon
+      %a{:href => "###"}
+        .social__icon__area__container__icon-twitter
+          %i.fab.fa-twitter
+    .social__icon__area__container__icon
+      %a{:href => "###"}
+        .social__icon__area__container__icon-pinterest
+          %i.fab.fa-pinterest
+%section.related__item
+  %h2.related__item-head
+    %a{:href => "###"} はなさんのその他の出品
+    .items__container
+      %a{:href => "###"}
+        .items__container__box
+          %figure
+            = image_tag 'item04.jpg', class:'items__container__box-item_phot'
+          .items__container__box__item_body
+            %h3 ルイヴィトン ダミエ リビラ
+            .items__container__box__item_body__info
+              .items__container__box__item_body__info-price ¥85,000
+              .items__container__box__item_body__info-like
+                %i.far.fa-heart
+                %span 68
+      %a{:href => "###"}
+        .items__container__box
+          %figure
+            = image_tag 'item04.jpg', class:'items__container__box-item_phot'
+          .items__container__box__item_body
+            %h3 ルイヴィトン ダミエ リビラ
+            .items__container__box__item_body__info
+              .items__container__box__item_body__info-price ¥85,000
+              .items__container__box__item_body__info-like
+                %i.far.fa-heart
+                %span 68
+      %a{:href => "###"}
+        .items__container__box
+          %figure
+            = image_tag 'item04.jpg', class:'items__container__box-item_phot'
+          .items__container__box__item_body
+            %h3 ルイヴィトン ダミエ リビラ
+            .items__container__box__item_body__info
+              .items__container__box__item_body__info-price ¥85,000
+              .items__container__box__item_body__info-like
+                %i.far.fa-heart
+                %span 68
