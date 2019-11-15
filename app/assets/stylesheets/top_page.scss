@@ -102,12 +102,12 @@
 
 
       .new__items__container{
-        width: 100%;
+        max-width: 1020px;
         margin: 0 auto;
         display: flex;
-          justify-content: space-between;
-          flex-direction: row;
-          flex-wrap:wrap;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap:wrap;
 
         &__box{
           width: 190px;
@@ -130,7 +130,7 @@
 
           &-price {
             position: absolute;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 7px 20px 7px 15px;
             border-radius: 0 25px 25px 0 ;
             font-size: 16px;

@@ -1,3 +1,5 @@
+= render partial: 'shared/header'
+
 %section.item_detail_contents
   %h1.item_detail_contents__item-name ルイヴィトン アクセサリーポーチ ショルダーバッグ
   .item_detail_contents__box
@@ -101,12 +103,12 @@
         %span.item__bottun__container__box-secure
           %i.material-icons> https
           あんしん・あんぜんへの取り組み
+
 %section.comment__container
   .comment__container__box
     %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
   %input{:type => "hidden"}/
   %textarea.comment__container__comment{:type => "text"}
-    :preserve
       
   %button.comment__container__submit{:type => "submit"}
     %span コメントする
@@ -171,3 +173,5 @@
               .items__container__box__item_body__info-like
                 %i.far.fa-heart
                 %span 68
+
+= render partial: 'shared/footer'
