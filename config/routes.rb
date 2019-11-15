@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :credits, only: [:index]
     resources :addresses, only: [:index]
   end
-  resources :items, only: [:index,:new]
+  resources :items, only: [:index,:new, :show]
 end
