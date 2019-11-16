@@ -1,0 +1,42 @@
+$accent: #ea352d;
+$button: #fff;
+
+/*サイド,body,トップ,検索、ユーザー登録,購入のいいねなどボタン*/
+
+$main: #f5f5f5;
+
+/*トップボタン、サイドの濃い灰色*/
+
+$visit: #eee;
+$link: #0099e8;
+
+/*呼び出す時は@include mixin名*/
+
+@mixin box($height, $width) {
+    height: $height;
+    width: $width;
+}
+
+@mixin button ($background, $font-size, $padding) {
+    background: $background;
+    font-size: $font-size;
+    padding: $padding;
+}
+
+@mixin header-icon (){
+    float: left;
+    font-size: 19px;
+    color: #cccccc;
+}
+
+@mixin footer-list (){
+    padding-top: 18px;
+    padding-right: 40px;
+    color: $button;
+}
+
+@mixin footer-ul (){
+    font-size: 12px;
+    list-style: none;
+    opacity: 0.7;
+}
