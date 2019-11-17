@@ -2,7 +2,7 @@ footer{
   @include box(649px, 100%);
   .top{
     @include box(260px, 100%);
-    background-image: image-url("logo/footer-top.jpg");
+    background-image: image-url("footer-top.jpg");
     &__contents{
       display: flex;
       justify-content:space-between;
