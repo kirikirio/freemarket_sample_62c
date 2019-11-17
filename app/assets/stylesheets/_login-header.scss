@@ -4,7 +4,7 @@
     margin-right: 14px;
     color: #333333;
     &--icon{
-      @include icon();
+      @include header-icon();
     }
     &--text{
       float: right;
@@ -21,7 +21,7 @@
     margin: 0px 14px;
     color: #333333;
     &--icon{
-      @include icon();
+      @include header-icon();
     }
     &--text{
       float: right;
@@ -38,7 +38,7 @@
     margin: 0px 14px;
     color: #333333;
     &--icon{
-      @include icon();
+      @include header-icon();
     }
     &--text{
       float: right;

@@ -1,21 +1,93 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+= render 'shared/registration-header'
+
+
+
+.main
+  .registration-box
+    .registration-box__title
+      %h1 会員情報入力
+    .registration-box__contents
+      %form{class: 'registration-box__contents__form'}
+        .form-group.first-form
+          .form-group__label
+            %label{class: 'form-group__label__text'} ニックネーム
+            %span{class: 'form-group__label__require'} 必須
+          %input{type: "text", name: "nickname", value: "", placeholder: "例）エフ太郎", class: "form-group__input"}
+
+        .form-group  
+          .form-group__label
+            %label{class: 'form-group__label__text'} メールアドレス
+            %span{class: 'form-group__label__require'} 必須
+          %input{type: "email", name: "email", value: "", placeholder: "PC・携帯どちらでも可", class: "form-group__input"}
+
+        .form-group
+          .form-group__label
+            %label{class: 'form-group__label__text'} パスワード
+            %span{class: 'form-group__label__require'}  必須
+          %input{type: "password", name: "password", value: "", placeholder: "７文字以上", class: "form-group__input"}
+          .form-group__revelation-pass
+            %input{type: 'checkbox',class: 'form-group__revelation-pass__checkbox'}
+            %label{class: 'form-group__revelation-pass__label'} パスワードを表示する
+        .form-group
+          %h3{class: 'form-group__subtitle'} 本人確認
+          %p{class: 'form-group__text form-note'} 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+        .form-group
+          .form-group__label
+            %label{class: 'form-group__label__text'} お名前(全角)
+            %span{class: 'form-group__label__require'}  必須
+          %input{type: "text", name: "last_name", value: "", placeholder: "例）山田", class: "form-group__input--half-first"}
+          %input{type: "text", name: "first_name", value: "", placeholder: "例）彩", class: "form-group__input--half"}
+
+        .form-group
+          .form-group__label
+            %label{class: 'form-group__label__text'} お名前カナ(全角) 
+            %span{class: 'form-group__label__require'}  必須
+          %input{type: "text", name: "last_name", value: "", placeholder: "例）ヤマダ", class: "form-group__input--half-first"}
+          %input{type: "text", name: "first_name", value: "", placeholder: "例）アヤ", class: "form-group__input--half"}
+
+        .form-group.full-width
+          .form-group__label
+            %label{class: 'form-group__label__text'} 生年月日
+            %span{class: 'form-group__label__require'}  必須
+          .form-group__select
+            .flex-wrap
+              .form-group__select__item
+                %i{class: 'icon-arrow-down fa fa-chevron-down'}
+                %select{name: "year", class: " first-select"}
+                  %option --
+              %span 年
+
+              .form-group__select__item
+                %i{class: 'icon-arrow-down fa fa-chevron-down'}
+                %select{name: "month", class: ""}
+                  %option --
+              %span 月
+
+              .form-group__select__item
+                %i{class: 'icon-arrow-down fa fa-chevron-down'}
+                %select{name: "day", class: ""}
+                  %option --
+              %span 日
+        %p{class: 'form-attention'} ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+        .form-group.captcha-wrap
+        .g-recaptcha.captcha-wrap__item{data:{callback: "clearcall", sitekey: "6Lfn0cIUAAAAAHtZSYzSvSZrwyRQ4sXtvS9jGZaS"}}
+        
+        .form-group
+          %p{class: 'registration-box__contents__form__info'}
+            「次へ進む」のボタンを押すことにより、
+            = link_to "利用規約", "#",{class: 'terms'}
+            に同意したものとみなします
+
+        %button{type: 'submit', class: 'btn registration-box__contents__form__submit'}
+          次へ進む
+        .form-group.text-right
+          .registration-box__contents__form__info-link
+            = link_to '#' do
+              本人情報の登録について
+              %i{class: 'icon-arrow-right fa fa-chevron-right'}
+
+
+
+= render 'shared/sub-footer'

@@ -1,0 +1,306 @@
+.main-box{
+    margin: 0 auto;
+    height: 2016px;
+    width: 700px;
+  &__head{
+    text-align: center;
+    font-size:20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height:86px;
+    border-bottom: 1px solid $visit;
+    background:$button;
+    height: 97px;
+    width: 100%;
+  }
+  &__image{
+    padding: 40px;
+    border-bottom: 1px solid $visit;
+    background: $button;
+    height: 303px;
+    width : 100%;
+    h3{
+    height: 16px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+    p {
+    margin: 8px 0 0 0;
+    height: 21px;
+    }
+  }
+
+  .hissu{
+    font-size:12px;
+    border-radius: 2px;
+    margin:0 0 0 8px;
+    padding: 2px 4px;
+    color: $button;
+    height: 32px;
+    width: 19px;
+    background: $accent;
+  }
+  &__box{
+      margin: 16px 0 0 0 ;
+  }
+
+  &__imagebox{
+      border: 1px dashed #ccc;
+      margin: 0 auto;
+      background: #f5f5f5;
+      height: 162px;
+      width : 620px;
+      padding: 40px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pre{
+      text-align: center;
+    }
+    }
+
+  &__name{
+    border-bottom: 1px solid $visit;
+    background: $button;
+    height: 355px;
+    width : 100%;
+    padding: 40px;
+  }
+  &__syouhinmei{
+    width: 620px;
+    height: 70px;
+  }
+  label{
+    font-weight: 600;
+  }
+  .input-text{
+    height: 48px;
+    width: 620px;
+    margin: 8px 0 0 0;
+    padding: 10px 16px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  &__syouhinsetumei{
+    height: 164px;
+    width: 620px;
+    margin: 40px 0 0 ;
+    }
+  .textarea{
+    height: 142px;
+    width: 620px;
+    margin: 8px 0 0 0 ;
+    padding:10px;
+    line-height: 1.5;
+    min-height: 104px;
+  }
+  ::placeholder {
+    font-size: 16px;
+  }
+  &__show{
+    border-bottom: 1px solid $visit;
+    background: $button;
+    height: 261px;
+    width : 700px;
+    padding:40px;
+  }
+  .h3sub{
+    float: left;
+    letter-spacing: 1px;
+    font-size: 14px;
+    color: #888;
+
+  }
+  &__showbox{
+    float: right;
+    height: 180px;
+    width: 400px;
+  }
+  &__kategori{
+    height: 70px;
+    width: 400px;
+  }
+  &__zyoutai{
+    height: 70px;
+    width: 400px;
+    margin: 40px 0 0;
+  }
+  .select-box{
+    position: relative;
+    height: 48px;
+    width: 400px;
+    margin: 8px 0 0 ;
+  }
+  .select-default{
+    -webkit-appearance: none;
+  　-moz-appearance: none;
+  　appearance: none;
+    height: 48px;
+    width: 400px;
+    padding: 0 16px;
+    font-size:16px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: $button;
+  }
+  .icon{
+    position: absolute;
+    top:40%;
+    right: 16px;
+  }
+  .fa-down {
+    color: #888;
+  }
+  &__haisou{
+    border-bottom: 1px solid $visit;
+    background:$button;
+    height: 371px;
+    width : 700px;
+    padding: 40px;
+    .h3sub{
+      .icon-question {
+          color: $link;
+          cursor: pointer;
+        }
+    }
+  }
+  .haisou-box{
+    height: 290px;
+    width: 400px;
+    float: right;
+  }
+  .haisou-futan{
+    height: 70px;
+    width: 400px;
+  }
+  .haisou-area{
+    height: 70px;
+    width: 400px;
+    margin:40px 0 0 0;
+  }
+  .haisou-nissu{
+    height: 70px;
+    width: 400px;
+    margin:40px 0 0 0;
+  }
+  &__price{
+      border-bottom: 1px solid $visit;
+      background: $button;
+      height: 299px;
+      width: 100%;
+      padding: 40px;
+      h3 {
+        color:#888888;
+        float: left;
+        .icon-question {
+          color: $link;
+          cursor: pointer;
+        }
+      }
+      &__form {
+        float: right;
+
+        ul {
+          width: 400px;
+          list-style: none;
+
+          li {
+            height: 100%;
+            line-height: 1;
+            .left {
+              @extend %label;
+              width: 200px;
+            }
+            .right {
+              width: 100%;
+              div{
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+              }
+              input {
+                @include input;
+                width: 160px;
+                margin:0 0 0 8px;
+                padding: 10px 16px 8px;
+                &::placeholder {
+                  text-align: right;
+                }
+              }
+            }
+            padding: 24px 0;
+            border-top: 1px solid $main;
+            p {
+              margin: 0;
+            }
+            span {
+              font-weight: bold;
+            }
+            .p-left{
+              float: left;
+              p{
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 1;
+              }
+            }
+            .p-right{
+              float: right;
+              p{
+                font-weight: 600;
+                font-size: 34px;
+              }
+            }
+          }
+          .first-list {
+            line-height: 1;
+            display: flex;
+            border: 0;
+            padding:0 0  24px 0;
+          }
+          .clear-fix::after{
+            content: '';
+            clear: both;
+            display: block;
+          }
+        }
+      }
+  }
+  &__foot{
+    background: $button;
+      height: 329px;
+      width: 100%;
+      padding: 40px;
+      &__text {
+        p {
+          padding: 0;
+          margin: 0;
+          height: 100%;
+          line-height: 1.5;
+          a {
+            color: $link;
+            &:visited {
+              color: $link;
+            }
+            &:hover {
+              @include opacity;
+            }
+          }
+        }
+      }
+      button[type="submit"] {
+        @include btn-red;
+        height: 48px;
+      }
+      button[type="button"] {
+        @include btn;
+        color: $button;
+        background-color: #aaa;
+        width: calc(50% - 6px);
+        margin: 24px auto 0;
+      }
+  }
+}
+

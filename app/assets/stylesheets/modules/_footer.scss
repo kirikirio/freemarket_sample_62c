@@ -42,68 +42,114 @@ footer{
     background-color: #222222;
     &__articles{
       display: flex;
-      // justify-content:space-between;
       @include box(296px, 1020px);
       margin: 0 auto;
       &__list1{
-        padding-top: 18px;
-        color: $button;
-        font-size: 12px;
-        &__text1{
+        @include footer-list();
+        h2{
+          height: 22px;
           font-size: 16px;
           font-weight: 600;
         }
-        &__text2{
-          margin-top: 16px;
+        ul{
+          @include footer-ul();
+          li{
+            height: 14px;
+            margin-top: 16px;
+          }
         }
-        &__text3{
-          margin-top: 16px;
-        }
-        &__text4{
-          margin-top: 16px;
-        }
-        &__text5{
-          margin-top: 16px;
-        }
-        &__text6{
-          margin-top: 16px;
+        &__icon{
+          display: flex;
+          &__left{
+            margin-top: 30px;
+            margin-right: 20px;
+            .fa-twitter{
+              font-size: 31px;
+            }
+          }
+          &__right{
+            margin-top: 30px;
+            .fa-facebook-official {
+              font-size: 31px;
+            }
+          }
         }
       }
       &__list2{
-        padding-top: 18px;
-        color: $button;
-        font-size: 12px;
-        &__text1{
+        @include footer-list();
+        h2{
+          height: 22px;
           font-size: 16px;
           font-weight: 600;
         }
-        &__text2{
-          margin-top: 16px;
-        }
-        &__text3{
-          margin-top: 16px;
-        }
-        &__text4{
-          margin-top: 16px;
-        }
-        &__text5{
-          margin-top: 16px;
-        }
-        &__text6{
-          margin-top: 16px;
+        ul{
+          @include footer-ul();
+          li{
+            height: 14px;
+            margin-top: 16px;
+          }
         }
       }
       &__list3{
-        padding-top: 18px;
-        &__text1{
-          color: $button;
+        @include footer-list();
+        display: flex;
+        h2{
+          height: 22px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        &__left{
+          width: 200px;
+          ul{
+            padding-right: 10px;
+            @include footer-ul();
+            li{
+              height: 14px;
+              margin-top: 16px;
+            }
+          }
+        }
+        &__right{
+          ul{
+            @include footer-ul();
+            li{
+              height: 14px;
+              margin-top: 16px;
+            }
+            li.bottom__articles__list3__right__top{
+              margin-top: 38px;
+            }
+          }
         }
       }
       &__list4{
-        padding-top: 18px;
-        &__text1{
-          color: $button;
+        @include footer-list();
+        h2{
+          height: 22px;
+          font-size: 16px;
+          font-weight: 600;
         }
+        ul{
+          @include footer-ul();
+          li{
+            height: 14px;
+            margin-top: 16px;
+          }
+        }
+      }
+    }
+    &__info{
+      display: flex;
+      height: 33px;
+      width: 1020px;
+      margin: 30px 182.5px 20px;
+      &__provider{
+        height: 33px;
+        width: 765px;
+        line-height: 33px;
+        text-align: center;
+        font-size: 12px;
+        color: $button;
       }
     }
   }
