@@ -85,6 +85,8 @@ gem 'payjp'
 
 gem 'dotenv-rails'
 gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'ancestry'
 gem 'ransack'
