@@ -49,6 +49,25 @@ group :development do
   gem 'rubocop', require: false #追記
 end
 
+group :development, :test do
+  gem 'faker'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'capybara'
+
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+  gem 'byebug', platform: :mri
+end
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -63,15 +82,11 @@ gem 'sprockets'
 gem 'kaminari'
 gem 'payjp'
 
-group :production do
-  gem 'unicorn', '5.4.1'
-end
 
-group :development, :test do
-  gem 'capistrano'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano3-unicorn'
-  gem 'byebug', platform: :mri
-end
+gem 'dotenv-rails'
+gem 'omniauth-rails_csrf_protection'
+gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'ancestry'
+gem 'ransack'
+gem 'active_hash'
+gem 'gretel'
