@@ -1,0 +1,104 @@
+= render partial: 'shared/header'
+
+%section
+  = render partial: 'shared/sidebar'
+  %main.personal-content
+    .sub-content
+      %section.personal-container
+        %h2.title-head 本人情報の登録
+        %form.text-inner
+          %div
+            %p.guide-text
+              お客さまの本人情報をご登録ください。
+              %br>/
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            %p.link-text
+              = link_to "#" do
+                %span 本人確認書類のアップロードについて
+                %i.fa.fa-chevron-right
+          .personal-form
+            %label お名前
+            %p 山田 太朗
+          .personal-form
+            %label お名前カナ
+            %p ヤマダ タロウ
+          .personal-form
+            %label 生年月日
+            %p 1993/03/05
+          .personal-form
+            %label 郵便番号
+            %span.any-box 任意
+            %input.input-personal-info{:placeholder => "例) 1234567", :type => "text"}/
+          .personal-form
+            %label 都道府県
+            %span.any-box 任意
+            .select-prefecture
+              %i.fas.fa-angle-down
+              %select.select-personal-info
+                %option{:selected => "selected"} --
+                %option 北海道
+                %option 青森県
+                %option 岩手県
+                %option 宮城県
+                %option 秋田県
+                %option 山形県
+                %option 福島県
+                %option 東京都
+                %option 神奈川県
+                %option 埼玉県
+                %option 千葉県
+                %option 茨城県
+                %option 栃木県
+                %option 群馬県
+                %option 山梨県
+                %option 新潟県
+                %option 長野県
+                %option 富山県
+                %option 石川県
+                %option 福井県
+                %option 愛知県
+                %option 岐阜県
+                %option 静岡県
+                %option 三重県
+                %option 大阪府
+                %option 兵庫県
+                %option 京都府
+                %option 滋賀県
+                %option 奈良県
+                %option 和歌山県
+                %option 鳥取県
+                %option 島根県
+                %option 岡山県
+                %option 広島県
+                %option 山口県
+                %option 徳島県
+                %option 香川県
+                %option 愛媛県
+                %option 高知県
+                %option 福岡県
+                %option 佐賀県
+                %option 長崎県
+                %option 熊本県
+                %option 大分県
+                %option 宮崎県
+                %option 鹿児島県
+                %option 沖縄県
+          .personal-form
+            %label 市区町村
+            %span.any-box 任意
+            %input.input-personal-info{:placeholder => "例) 横浜市緑区", :type => "text"}/
+          .personal-form
+            %label 番地
+            %span.any-box 任意
+            %input.input-personal-info{:placeholder => "例) 青山1-1-1", :type => "text"}/
+          .personal-form
+            %label 建物名
+            %span.any-box 任意
+            %input.input-personal-info{:placeholder => "例) 柳ビル103", :type => "text"}/
+          = link_to "#", class: "btn-registration" do
+            登録する
+          .personal-form.link-text
+            = link_to "#" do
+              %span 本人情報の登録について
+              %i.fa.fa-chevron-right
+= render partial: 'shared/footer'

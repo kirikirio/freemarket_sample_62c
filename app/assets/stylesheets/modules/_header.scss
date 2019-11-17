@@ -1,7 +1,9 @@
-header{
+.toppage{
   @include box(100px, 100%);
-  background-color: #ffffff;
+  background-color: #fff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+  z-index: 3;
+  position: relative;
   .contents{
     width: 1020px;
     margin: 0 auto;
@@ -21,6 +23,10 @@ header{
           border: solid 1px #cccccc;
           border-radius: 4px;
           background-color: $main;
+        }
+        &--box:focus{
+          border:solid 1px $link;
+          outline: 0;
         }
         &--icon{
           position: absolute;

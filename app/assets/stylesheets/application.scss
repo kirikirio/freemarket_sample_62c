@@ -1,12 +1,8 @@
 // @import "./modules/reset";
 @import "./reset";
 @import "./variable";
-@import "./modules/header";
 @import "./login-header";
-@import "./modules/footer";
-@import "./new";
-@import "./show";
+@import "./modules/module";
 @import "./addresses/addresses";
-@import "item_detail";
-@import "top_page";
-@import "purchase_confirmation";
+@import "./items/item";
+@import "./users/user";

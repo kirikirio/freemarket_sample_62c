@@ -1,54 +1,53 @@
-.sub-page
+= render partial: 'shared/header'
+
+%section
+  = render partial: 'shared/sidebar'
   .my-page
     .my-page__user
-      .my-page__user__icon
-        =link_to image_tag '#', src: 'app/assets/my-page.jpg' do
-          = image_tag "my-page.jpg",{class:"my-page__user__image"}
-          %h2 メルカリ 太郎
+      = image_tag "user-bg.jpg", class:"bg-img"
+      %section.my-page__user__icon
+        %a.move__my-page{href:"#"}
+          %figure
+            = image_tag "my-page.jpg", class:"user-img"
+          %h2.bold 内村叶菜
           .my-page__user__icon__number
-            .my-page__user__icon__number__valuation
-              .my-page__user__icon__number__valuation__word 評価
-              .my-page__user__icon__number__valuation__number 0
-            .my-page__user__icon__number__exhibit
-              .my-page__user__icon__number__exhibit__word 出品数
-              .my-page__user__icon__number__exhibit__number 0
-    .my-page__notification
-      %ul.my-page__notification__ul
+            .my-page__user__icon__number__status-lelt
+              評価
+              %span.my-page__user__icon__number__status-lelt__number
+                0
+            .my-page__user__icon__number__status-right
+              出品数
+              %span.my-page__user__icon__number__status-right__number
+                0
+    %section.my-page__notice
+      %ul.my-page__notice__tabs
         %li.active
           %h3
-            =link_to 'お知らせ','#'
+            %a.notice{href:"#"}
+              お知らせ
         %li
           %h3
-            =link_to'やることリスト', '#'
-      .my-page__notification__content
-        %ul.my-page__notification__content__list{id:"#"}
-          %li
-            =link_to'#',{class:"my-page__notification__content__list__link"} do
-              =image_tag "logo_red.svg",{class:'my-page__notification__content__list__link__logo'}
-              .my-page__notification__content__list__boby
-                .my-page__notification__content__list__boby__text
-                  【1,000円分のポイントが必ずもらえます】新規登録キャンペーン開催中！
-                %time
-                  %i.far.fa-clock{class:'my-page__notification__content__list__boby__text__icon'}
-                  %span 3日前
-              %i.fa.fa-angle-right{class:'my-page__notification__content__list__icon'}
-          %li.my-pag__notificatione__content__list__go
-            =link_to '一覧を見る','#'
-    .my-page__product
-      %h2.my-page__product__head 購入した商品
-      %ul.my-page__product__trading
+            %a.notice-active{href:"#"}
+              やることリスト
+      .my-page__notice__tabs__content
+        .my-page__notice__tabs__content__display
+          %ul.mypage-item-list.tab-pane.active{id: "#"}
+            %li.mypage-item-not-found.bold 現在、お知らせはありません
+        = image_tag "logo_gray.svg", class:"logo-gray"
+    %section.my-page__goods
+      %h2.my-page__goods__purchase 購入した商品
+      %ul.my-page__goods__tabs
         %li.active
           %h3
-            =link_to '取引中','#'
+            %a.notice{href: "#"}
+              取引中
         %li
           %h3
-            =link_to '過去の取引','#'
-      .my-page__product__content
-        %ul.my-page__product__content__page.actrive
-          %li.my-page__product__content__page__bold 取引中の商品がありません
-        %ul.my-page__product__content__page
-          %li.my-page__product__content__page__bold
-
-
-  
-
+            %a.notice-active{href: "#"}
+              過去の取引
+      .my-page__goods__content
+        .my-page__goods__content__tab
+          %ul.mypage-item-list.tab-pane.active{id: "#"}
+            %li.mypage-item-not-found.bold 取引中の商品がありません
+        = image_tag "logo_gray.svg", class:"logo-gray"
+= render partial: 'shared/footer'

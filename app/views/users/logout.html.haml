@@ -1,8 +1,8 @@
 = render partial: 'shared/header'
-= render partial: 'users/sidebar'
+= render partial: 'shared/sidebar'
 .logout-content
   .logout-container
-    %form.box-inner{:action => "#", :method => "POST", :novalidate => "novalidate"}
+    %form.box-inner{action: "#", method: "POST", novalidate: "novalidate"}
       .box-content
-        %button.btn-logout{:type => "submit"} ログアウト
+        %button.btn-logout{type: "submit"} ログアウト
 = render partial: 'shared/footer'

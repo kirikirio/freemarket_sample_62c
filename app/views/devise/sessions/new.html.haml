@@ -1,17 +1,27 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+= render 'shared/sub-header'
+
+.main
+  .login-box
+    .login-box__new-account
+      %p アカウントをお持ちでない方はこちら
+      %a{href: '#', class: ' btn login-box__new-account__btn'}
+        新規会員登録
+    .login-box__sns-account
+      %a{href: '#', class: 'btn btn-facebook'}
+        Facebookでログイン
+      %a{href: '#', class: 'btn btn-google'}
+        Googleでログイン
+    .login-box__contents
+      %form{class: 'login-box__contents__form'}
+        %input{type: "email", name: "email", value: "", placeholder: "メールアドレス", class: "login-box__contents__form__input"}
+        %input{type: "password", name: "password", value: "", placeholder: "パスワード", class: "login-box__contents__form__input"}
+        -# 私はロボットではありません
+        .form-group.captcha-wrap
+        .g-recaptcha.captcha-wrap__item{data:{callback: "clearcall", sitekey: "6Lfn0cIUAAAAAHtZSYzSvSZrwyRQ4sXtvS9jGZaS"}}
+
+        %button{type: 'submit', class: 'btn login-box__contents__form__submit'}
+          ログイン
+        = link_to '#', {class: 'login-box__contents__form__forget-pass'} do
+          パスワードをお忘れの方
+
+= render 'shared/sub-footer'
