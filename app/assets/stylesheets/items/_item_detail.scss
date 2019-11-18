@@ -330,18 +330,22 @@
       text-align: center;
       font-size: 30px;
       margin: 40px 5px 0;
-      
 
+      
       &-facebook{
       background-color: #385185;
       border-radius: 5px;
+      color: #fff;
       }
+
       &-twitter{
         background-color: #5d9dc9;
+        color: #fff;
         border-radius: 5px;
-      }
+     }
       &-pinterest{
         background-color: #aa262a;
+        color: #fff;
         border-radius: 5px;
         font-size: 20px;
       }
@@ -351,13 +355,11 @@
         align-self: auto;
         line-height: 45px;
       }
-      a{
-        color: #fff;
+      :hover{
+        filter: brightness(1.05);
+        opacity: 0.9;
       }
-      a:hover{
-        text-decoration: none;
-        opacity: 0.5;
-        }
+      
     }
   }
 
@@ -430,8 +432,7 @@
         h3{
           font-size: 16px;
           font-weight: lighter;
-        }
-      
+        }      
         }
         
       }  
@@ -442,6 +443,7 @@
       a:hover{
         color:#333;
         text-decoration: none;
+        background-color:#fff;
         opacity: 1;
       }
   }
