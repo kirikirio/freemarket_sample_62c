@@ -12,10 +12,21 @@ class ItemsController < ApplicationController
   def show
   end
 
-  
+  def update
+  end
+
+  def create
+  end
+
+  def delete
+  end
+
   def confirmation
   end
 
-  
+  def list
+  end
+
+
 
 end

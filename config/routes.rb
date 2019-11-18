@@ -15,10 +15,11 @@ Rails.application.routes.draw do
     resources :credits, only: [:index, :new]
     resources :addresses, only: [:new, :edit]
   end
-  resources :items, only: [:index,:new, :show, :edit] do
+  resources :items do
 
     member do
       get 'confirmation'
+      get 'list'
     end
   end
 end
