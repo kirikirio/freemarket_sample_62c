@@ -28,7 +28,7 @@
 ## creditsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|reference|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
 ​
@@ -45,7 +45,7 @@
 |city_block|string|null: false|
 |building|string||
 |tel_number|integer|unique: true|
-|user|reference|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ​
 ### Association
 - belongs_to :user
@@ -112,8 +112,8 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
-|item|reference|null: false|
+|image|string|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 ​
 ### Association
 - bolongs_to :item
