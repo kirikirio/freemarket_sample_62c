@@ -2,130 +2,138 @@
 -# %header.single-header
 .main-box
   .main-box__head 商品の情報を入力
-  .main-box__image
-    %h3 
-      出品情報 
-      %span.hissu 必須
-    %p 最大10枚までアップロードできます
-    .main-box__box
-      .main-box__imagebox
-        %pre
-          ドラッグアンドドロップ
-          またはクリックしてファイルをアップロード
-  .main-box__name
-    .main-box__syouhinmei
-      %label
-        商品名 
+  - 
+  = form_with model: @item do |f|
+    .main-box__image
+      %h3 
+        出品情報 
         %span.hissu 必須
-      %div
-        %input.input-text{placeholder: "商品名（必須40字まで）"}
-    .main-box__syouhinsetumei
-      %label
-        商品の説明 
-        %span.hissu 必須
-      %textarea.textarea{rouws:5 , placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+      %p 最大10枚までアップロードできます
+      .main-box__box
+        .main-box__imagebox
+          %pre
+            ドラッグアンドドロップ
+            またはクリックしてファイルをアップロード
+    .main-box__name
+      .main-box__syouhinmei
+        %label
+          商品名 
+        -# = f.label
+        -#   -# 商品名
+        -#   -# %span.hissu 必須
+        %div
+          = f.text_field :name,{class: 'input-text', placeholder: "商品名（必須40字まで）"}
+          -# %input.input-text{placeholder: "商品名（必須40字まで）"}
+      .main-box__syouhinsetumei
+        %label
+          商品の説明 
+          %span.hissu 必須
+        = f.text_area :description, {class: 'textarea', rouws:5 , placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+        -# %textarea.textarea{rouws:5 , placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
 
-  .main-box__show
-    %h3.h3sub 商品の詳細
-    %div.main-box__showbox
-      %div.main-box__kategori
-        %label
-          カテゴリー 
-          %span.hissu 必須
-        %div
-          %div.select-box
-            %i.fa.fa-angle-down.fa-lg.fa-down.icon
-            %select.select-default
-              %option ---
-      %div.main-box__zyoutai
-        %label
-          商品の状態
-          %span.hissu 必須
-        %div
-          %div.select-box
-            %i.fa.fa-angle-down.fa-lg.fa-down.icon
-            %select.select-default
-              %option ---
-  .main-box__haisou
-    %h3.h3sub 
-      配送について
-      %i{class: 'icon-question fa fa-question-circle'}
-    %div.haisou-box
-      %div.haisou-futan
-        %label
-          配送料の負担 
-          %span.hissu 必須
-        %div
-          %div.select-box
-            %i.fa.fa-angle-down.fa-lg.fa-down.icon
-            %select.select-default
-              %option ---
-      %div.haisou-area
-        %label
-          発送元の地域 
-          %span.hissu 必須
-        %div
-          %div.select-box
-            %i.fa.fa-angle-down.fa-lg.fa-down.icon
-            %select.select-default
-              %option ---
-      %div.haisou-nissu
-        %label
-          発送までの日数 
-          %span.hissu 必須
-        %div
-          %div.select-box
-            %i.fa.fa-angle-down.fa-lg.fa-down.icon
-            %select.select-default
-              %option ---
-  .main-box__price
-    %h3
-      販売価格(300~9,999,999)
-      %i{class: 'icon-question fa fa-question-circle'}
-    .main-box__price__form
-      %ul
-        %li.first-list
-          .left
-            %label
-              価格 
-              %span.hissu 必須
-          .right
-            %div
-              %p ¥
-              %input{type: 'text',placeholder: '例）300円'}
-        %li.clear-fix
-          .p-left 
-            販売手数料(10%)
-          .p-right -
-        %li.clear-fix
-          .p-left 
-            %p 販売利益
-          .p-right 
-            %p -
-  .main-box__foot
-    .main-box__foot__text
-      %p
-        = link_to "#" do
-          禁止されている出品
-        、
-        = link_to "#" do 
-          行為
-        を必ずご確認ください。
-      %p  
-        またブランド品でシリアルナンバー等がある場合はご記載ください。
-        = link_to '#' do
-          偽ブランドの販売
-        は犯罪であり処罰される可能性があります。
-      %p
-        また、出品をもちまして
-        = link_to '#' do
-          加盟店規約
-        に同意したことになります。
-    %button{type: 'submit'}
-      出品する
+    .main-box__show
+      %h3.h3sub 商品の詳細
+      %div.main-box__showbox
+        %div.main-box__kategori
+          %label
+            カテゴリー 
+            %span.hissu 必須
+          %div
+            %div.select-box
+              %i.fa.fa-angle-down.fa-lg.fa-down.icon
+              = f.select :name,['---',2], {}, class: 'select-default'
+                -# %option ---
+        %div.main-box__zyoutai
+          %label
+            商品の状態
+            %span.hissu 必須
+          %div
+            %div.select-box
+              %i.fa.fa-angle-down.fa-lg.fa-down.icon
+              = f.select :name,['---',2], {}, class: 'select-default'
+                -# %option ---
+    .main-box__haisou
+      %h3.h3sub 
+        配送について
+        %i{class: 'icon-question fa fa-question-circle'}
+      %div.haisou-box
+        %div.haisou-futan
+          %label
+            配送料の負担 
+            %span.hissu 必須
+          %div
+            %div.select-box
+              %i.fa.fa-angle-down.fa-lg.fa-down.icon
+              = f.select :name,['---',2], {}, class: 'select-default'
+                -# %option ---
+        %div.haisou-area
+          %label
+            発送元の地域 
+            %span.hissu 必須
+          %div
+            %div.select-box
+              %i.fa.fa-angle-down.fa-lg.fa-down.icon
+              = f.select :sale_status,['---',2], {}, class: 'select-default'
+              
+                -# %option ---
+        %div.haisou-nissu
+          %label
+            発送までの日数 
+            %span.hissu 必須
+          %div
+            %div.select-box
+              %i.fa.fa-angle-down.fa-lg.fa-down.icon
+              = f.select :name,['---',2], {}, class: 'select-default'
+              -# , {class: 'select-default'}
+                -# %option ---
+    .main-box__price
+      %h3
+        販売価格(300~9,999,999)
+        %i{class: 'icon-question fa fa-question-circle'}
+      .main-box__price__form
+        %ul
+          %li.first-list
+            .left
+              %label
+                価格 
+                %span.hissu 必須
+            .right
+              %div
+                %p ¥
+                = f.text_field :price,{placeholder: '例）300円'}
+          %li.clear-fix
+            .p-left 
+              販売手数料(10%)
+            .p-right -
+          %li.clear-fix
+            .p-left 
+              %p 販売利益
+            .p-right 
+              %p -
+    .main-box__foot
+      .main-box__foot__text
+        %p
+          = link_to "#" do
+            禁止されている出品
+          、
+          = link_to "#" do 
+            行為
+          を必ずご確認ください。
+        %p  
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          = link_to '#' do
+            偽ブランドの販売
+          は犯罪であり処罰される可能性があります。
+        %p
+          また、出品をもちまして
+          = link_to '#' do
+            加盟店規約
+          に同意したことになります。
+      %button{type: 'submit'}
+        出品する
 
-    = link_to '#' do
-      %button{type: 'button'}
-        もどる
+      = link_to '#' do
+        %button{type: 'button'}
+          もどる
 
 = render 'shared/sub-footer'

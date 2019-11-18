@@ -4,6 +4,15 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+  end
+
+  def create
+
+  end
+
+  def update
+
   end
 
   def edit
