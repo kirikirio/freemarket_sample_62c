@@ -22,7 +22,7 @@
         %tr
           %th 出品者
           %td
-            %a{href: "###"}
+            = link_to "###" do
               %p はな
             %br/
             .evaluation
@@ -44,19 +44,21 @@
           %th カテゴリー
           %td
             %div
-              %a{href: "###"} レディース
+              = link_to "###" do
+                レディース
             %div
-              %a{href: "###"}
+              = link_to "###" do
                 %i.fas.fa-chevron-right>
                 バッグ
             %div
-              %a{href: "###"}
+              = link_to "###" do
                 %i.fas.fa-chevron-right>
                 ショルダーバッグ
         %tr
           %th ブランド
           %td
-            %a{href: "###"} ルイ ヴィトン
+            = link_to "###" do
+              ルイ ヴィトン
         %tr
           %th 商品の状態
           %td 目立った傷や汚れなし
@@ -69,7 +71,8 @@
         %tr
           %th 配送元地域
           %td
-            %a{href: "###"} 和歌山県
+            = link_to "###" do
+              和歌山県
         %tr
           %th 発送日の目安
           %td 2~3日で発送
@@ -77,7 +80,7 @@
     %span.price__section-pricetext ¥42,300
     %span.price__section-tax (税込)
     %span.price__section-delivery-fee 送料込み
-  %a.buy-button{href: "###"}
+  = link_to "###", class: "buy-button" do
     %p.buy-text 購入画面に進む
   %p.delivery_caution この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
   .item__description
@@ -95,11 +98,11 @@
       %li.item__bottun__container__box-tag
         %i.far.fa-heart
         %span.item__bottun__container__box-tag-like いいね！16
-      %a{href: "###"}
+      = link_to "###" do
         %li.item__bottun__container__box-tag
           %i.far.fa-flag
           %span.item__bottun__container__box-tag-report 不適切な商品の報告
-      %a{href: "###"}
+      = link_to "###" do
         %span.item__bottun__container__box-secure
           %i.material-icons> https
           あんしん・あんぜんへの取り組み
@@ -115,32 +118,33 @@
 .page_nav__area
   %ul.page_nav__area__box
     %li.page_nav__area__box-prev
-      %a{href: "###"}
+      = link_to "###" do
         %i.fas.fa-angle-left>
         前のページ
     %li.page_nav__area__box-next
-      %a{href: "###"}
+      = link_to "###" do
         次のページ
         %i.fas.fa-angle-right
 %section.social__icon__area
   .social__icon__area__container
     .social__icon__area__container__icon
-      %a{href: "###"}
+      = link_to "###" do
         .social__icon__area__container__icon-facebook
           %i.fab.fa-facebook-square
     .social__icon__area__container__icon
-      %a{href: "###"}
+      = link_to "###" do
         .social__icon__area__container__icon-twitter
           %i.fab.fa-twitter
     .social__icon__area__container__icon
-      %a{href: "###"}
+      = link_to "###" do
         .social__icon__area__container__icon-pinterest
           %i.fab.fa-pinterest
 %section.related__item
   %h2.related__item-head
-    %a{href: "###"} はなさんのその他の出品
+    = link_to "###" do
+      はなさんのその他の出品
     .items__container
-      %a{href: "###"}
+      = link_to "###" do
         .items__container__box
           %figure
             = image_tag 'items/item04.jpg', class:'items__container__box-item_phot'
@@ -151,7 +155,7 @@
               .items__container__box__item_body__info-like
                 %i.far.fa-heart
                 %span 68
-      %a{href: "###"}
+      = link_to "###" do
         .items__container__box
           %figure
             = image_tag 'items/item04.jpg', class:'items__container__box-item_phot'
@@ -162,7 +166,7 @@
               .items__container__box__item_body__info-like
                 %i.far.fa-heart
                 %span 68
-      %a{href: "###"}
+      = link_to "###" do
         .items__container__box
           %figure
             = image_tag 'items/item04.jpg', class:'items__container__box-item_phot'
@@ -176,7 +180,7 @@
 .bottom__nav
   %ul.bottom__nav__crumbs
     %li.bottom__nav__crumbs__crumbs-list
-      %a{href: "/"}
+      = link_to "/" do
         エフマーケット
       %i.fas.fa-angle-right
       ルイヴィトン アクセサリーポーチ ショルダーバッグ
