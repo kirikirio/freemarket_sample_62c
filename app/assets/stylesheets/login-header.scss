@@ -1,0 +1,69 @@
+.contents__bottom__right{
+  &__like{
+    width: 113px;
+    margin-right: 14px;
+    color: #333333;
+    &--icon{
+      @include header-icon();
+    }
+    &--text{
+      float: right;
+    }
+  }
+  &__like:hover{
+    color: $link;
+    .fa-heart{
+      color: $link;
+    }
+  }
+  &__notice{
+    width: 83px;
+    margin: 0px 14px;
+    color: #333333;
+    &--icon{
+      @include header-icon();
+    }
+    &--text{
+      float: right;
+    }
+  }
+  &__notice:hover{
+    color: $link;
+    .fa-bell{
+      color: $link;
+    }
+  }
+  &__list{
+    width: 129px;
+    margin: 0px 14px;
+    color: #333333;
+    &--icon{
+      @include header-icon();
+    }
+    &--text{
+      float: right;
+    }
+  }
+  &__list:hover{
+    color: $link;
+    .fa-check{
+      color: $link;
+    }
+  }
+  &__mypage{
+    width: 112px;
+    color: #333333;
+    &--icon{
+      float: left;
+      img{
+        border-radius: 50%;
+      }
+    }
+    &--text{
+      float: right;
+    }
+    &--text:hover{
+      color: $link;
+    }
+  }
+}

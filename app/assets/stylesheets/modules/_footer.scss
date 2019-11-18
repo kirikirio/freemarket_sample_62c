@@ -1,0 +1,156 @@
+footer{
+  @include box(649px, 100%);
+  .top{
+    @include box(260px, 100%);
+    background-image: image-url("footer-top.jpg");
+    &__contents{
+      display: flex;
+      justify-content:space-between;
+      @include box(260px, 750px);
+      margin: 0 auto;
+      &__left{
+        @include box(260px, 417px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &__unit1{
+          margin-bottom: 15px;
+          font-size: 24px;
+          color: $button;
+        }
+        &__unit2{
+          margin-bottom: 20px;
+          font-size: 35px;
+          color: $button;
+        }
+        &__unit3{
+          display: flex;
+          align-items: center;
+          &--app:hover{
+            opacity: 0.7;
+          }
+          &--google:hover{
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+  .bottom{
+    @include box(389px, 100%);
+    padding: 0px 20px 10px;
+    background-color: #222222;
+    &__articles{
+      display: flex;
+      @include box(296px, 1020px);
+      margin: 0 auto;
+      &__list1{
+        @include footer-list();
+        h2{
+          height: 22px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        ul{
+          @include footer-ul();
+          li{
+            height: 14px;
+            margin-top: 16px;
+          }
+        }
+        &__icon{
+          display: flex;
+          &__left{
+            margin-top: 30px;
+            margin-right: 20px;
+            .fa-twitter{
+              font-size: 31px;
+            }
+          }
+          &__right{
+            margin-top: 30px;
+            .fa-facebook-official {
+              font-size: 31px;
+            }
+          }
+        }
+      }
+      &__list2{
+        @include footer-list();
+        h2{
+          height: 22px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        ul{
+          @include footer-ul();
+          li{
+            height: 14px;
+            margin-top: 16px;
+          }
+        }
+      }
+      &__list3{
+        @include footer-list();
+        display: flex;
+        h2{
+          height: 22px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        &__left{
+          width: 200px;
+          ul{
+            padding-right: 10px;
+            @include footer-ul();
+            li{
+              height: 14px;
+              margin-top: 16px;
+            }
+          }
+        }
+        &__right{
+          ul{
+            @include footer-ul();
+            li{
+              height: 14px;
+              margin-top: 16px;
+            }
+            li.bottom__articles__list3__right__top{
+              margin-top: 38px;
+            }
+          }
+        }
+      }
+      &__list4{
+        @include footer-list();
+        h2{
+          height: 22px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        ul{
+          @include footer-ul();
+          li{
+            height: 14px;
+            margin-top: 16px;
+          }
+        }
+      }
+    }
+    &__info{
+      display: flex;
+      height: 33px;
+      width: 1020px;
+      margin: 30px 182.5px 20px;
+      &__provider{
+        height: 33px;
+        width: 765px;
+        line-height: 33px;
+        text-align: center;
+        font-size: 12px;
+        color: $button;
+      }
+    }
+  }
+}

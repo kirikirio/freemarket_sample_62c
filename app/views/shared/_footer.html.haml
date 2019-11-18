@@ -1,0 +1,77 @@
+%footer
+  .top
+    .top__contents
+      .top__contents__left
+        .top__contents__left__unit1
+          スマホでかんたんフリマアプリ
+        .top__contents__left__unit2
+          今すぐ無料ダウンロード
+        .top__contents__left__unit3
+          .top__contents__left__unit3--logo
+            = image_tag "logo/logo_red.svg", width: "68", height: "68"
+          .top__contents__left__unit3--app
+            = link_to "###" do
+              = image_tag "logo/app-store.svg", width: "144", height: "40"
+          .top__contents__left__unit3--google
+            = link_to "###" do
+              = image_tag "logo/google-play.svg", width: "144", height: "40"
+      .top__contents__right
+        = image_tag "screen.png", width: "300", height: "260"
+  .bottom
+    .bottom__articles
+      .bottom__articles__list1
+        %h2 エフマーケットについて
+        %ul
+          %li 会社概要（運営会社）
+          %li 採用情報
+          %li プレスリリース
+          %li 公式ブログ
+          %li エフマーケットロゴ利用ガイドライン
+
+        .bottom__articles__list1__icon
+          .bottom__articles__list1__icon__left
+            = fa_icon 'twitter'
+          .bottom__articles__list1__icon__right
+            = fa_icon 'facebook-official' 
+
+      .bottom__articles__list2
+        %h2 ヘルプ&ガイド
+        %ul
+          %li エフマーケットガイド
+          %li らくらくエフマーケット便
+          %li ゆうゆうエフマーケット便
+          %li 大型エフマーケット便
+          %li 車体取引ガイド
+          %li エフマーケットあんしん・あんぜん宣言！
+          %li 偽ブランド品撲滅への取り組み
+          %li エフマーケットボックス
+
+      .bottom__articles__list3
+        .bottom__articles__list3__left
+          %h2 プライバシーと利用規約
+          %ul
+            %li プライバシーポリシー
+            %li エフマーケット利用規約
+            %li あんしんスマホサポート制度に関する利用特約
+            %li コンプライアンスポリシー
+
+        .bottom__articles__list3__right
+          %ul
+            %li.bottom__articles__list3__right__top 個人データの安全管理に係る基本方針
+            %li 特定商取引に関する表記
+            %li 資金決済法に基づく表示
+            %li 法令順守と犯罪抑止のために
+
+      .bottom__articles__list4
+        %h2 国
+        %ul 
+          %li 日本
+          %li United States
+          
+    .bottom__info
+      .bottom__info__logo
+        = link_to "https://www.mercari.com/jp/" do
+          = image_tag "logo/fmarket_logo_font_white.svg", width: "124", height: "33"
+
+      .bottom__info__provider
+        © 2019 Mercari
