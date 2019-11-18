@@ -1,0 +1,26 @@
+%header.toppage
+  .contents
+    .contents__top
+      .contents__top__image
+        %a{href: "https://www.mercari.com/jp/"}
+          = image_tag "logo/fmarket_logo_red.svg", width: "134", height: "36"
+      .contents__top__search
+        .contents__top__search--icon
+          = fa_icon 'search'
+        %input{type:"text", placeholder:"何をお探しですか？", class: "contents__top__search--box"}
+
+    .contents__bottom
+      .contents__bottom__left
+        .contents__bottom__left__category
+          = fa_icon 'list-ul'
+          カテゴリーから探す
+        .contents__bottom__left__brand
+          = fa_icon 'tag'
+          ブランドから探す
+      .contents__bottom__right
+        .contents__bottom__right__registration
+          %a{href: "/items/new"}
+            新規会員登録
+        .contents__bottom__right__login
+          %a{href: "https://www.mercari.com/jp/login/"}
+            ログイン
