@@ -7,9 +7,9 @@
       = link_to '#',{class: 'btn  main__signup-form__mail'} do
         メールアドレスで登録する
         
-      %a{href: '#', class: 'btn btn-facebook  main__signup-form__facebook'}
+      = link_to '#', {class: 'btn btn-facebook  main__signup-form__facebook'} do
         Facebookで登録する
-      %a{href: '#', class: 'btn btn-google main__signup-form__google'}
+      = link_to '#', {class: 'btn btn-google main__signup-form__google'} do
         Googleで登録する
 
 = render 'shared/sub-footer'

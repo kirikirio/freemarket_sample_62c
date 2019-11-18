@@ -4,12 +4,12 @@
   .login-box
     .login-box__new-account
       %p アカウントをお持ちでない方はこちら
-      %a{href: '#', class: ' btn login-box__new-account__btn'}
+      = link_to '#', {class: ' btn login-box__new-account__btn'} do
         新規会員登録
     .login-box__sns-account
-      %a{href: '#', class: 'btn btn-facebook'}
+      = link_to '#', {class: 'btn btn-facebook'} do
         Facebookでログイン
-      %a{href: '#', class: 'btn btn-google'}
+      = link_to '#', {class: 'btn btn-google'} do
         Googleでログイン
     .login-box__contents
       %form{class: 'login-box__contents__form'}
