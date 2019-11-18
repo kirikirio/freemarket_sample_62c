@@ -1,8 +1,14 @@
 // 本人確認、本人情報
 
-
-.personal-content{
+.section-address {
   margin: 40px auto 0;
+  width: 1020px;
+  height: 1292px;
+}
+
+.personal-content {
+
+  float: right;
   .sub-content {
     .personal-container {
       background: #fff;
@@ -14,7 +20,8 @@
         font-size: 24px;
         padding: 8px 24px;
         border-bottom: 1px solid #f5f5f5;
-        text-align: center; 
+        text-align: center;
+        line-height: 1.4;
       }
       .text-inner {
         padding: 64px;
