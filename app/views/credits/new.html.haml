@@ -1,0 +1,55 @@
+= render 'shared/registration-header'
+
+
+.main
+  .payment-box
+    .payment-box__title
+      %h1 支払い方法
+    .payment-box__contents
+      %form{class: 'payment-box__contents__form'}
+        .form-group.first-form
+          .form-group__label
+            %label{class: 'form-group__label__text'} カード番号
+            %span{class: 'form-group__label__require'} 必須
+          %input{type: "text", name: "", value: "", placeholder: "半角数字のみ", class: "form-group__input"}
+          .form-group__image
+            = image_tag 'credits/card_logo'
+        .form-group  
+          .form-group__label
+            %label{class: 'form-group__label__text'} 有効期限
+            %span{class: 'form-group__label__require'} 必須
+
+          
+          .form-group__select
+            .flex-wrap
+              .form-group__select__item
+                %i{class: 'icon-arrow-down fa fa-chevron-down'}
+                %select{name: "month", class: " first-select"}
+                  %option 01
+              %span 月
+
+            .flex-wrap
+              .form-group__select__item
+                %i{class: 'icon-arrow-down fa fa-chevron-down'}
+                %select{name: "year", class: " first-select"}
+                  %option 19
+              %span 年
+
+        .form-group
+          .form-group__label
+            %label{class: 'form-group__label__text'} セキュリティコード
+            %span{class: 'form-group__label__require'} 必須
+          %input{type: "text", name: "", value: "", placeholder: "半角数字のみ", class: "form-group__input"}
+
+        .info-wrap
+          .payment-box__contents__form__info-link
+            = link_to '#' do
+              %i{class: 'icon-question fa fa-question-circle'}
+              カード裏面の番号とは
+              
+
+        %button{type: 'submit', class: 'btn payment-box__contents__form__submit'}
+          次へ進む
+
+
+= render 'shared/sub-footer'

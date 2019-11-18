@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new] do
     collection do
       get 'logout'
+      get 'select_singup'
       get 'completed'
     end
 
     member do
       get 'authentication'
-      get 'select_singup'
       get 'profile'
     end  
 

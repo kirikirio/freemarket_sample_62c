@@ -1,0 +1,97 @@
+// ユーザープロフィール編集ページ
+
+
+.content-section{
+  margin: 40px auto 0;
+  width: 1020px;
+  height: 1292px;
+  .profile-content {
+    float: right;
+    margin: 0 auto;
+    .profile-container {
+      margin: 0 auto;
+      width: 700px;
+      background: white;
+      .content-head {
+        font-size: 24px;
+        padding: 8px 24px;
+        line-height: 1.4;
+        text-align: center;
+      }
+      .image-top {
+        position: relative;
+        .bg-img {
+          height: 156px;
+          width: 700px;
+        }
+        .profile-box {
+          position: absolute;
+          top: 0;
+          text-align: center;
+          padding: 72px 204px 24px;
+          .icon-box {
+            height: 60px;
+            width: 60px;
+            display: inline-block;
+            vertical-align: middle;
+            .profile-img {
+              height: 60px;
+              border-radius: 50%;
+              width: 60px;
+            }
+          }
+          .input-profile-name {
+            width: 220px;
+            margin: 0 0 0 8px;
+            font-size: 16px;
+            line-height: 1.5;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px 16px 8px;
+            height: 48px;
+            box-sizing: border-box;
+          }
+          .input-profile-name:focus {
+            border: solid 1px $link;
+            outline: 0;
+          }
+        }
+      }
+      .profile-text-content {
+        padding: 40px 16px;
+        .input-profile-text {
+          border: 1px solid #ccc;
+          min-height: 216px;
+          display: block;
+          width: 100%;
+          padding: 10px;
+          line-height: 1.5;
+          font-size: 16px;
+              box-sizing: border-box;
+        }
+        .input-profile-text:focus {
+          border: solid 1px $link;
+          outline: 0;
+        }
+        .btn-change-profile {
+          background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            margin: 16px 0 0 0;
+            text-align: center;
+            outline: none;
+            cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+
+
+
