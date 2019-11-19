@@ -62,9 +62,10 @@
 |size|references|null: false, foreign_key: true|
 |brand|references|null: false, foreign_key: true|
 |delivery_status|references|null: false, foreign_key: true|
-|prefecture|text|null: false|
+|prefecture|string|null: false|
 |user|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
+|delivery_fee|string|null: false|
 ​
 ### Association
 - belongs_to :user
@@ -74,10 +75,11 @@
 - belongs_to :sale_status
 - belongs_to :delivery_status
 - belongs_to :category
+- belongs_to :delivery_method
 - has_many :comments, dependent: :destroy
 - has_many :images, dependent: :destroy
 - has_many :likes, dependent: :destroy
-​
+
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -166,3 +168,12 @@
 ### Association
 - has_many :items
 - has_ancestry
+
+
+## delivery_methodテーブル
+|Column|Type|Options|
+|------|----|-------|
+|method|string|null: false|
+​
+### Association
+- has_many :items
