@@ -4,22 +4,30 @@ Rails.application.routes.draw do
     collection do
       get 'logout'
       get 'select_singup'
-      get 'completed'
     end
 
     member do
-      get 'authentication'
       get 'profile'
     end  
 
     resources :credits, only: [:index, :new]
-    resources :addresses, only: [:new, :edit]
+    resources :addresses, only: [:edit]
   end
   resources :items do
 
     member do
       get 'confirmation'
       get 'list'
+    end
+  end
+
+  resources :signup, except: [:index, :new, :create, :edit, :show, :update, :destroy] do
+    collection do
+      get 'registration'
+      get 'authentication'
+      get 'address'
+      get 'credit'
+      get 'completed'
     end
   end
 end
