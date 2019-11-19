@@ -5,27 +5,28 @@
     .address-box__title
       %h1 発送元・お届け情報入力
     .address-box__contents
-      %form{class: 'address-box__contents__form'}
+      = form_with model: Address.new, class: "address-box__contents__form", url: credit_signup_index_path  do |f|
         .form-group.first-form
           .form-group__label
             %label{class: 'form-group__label__text'} お名前
             %span{class: 'form-group__label__require'} 必須
-          %input{type: "text", name: "firstname", value: "", placeholder: "例）山田", class: "form-group__input"}
-          %input{type: "text", name: "lastname", value: "", placeholder: "例）彩", class: "form-group__input second-input"}
+          = f.text_field :firstname, class: "form-group__input", value: "", placeholder: "例）山田"
+          = f.text_field :lastname, class: "form-group__input second-input", value: "", placeholder: "例）彩"
+          
 
 
         .form-group  
           .form-group__label
             %label{class: 'form-group__label__text'} お名前カナ
             %span{class: 'form-group__label__require'} 必須
-          %input{type: "text", name: "firstname_kana", value: "", placeholder: "例）ヤマダ", class: "form-group__input"}
-          %input{type: "text", name: "lastname_kana", value: "", placeholder: "例）アヤ", class: "form-group__input second-input"}
+          = f.text_field :firstname_kana, class: "form-group__input", value: "", placeholder: "例）ヤマダ"  
+          = f.text_field :lastname_kana, class: "form-group__input second-input", value: "", placeholder: "例）アヤ"
 
         .form-group  
           .form-group__label
             %label{class: 'form-group__label__text'} 郵便番号
             %span{class: 'form-group__label__require'} 必須
-          %input{type: "text", name: "postal_code", value: "", placeholder: "例）123-4567", class: "form-group__input"}
+          = f.text_field :postal_code, class: "form-group__input", value: "", placeholder: "例）123-4567", maxlength: "7"
 
         .form-group  
           .form-group__label
@@ -33,35 +34,35 @@
             %span{class: 'form-group__label__require'} 必須
           .form-group__select__item
             %i{class: 'icon-arrow-down fa fa-chevron-down'}
-            %select{name: "year", class: " first-select"}
+            %select{name: "prefecture", class: "first-select"}
               %option 北海道
-              -# = f.collection_select :prefecture_id, prefecture.all, :id, :name
+              -# = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", class: 'first-select'
 
         .form-group  
           .form-group__label
             %label{class: 'form-group__label__text'} 市区町村
             %span{class: 'form-group__label__require'} 必須
-          %input{type: "text", name: "city", value: "", placeholder: "例）横浜市緑区", class: "form-group__input"}
+          = f.text_field :city, class: "form-group__input", value: "", placeholder: "例）横浜市緑区"
 
         .form-group  
           .form-group__label
             %label{class: 'form-group__label__text'} 番地
             %span{class: 'form-group__label__require'} 必須
-          %input{type: "text", name: "city_block", value: "", placeholder: "例）青山1-1-1", class: "form-group__input"}
+          = f.text_field :city_block, class: "form-group__input", value: "", placeholder: "例）青山1-1-1"
 
         .form-group  
           .form-group__label
             %label{class: 'form-group__label__text'} 建物名
             %span{class: 'form-group__label__optional optional'} 任意
-          %input{type: "text", name: "building", value: "", placeholder: "例）柳ビル103", class: "form-group__input"}
+          = f.text_field :building, class: "form-group__input", value: "", placeholder: "例）柳ビル103"
 
         .form-group  
           .form-group__label
             %label{class: 'form-group__label__text'} 電話
             %span{class: 'form-group__label__optional optional'} 任意
-          %input{type: "tel", name: "tel_number", value: "", placeholder: "例）09012345678", class: "form-group__input"}
+          = f.phone_field :tel_number, class: "form-group__input", value: "", placeholder: "例）09012345678", maxlength: "15"
+      
         
-        %button{type: 'submit', class: 'btn address-box__contents__form__submit'}
-          次へ進む
+        = f.submit "次へ進む", class:'btn address-box__contents__form__submit'
 
 = render 'shared/sub-footer'
