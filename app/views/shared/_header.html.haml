@@ -2,7 +2,7 @@
   .contents
     .contents__top
       .contents__top__image
-        = link_to "###" do
+        = link_to items_path do
           = image_tag "logo/fmarket_logo_red.svg", width: "134", height: "36"
       .contents__top__search
         .contents__top__search--icon
@@ -19,8 +19,8 @@
           ブランドから探す
       .contents__bottom__right
         .contents__bottom__right__registration
-          = link_to "###" do
+          = link_to select_singup_users_path do
             新規会員登録
         .contents__bottom__right__login
-          = link_to "###" do
+          = link_to new_user_session_path do
             ログイン
