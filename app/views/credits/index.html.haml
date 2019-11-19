@@ -2,6 +2,10 @@
 
 = render partial: 'shared/header'
 
+-# パンくずリスト
+- breadcrumb :credits_index
+= render partial: 'shared/breadcrumbs'
+
 %section.payment-section
   = render partial: 'shared/sidebar'
   %main.main-content

@@ -1,5 +1,9 @@
 = render partial: 'shared/header'
 
+-# パンくずリスト
+- breadcrumb :users_profile
+= render partial: 'shared/breadcrumbs'
+
 %section.content-section
   = render partial: 'shared/sidebar'
   .profile-content

@@ -1,12 +1,36 @@
 # ルート
 crumb :root do
-  link "トップページ"
+  link "メルカリ", "/"
 end
 
 # マイページ
 crumb :users_show do
-  link "マイページ"
+  link "マイページ",  "/users/:id"
   parent :root
+end
+
+# ログアウト
+crumb :users_logout do
+  link "ログアウト"
+  parent :users_show
+end
+
+# 本人情報の登録
+crumb :addresses_edit do
+  link "本人情報の登録"
+  parent :users_show
+end
+
+# 支払い方法 クレジット登録
+crumb :credits_index do
+  link "支払い方法"
+  parent :users_show
+end
+
+# プロフィール編集
+crumb :users_profile do
+  link "プロフィール"
+  parent :users_show
 end
 
 # crumb :projects do
