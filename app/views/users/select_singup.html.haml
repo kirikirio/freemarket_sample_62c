@@ -4,7 +4,7 @@
     .signup-box__title
       %h1 新規会員登録
     .main__signup-form
-      = link_to '#',{class: 'btn  main__signup-form__mail'} do
+      = link_to new_user_registration_path, class: 'btn  main__signup-form__mail' do
         メールアドレスで登録する
         
       = link_to '#', {class: 'btn btn-facebook  main__signup-form__facebook'} do
