@@ -6,12 +6,13 @@
     .payment-box__title
       %h1 支払い方法
     .payment-box__contents
-      %form{class: 'payment-box__contents__form'}
+      = form_with class: "payment-box__contents__form", id: 'card_form', url: completed_signup_index_path  do |f|
         .form-group.first-form
           .form-group__label
             %label{class: 'form-group__label__text'} カード番号
             %span{class: 'form-group__label__require'} 必須
-          %input{type: "text", name: "", value: "", placeholder: "半角数字のみ", class: "form-group__input"}
+          = f.text_field :card_number, class: "form-group__input", value: "", placeholder: "半角数字のみ", maxlength: "16", id: "card_number"
+
           .form-group__image
             = image_tag 'credits/card_logo'
         .form-group  
@@ -19,27 +20,23 @@
             %label{class: 'form-group__label__text'} 有効期限
             %span{class: 'form-group__label__require'} 必須
 
-          
           .form-group__select
             .flex-wrap
               .form-group__select__item
                 %i{class: 'icon-arrow-down fa fa-chevron-down'}
-                %select{name: "month", class: " first-select"}
-                  %option 01
+                = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{}, class: "first-select", value: "", id: "exp_month"
               %span 月
-
             .flex-wrap
               .form-group__select__item
                 %i{class: 'icon-arrow-down fa fa-chevron-down'}
-                %select{name: "year", class: " first-select"}
-                  %option 19
+                = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{}, class: "first-select", value: "", id: "exp_year"
               %span 年
 
         .form-group
           .form-group__label
             %label{class: 'form-group__label__text'} セキュリティコード
             %span{class: 'form-group__label__require'} 必須
-          %input{type: "text", name: "", value: "", placeholder: "半角数字のみ", class: "form-group__input"}
+          = f.text_field :cvc, class: "form-group__input", value: "", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "card_cvc"
 
         .info-wrap
           .payment-box__contents__form__info-link
@@ -48,8 +45,7 @@
               カード裏面の番号とは
               
 
-        %button{type: 'submit', class: 'btn payment-box__contents__form__submit'}
-          次へ進む
-
+        = f.submit '次へ進む', class: 'btn payment-box__contents__form__submit', id: 'token_submit'  #このidはpay.jpのjs処理のため付与
+        
 
 = render 'shared/sub-footer'
