@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
   if(document.URL.match("/signup/registration")) {
     $('.stepper li').each(function(i, val) {
       $(".stepper li").eq(i).css({'color':'#ea352d','font-weight':'600'})
