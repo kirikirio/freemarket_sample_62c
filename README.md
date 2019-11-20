@@ -66,6 +66,7 @@
 |user|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
 |delivery_fee|string|null: false|
+|delivery_method|references|null: false, foreign_key: true|
 ​
 ### Association
 - belongs_to :user
