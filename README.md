@@ -8,12 +8,20 @@
 |firstname_kana|string|null: false|
 |lastname_kana|string|null: false|
 |nickname|string|null: false|
-|email|string|null: false, unique: true|
-|password|string|null: false|
+|profile|text|null: false, default: ""|
+|birthday|integer|null: false|
 |user_image|string|null: false|
 |point|integer|null: false|
-|birthday|integer|null: false|
-|profile|text||
+|postal_code|integer|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|city_block|string|null: false|
+|building|string|null: false, default: ""|
+|tel_number|integer|unique: true|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+|customer_id|string|null: false, default: ""|
+|card_id|string|null: false, default: ""|
 |provider|string||
 |uid|string||
 ​
@@ -23,32 +31,6 @@
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_one :address, dependent: :delete
-​
-​
-## creditsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user|references|null: false, foreign_key: true|
-|customer_id|string|null: false|
-|card_id|string|null: false|
-​
-### Association
-- belongs_to :user
-​
-​
-## addressesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|postal_code|integer|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|city_block|string|null: false|
-|building|string||
-|tel_number|integer|unique: true|
-|user|references|null: false, foreign_key: true|
-​
-### Association
-- belongs_to :user
 ​
 ​
 ## itemsテーブル
