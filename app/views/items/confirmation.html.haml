@@ -14,15 +14,15 @@
           %li.purchase_confirmation__contents__buy__inner__buying-form-pointbox ポイントはありません
         %ul.purchase_confirmation__contents__buy__inner__buying-form__payment
           %li.purchase_confirmation__contents__buy__inner__buying-form__payment-pay_amount
-            %div 支払い金額
+            .purchase_confirmation__contents__buy__inner__buying-form__payment-pay_amount-text 支払い金額
             .purchase_confirmation__contents__buy__inner__buying-form__payment-pay_amount-price_cell ¥6,500
         %p.purchase_confirmation__contents__buy__inner__buying-form-error_text この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
         %button.purchase_confirmation__contents__buy__inner__buying-form-btn{type:"submit"} 購入する
         %p.purchase_confirmation__contents__buy__inner__buying-form-apprecommend アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
         .purchase_confirmation__contents__buy__inner__buying-form-app-icon
-          %a{href: "###"}
+          = link_to "###" do
             = image_tag 'logo/app-store.svg', class:'purchase_confirmation__contents__buy__inner__buying-form-app-icon-size-apple'
-          %a{href: "###"}
+          = link_to "###" do
             = image_tag 'logo/google-play.svg', class:'purchase_confirmation__contents__buy__inner__buying-form-app-icon-size-google'
   %section.purchase_confirmation__contents__buy
     .purchase_confirmation__contents__buyer_info
@@ -33,7 +33,7 @@
         大阪府 大阪市中央区中市浜 4-2-2
         %br/
         メルカリ 花子
-      %a.purchase_confirmation__contents__buyer_info-change{href: "###"}
+      = link_to "###", class: "purchase_confirmation__contents__buyer_info-change" do
         %span 変更する
         %i.fas.fa-angle-right
   %section.purchase_confirmation__contents__buy
@@ -42,7 +42,7 @@
       %address.purchase_confirmation__contents__buyer_info-payway
         %br/
         \/
-      %a.purchase_confirmation__contents__buyer_info-change{href:"###"}
+      = link_to "###", class: "purchase_confirmation__contents__buyer_info-change" do
         %span 変更する
         %i.fas.fa-angle-right
 = render 'shared/sub-footer'

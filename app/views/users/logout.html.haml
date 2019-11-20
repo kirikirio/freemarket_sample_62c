@@ -1,8 +1,13 @@
+-# ログアウトページ
+
 = render partial: 'shared/header'
-= render partial: 'shared/sidebar'
-.logout-content
-  .logout-container
-    %form.box-inner{action: "#", method: "POST", novalidate: "novalidate"}
-      .box-content
-        %button.btn-logout{type: "submit"} ログアウト
+
+%section.logout-section
+  = render partial: 'shared/sidebar'
+  .logout-content
+    .logout-container
+      %form.box-inner{action: "#", method: "POST", novalidate: "novalidate"}
+        .box-content
+          %button.btn-logout{type: "submit"} ログアウト
+
 = render partial: 'shared/footer'

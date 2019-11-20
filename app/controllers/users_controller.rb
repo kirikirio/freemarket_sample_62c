@@ -8,12 +8,7 @@ class UsersController < ApplicationController
 
   end
 
-  def authentication
-  end
-  
-  def completed
-  end
-
+  # 新規会員登録
   def select_singup
   end
 

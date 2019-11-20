@@ -1,12 +1,12 @@
 = render partial: 'shared/header'
 
-%section
+%section.my-maine
   = render partial: 'shared/sidebar'
   .my-page
     .my-page__user
-      = image_tag "user-bg.jpg", class:"bg-img"
-      %section.my-page__user__icon
-        %a.move__my-page{href:"#"}
+      = image_tag "users/user-bg.jpg", class:"bg-img"
+      .my-page__user__icon
+        = link_to "###", class: "move__my-page" do
           %figure
             = image_tag "my-page.jpg", class:"user-img"
           %h2.bold 内村叶菜
@@ -19,7 +19,7 @@
               出品数
               %span.my-page__user__icon__number__status-right__number
                 0
-    %section.my-page__notice
+    .my-page__notice
       %ul.my-page__notice__tabs
         %li.active
           %h3
@@ -33,8 +33,8 @@
         .my-page__notice__tabs__content__display
           %ul.mypage-item-list.tab-pane.active{id: "#"}
             %li.mypage-item-not-found.bold 現在、お知らせはありません
-        = image_tag "logo_gray.svg", class:"logo-gray"
-    %section.my-page__goods
+        = image_tag "logo/logo_gray.svg", class:"logo-gray"
+    .my-page__goods
       %h2.my-page__goods__purchase 購入した商品
       %ul.my-page__goods__tabs
         %li.active
@@ -49,5 +49,5 @@
         .my-page__goods__content__tab
           %ul.mypage-item-list.tab-pane.active{id: "#"}
             %li.mypage-item-not-found.bold 取引中の商品がありません
-        = image_tag "logo_gray.svg", class:"logo-gray"
+        = image_tag "logo/logo_gray.svg", class:"logo-gray"
 = render partial: 'shared/footer'

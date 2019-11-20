@@ -2,7 +2,7 @@
   .contents
     .contents__top
       .contents__top__image
-        %a{href: "https://www.mercari.com/jp/"}
+        = link_to "###" do
           = image_tag "logo/fmarket_logo_red.svg", width: "134", height: "36"
       .contents__top__search
         .contents__top__search--icon
@@ -19,27 +19,27 @@
           ブランドから探す
       .contents__bottom__right
 
-        %a{href: "https://www.mercari.com/jp/mypage/like/history/"}
+        = link_to "###" do
           .contents__bottom__right__like
             .contents__bottom__right__like--icon
               %i.far.fa-heart
             .contents__bottom__right__like--text
               いいね！一覧
-        %a{href: "https://www.mercari.com/jp/mypage/notification/"}
+        = link_to "###" do
           .contents__bottom__right__notice
             .contents__bottom__right__notice--icon
               %i.far.fa-bell
             .contents__bottom__right__notice--text
               お知らせ
 
-        %a{href: "https://www.mercari.com/jp/mypage/todo/"}
+        = link_to "###" do
           .contents__bottom__right__list
             .contents__bottom__right__list--icon
               %i.fas.fa-check
             .contents__bottom__right__list--text
               やることリスト
 
-        %a{href: "https://www.mercari.com/jp/mypage/"}
+        = link_to "###" do
           .contents__bottom__right__mypage
             .contents__bottom__right__mypage--icon
               = image_tag 'logo/my-page.jpg', width: "32", height: "32"

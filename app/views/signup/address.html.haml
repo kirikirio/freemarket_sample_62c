@@ -35,6 +35,7 @@
             %i{class: 'icon-arrow-down fa fa-chevron-down'}
             %select{name: "year", class: " first-select"}
               %option 北海道
+              -# = f.collection_select :prefecture_id, prefecture.all, :id, :name
 
         .form-group  
           .form-group__label

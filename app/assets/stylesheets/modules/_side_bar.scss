@@ -1,32 +1,37 @@
 .side{
   width: 280px;
   margin: 0 40px 0 0;
-  float: left;
-
+  float: left;  
   &__menubox{
     list-style: none;
     
   }
-
   &__list{
+    overflow: hidden;
     position: relative;
     display: block;
-    height: 20px;
-    padding: 16px;
+    padding: 10px 16px;
     background: #fff;
-    font-size: 14px;
     color: #333;
+    line-height: 2;
   &.active {
     background: #eee;
     font-weight: 600;
     .side__list__icon {
       color: #333;
+      font-size: 26px;
       }
       }
-      &__icon{
+
+      &__text{
+        vertical-align: middle;
+      }
+
+      .fa{
         color: #ccc;
         float: right;
-        font-size: 25px;
+        font-size: 26px;
+
         }
       }
   ul{
@@ -36,6 +41,7 @@
     }
   }
   h3{
+    font-size: 16px;
     margin: 40px 0 0;
   }
 }
