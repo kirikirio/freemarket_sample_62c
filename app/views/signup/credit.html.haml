@@ -6,7 +6,7 @@
     .payment-box__title
       %h1 支払い方法
     .payment-box__contents
-      = form_with class: "payment-box__contents__form", id: 'card_form', url: completed_signup_index_path  do |f|
+      = form_with model: User.new, class: "payment-box__contents__form", id: 'card_form', local: "true", url: completed_signup_index_path  do |f|
         .form-group.first-form
           .form-group__label
             %label{class: 'form-group__label__text'} カード番号

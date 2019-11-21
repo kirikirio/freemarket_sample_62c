@@ -8,7 +8,7 @@
 |firstname_kana|string|null: false|
 |lastname_kana|string|null: false|
 |nickname|string|null: false|
-|profile|text|null: false, default: ""|
+|profile|text|null: false|
 |birthday|integer|null: false|
 |user_image|string|null: false|
 |point|integer|null: false|
@@ -26,11 +26,9 @@
 |uid|string||
 ​
 ### Association
-- has_many :credits, dependent: :destroy
 - has_many :items, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
-- has_one :address, dependent: :delete
 ​
 ​
 ## itemsテーブル

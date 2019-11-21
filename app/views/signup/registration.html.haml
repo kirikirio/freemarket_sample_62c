@@ -25,7 +25,7 @@
           = f.password_field :password, class: "form-group__input", placeholder: "７文字以上"  
           
           .form-group__revelation-pass
-            = f.check_box :password, {class: 'form-group__revelation-pass__checkbox'}
+            %input{type: "checkbox", class: 'form-group__revelation-pass__checkbox'}
             %label{class: 'form-group__revelation-pass__label'} パスワードを表示する
         .form-group
           %h3{class: 'form-group__subtitle'} 本人確認
