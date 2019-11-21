@@ -262,3 +262,24 @@ Item.create!(
   }
 ]
 )
+
+
+Item.create!(
+  [
+  {
+    image: 'カットソー半袖です1',
+    price: '2000',
+    description: 'ユニクロのカットソー新品です',
+    item_status_id: 1,
+    sale_status_id: 1,
+    size_id: 1,
+    brand_id: 1,
+    delivery_status_id: 1,
+    prefecture: '広島県',
+    user_id: 1,
+    category_id: 4,
+    delivery_fee: '送料込み',
+    delivery_method_id: 1,
+  }
+]
+)
