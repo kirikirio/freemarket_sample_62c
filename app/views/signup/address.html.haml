@@ -5,7 +5,7 @@
     .address-box__title
       %h1 発送元・お届け情報入力
     .address-box__contents
-      = form_with model: Address.new, class: "address-box__contents__form", url: credit_signup_index_path  do |f|
+      = form_with model: User.new, class: "address-box__contents__form", url: credit_signup_index_path  do |f|
         .form-group.first-form
           .form-group__label
             %label{class: 'form-group__label__text'} お名前
@@ -26,7 +26,7 @@
           .form-group__label
             %label{class: 'form-group__label__text'} 郵便番号
             %span{class: 'form-group__label__require'} 必須
-          = f.text_field :postal_code, class: "form-group__input", value: "", placeholder: "例）123-4567", maxlength: "7"
+          = f.text_field :postal_code, class: "form-group__input", value: "", placeholder: "例）123-4567", maxlength: "8"
 
         .form-group  
           .form-group__label

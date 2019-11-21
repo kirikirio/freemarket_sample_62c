@@ -9,7 +9,8 @@
         .form-group
           %p{class: 'form-group-text'} ありがとうございます。
           会員登録が完了しました。
-        %button{type: 'button', class: 'btn'}
-          メルカリをはじめる
+        = link_to items_path do
+          %button{type: 'button', class: 'btn'}
+            メルカリをはじめる
 
 = render 'shared/sub-footer'
