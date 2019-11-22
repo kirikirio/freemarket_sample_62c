@@ -22,10 +22,10 @@
           .form-group__label
             %label{class: 'form-group__label__text'} パスワード
             %span{class: 'form-group__label__require'}  必須
-          = f.password_field :password, class: "form-group__input", placeholder: "７文字以上"  
+          = f.password_field :password, class: "form-group__input", placeholder: "７文字以上", id: "password"
           
           .form-group__revelation-pass
-            %input{type: "checkbox", class: 'form-group__revelation-pass__checkbox'}
+            %input{type: "checkbox", name: "check", class: 'form-group__revelation-pass__checkbox'}
             %label{class: 'form-group__revelation-pass__label'} パスワードを表示する
         .form-group
           %h3{class: 'form-group__subtitle'} 本人確認
@@ -52,7 +52,7 @@
           .form-group__select
             .flex-wrap
               .form-group__select__item
-                != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'###', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'&nbsp;年&nbsp;','&nbsp;月&nbsp;')+'&nbsp;日'
+                != sprintf(f.date_select(:birthday, prefix:'user',with_css_classes:'###', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'&nbsp;年&nbsp;','&nbsp;月&nbsp;')+'&nbsp;日'
 
         %p{class: 'form-attention'} ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 

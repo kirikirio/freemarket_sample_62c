@@ -117,16 +117,16 @@ ActiveRecord::Schema.define(version: 2019_11_18_085503) do
     t.string "firstname_kana", null: false
     t.string "lastname_kana", null: false
     t.string "nickname", null: false
-    t.text "profile", null: false
-    t.integer "birthday", null: false
-    t.string "user_image", null: false
-    t.integer "point", null: false
-    t.integer "postal_code", null: false
-    t.string "prefecture", null: false
-    t.string "city", null: false
-    t.string "city_block", null: false
+    t.text "profile"
+    t.string "birthday", null: false
+    t.string "user_image", default: "", null: false
+    t.integer "point", default: 0, null: false
+    t.string "postal_code", null: false
+    t.string "prefecture", default: ""
+    t.string "city", default: ""
+    t.string "city_block", default: "", null: false
     t.string "building", default: "", null: false
-    t.integer "tel_number"
+    t.string "tel_number"
     t.string "customer_id", default: "", null: false
     t.string "card_id", default: "", null: false
     t.string "provider"

@@ -7,13 +7,12 @@ class SignupController < ApplicationController
   def authentication
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
-    # session[:encrypted_password] = user_params[:encrypted_password]
     session[:password] = user_params[:password]
     session[:lastname] = user_params[:lastname]
     session[:firstname] = user_params[:firstname]
     session[:lastname_kana] = user_params[:lastname_kana]
     session[:firstname_kana] = user_params[:firstname_kana]
-    session[:birthday] = user_params[:birthday]
+    session[:birthday] = user_params['birthday(1i)'] + "/" + user_params['birthday(2i)'] + "/" + user_params['birthday(3i)']
   end
 
   def address
@@ -30,7 +29,6 @@ class SignupController < ApplicationController
   end
 
   def completed
-    # session[:tel_number] = user_params[:tel_number]
     Payjp.api_key = 'sk_test_04387e0973780d6cbbb78c9e' #pay.jpの秘密キー
     if pay_params['payjp_token'].blank?
         render :completed
@@ -38,8 +36,6 @@ class SignupController < ApplicationController
         customer = Payjp::Customer.create(card: pay_params[:payjp_token])  #顧客作成
         @user = User.new(
          nickname: session[:nickname],
-        #  email: session[:email],
-        #  encrypted_password: session[:encrypted_password],
          email: session[:email],
          password: session[:password],
          lastname: session[:lastname],
@@ -56,10 +52,8 @@ class SignupController < ApplicationController
          customer_id: customer.id,
          card_id: customer.default_card
         )
-        
-        # User.save
-        binding.pry
-        # customer.credit.create(card: params[:payjp_token])      #上の顧客のカード作成   
+        @user.save
+        sign_in @user
     end
     
   end
@@ -76,6 +70,9 @@ class SignupController < ApplicationController
       :nickname,
       :profile,
       :birthday,
+      'birthday(1i)',
+      'birthday(2i)',
+      'birthday(3i)',
       :user_image,
       :point,
       :postal_code,
@@ -86,9 +83,8 @@ class SignupController < ApplicationController
       :tel_number,
       :email,
       :password,
-      # :encrypted_password,
-      # :customer_id,
-      # :card_id,
+      :customer_id,
+      :card_id,
       :provider,
       :uid
     )

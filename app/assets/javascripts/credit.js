@@ -23,7 +23,7 @@ $(document).on('turbolinks:load', function() {
           $("#card_cvc").removeAttr("name");
           $("#exp_month").removeAttr("name");
           $("#exp_year").removeAttr("name");     //↑入力されたデータをこのアプリに保存しないようにフォームを空にする。
-            console.log(response)
+          
           var token = response.id;
           $("#card_form").append($('<input type="hidden" name="payjp_token" class="payjp_token" />').val(token));   // 通信が成功しstatusが200になった時typeがhiddenとなっているinput要素が追加される
           $("#card_form").get(0).submit();       //e.preventDefault();によって停止させていたsubmitを実行させる
