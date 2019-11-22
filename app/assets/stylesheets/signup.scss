@@ -97,13 +97,15 @@
   border: 1px solid #979797;
   margin: 16px 0 0;
   color: #333;
-  background: #fff url(users/google.svg) no-repeat;
+  background: #fff no-repeat;
+  background-image: image-url("users/google.svg");
   background-position: 3px top;
   &:visited {
     color: #333;
   }
   &:hover {
-    background: #fff url(/SVG/google.svg) no-repeat;
+    background: #fff no-repeat;
+    background-image: image-url("users/google.svg");
     background-position: 3px top;
   }
 }

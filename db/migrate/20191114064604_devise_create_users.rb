@@ -3,16 +3,27 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
-            # KIRIMICHI!
+      # KIRIMICHI!
       t.string :firstname, null: false
       t.string :lastname, null: false
       t.string :firstname_kana, null: false
       t.string :lastname_kana, null: false
       t.string :nickname, null: false
+      t.text :profile, null: false
+      t.integer :birthday, null: false
       t.string :user_image, null: false
       t.integer :point, null: false
-      t.integer :birthday, null: false
-      t.text :profile
+      t.integer :postal_code, null: false
+      t.string :prefecture, null: false
+      t.string :city, null: false
+      t.string :city_block, null: false
+      t.string :building, null: false, default: ""
+      t.integer :tel_number, unique: true
+      t.string :customer_id, null: false, default: ""
+      t.string :card_id, null: false, default: ""
+      t.string :provider
+      t.string :uid
+    
       
       # Database authenticatable
       t.string :email,              null: false, default: ""
