@@ -9,7 +9,9 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.references :size, null: false, foreign_key: true
       t.references :brand, null: false, foreign_key: true
       t.references :delivery_status, null: false, foreign_key: true
-      t.text :prefecture, null: false
+      # 以下テスト
+      t.text :prefecture_id, null: false
+
       t.references :user, null: false, foreign_key: true
       t.references :category, null: false , foreign_key: true
       t.string :delivery_fee, null: false

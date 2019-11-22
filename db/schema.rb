@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_090219) do
     t.bigint "size_id", null: false
     t.bigint "brand_id", null: false
     t.bigint "delivery_status_id", null: false
-    t.text "prefecture", null: false
+    t.text "prefecture_id", null: false
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
     t.string "delivery_fee", null: false
@@ -139,7 +139,6 @@ ActiveRecord::Schema.define(version: 2019_11_18_090219) do
     t.string "firstname_kana", null: false
     t.string "lastname_kana", null: false
     t.string "nickname", null: false
-    t.string "password", null: false
     t.string "user_image", null: false
     t.integer "point", null: false
     t.integer "birthday", null: false

@@ -1,6 +1,5 @@
 .main-box{
     margin: 0 auto;
-    height: 2016px;
     width: 700px;
   &__head{
     text-align: center;
@@ -28,23 +27,7 @@
     margin: 8px 0 0 0;
     height: 21px;
     }
-  }
-
-  .hissu{
-    font-size:12px;
-    border-radius: 2px;
-    margin:0 0 0 8px;
-    padding: 2px 4px;
-    color: $button;
-    height: 32px;
-    width: 19px;
-    background: $accent;
-  }
-  &__box{
-      margin: 16px 0 0 0 ;
-  }
-
-  &__imagebox{
+    &__box{
       border: 1px dashed #ccc;
       margin: 0 auto;
       background: #f5f5f5;
@@ -58,8 +41,34 @@
       pre{
       text-align: center;
     }
-    }
+  }
+} 
 
+  .hissu{
+    font-size:12px;
+    border-radius: 2px;
+    margin:0 0 0 8px;
+    padding: 2px 4px;
+    color: $button;
+    height: 32px;
+    width: 19px;
+    background: $accent;
+  }
+  .optional{
+    font-size:12px;
+    border-radius: 2px;
+    margin:0 0 0 8px;
+    padding: 2px 4px;
+    color: $button;
+    height: 32px;
+    width: 19px;
+    background-color: #888
+  }
+  .box{
+      margin: 16px 0 0 0 ;
+  }
+
+  
   &__name{
     border-bottom: 1px solid $visit;
     background: $button;
@@ -98,10 +107,16 @@
   ::placeholder {
     font-size: 16px;
   }
+  .clear-fix::after{
+    content: '';
+    display: block;
+    clear: both;
+  }
   &__show{
     border-bottom: 1px solid $visit;
     background: $button;
-    height: 261px;
+    // height: 261px;
+    height: 100%;
     width : 700px;
     padding:40px;
   }
@@ -114,11 +129,11 @@
   }
   &__showbox{
     float: right;
-    height: 180px;
+    // height: 180px;
     width: 400px;
   }
   &__kategori{
-    height: 70px;
+    // height: 70px;
     width: 400px;
   }
   &__zyoutai{
@@ -126,11 +141,37 @@
     width: 400px;
     margin: 40px 0 0;
   }
+  &__select-group{
+    margin-top: 40px;
+  }
+  #children-area,
+  #grandchildren-area,
+  #size-area,
+  #brand-area{
+    display: none;
+  }
   .select-box{
     position: relative;
-    height: 48px;
+    // height: 48px;
     width: 400px;
-    margin: 8px 0 0 ;
+    // margin: 8px 0 0 ;
+    margin: 18px 0 ;
+    &:after{
+      font-family: "Font Awesome 5 Free";
+      content: '\f078';
+      font-weight: 900;
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #888;
+    }
+    
+  }
+  selct{
+    font-size: 16px;
+    border: 1px;
   }
   .select-default{
     -webkit-appearance: none;
@@ -144,6 +185,9 @@
     cursor: pointer;
     background: $button;
   }
+
+    
+  
   .icon{
     position: absolute;
     top:40%;
@@ -260,11 +304,11 @@
             border: 0;
             padding:0 0  24px 0;
           }
-          .clear-fix::after{
-            content: '';
-            clear: both;
-            display: block;
-          }
+          // .clear-fix:after{
+          //   content: '';
+          //   clear: both;
+          //   display: block;
+          // }
         }
       }
   }
