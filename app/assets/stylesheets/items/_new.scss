@@ -282,21 +282,36 @@
             span {
               font-weight: bold;
             }
+            
             .p-left{
               float: left;
               p{
-                font-weight: 600;
-                font-size: 16px;
-                line-height: 1;
+                // font-weight: 600;
+                // font-size: 16px;
+                // line-height: 1;
               }
             }
             .p-right{
               float: right;
               p{
-                font-weight: 600;
-                font-size: 34px;
+                // font-weight: 600;
+                // font-size: 34px;
               }
             }
+            
+          }
+          .fee-area{
+            // font-weight: 600;
+              font-size: 14px;
+              line-height: 1;
+          }
+          .profit-area{
+            font-size: 16px;
+            &__text{
+              font-size: 34px;
+            }
+            font-weight: 600;
+            
           }
           .first-list {
             line-height: 1;

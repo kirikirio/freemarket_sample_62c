@@ -55,16 +55,6 @@
               -# %i.fa.fa-angle-down.fa-lg.fa-down.icon
               = f.select :category_id, [], {include_blank: '---'}, class: 'select-default', id: 'grandchildren'
 
-            - if @children
-              -# %div.select-box
-                -# %i.fa.fa-angle-down.fa-lg.fa-down.icon
-              -#   = f.collection_select :category_id, @children, :id, :name, {include_blank: '---'}, class: 'select-default', 
-
-
-            -# %div.select-box
-              -# %i.fa.fa-angle-down.fa-lg.fa-down.icon
-            -#   = f.collection_select :category_id, @parents, :id, :name, {include_blank: '---'}, class: 'select-default', id: 'grandchildren'
-
         .main-box__select-group#size-area
           = f.label :size_id do
             サイズ
@@ -89,7 +79,7 @@
             %span.hissu 必須
           %div
             %div.select-box
-              -# %i.fa.fa-angle-down.fa-lg.fa-down.icon
+              
               - @item_statuses = ItemStatus.all
               = f.collection_select :item_status_id, @item_statuses, :id, :status, {include_blank: '---'}, class: 'select-default'
     .main-box__haisou
@@ -103,7 +93,7 @@
             %span.hissu 必須
           %div
             %div.select-box
-              -# %i.fa.fa-angle-down.fa-lg.fa-down.icon
+              
 
               = f.select :delivery_fee ,[['---',''],['着払い',1],['送料込み',2]], {}, class: 'select-default'
         %div.haisou-area
@@ -113,8 +103,6 @@
             %span.hissu 必須
           %div
             %div.select-box
-              -# %i.fa.fa-angle-down.fa-lg.fa-down.icon
-              -# = f.select :prefecture,[['---','']], {}, class: 'select-default'
               = f.collection_select :prefecture_id, @prefectures, :id, :name, {include_blank: '---'}, class: 'select-default'
         %div.haisou-nissu
           = f.label :delivery_status do
@@ -122,7 +110,6 @@
             %span.hissu 必須
           %div
             %div.select-box
-              -# %i.fa.fa-angle-down.fa-lg.fa-down.icon
               - @deliveryStatus = DeliveryStatus.all
               = f.collection_select :delivery_status_id, @deliveryStatus, :id, :status, {include_blank: '---'}, class: 'select-default'
               
@@ -140,16 +127,17 @@
             .right
               %div
                 %p ¥
-                = f.text_field :price,{placeholder: '例）300円'}
-          %li.clear-fix
+                = f.text_field :price,{placeholder: '例）300円', class: 'price-input'}
+          %li.clear-fix.fee-area
             .p-left 
               販売手数料(10%)
-            .p-right -
-          %li.clear-fix
+            .p-right
+              %p.fee-area__tax-rate -
+          %li.clear-fix.profit-area
             .p-left 
               %p 販売利益
             .p-right 
-              %p -
+              %p.profit-area__text -
     .main-box__foot
       .main-box__foot__text
         %p

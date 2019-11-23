@@ -11,6 +11,8 @@ $(function () {
     console.log('発火親');
     let parentId = $(this).val();
     console.log('parent', parentId);
+    // 0だったら、true
+    // ０でなく、aprentIdがfalsyならtrue
     if (parentId === '0' || !(parentId)) {
       console.log('子の親は？', $('#children').parent());
       $('#children').parent().hide();
@@ -44,6 +46,8 @@ $(function () {
     console.log('子発火');
     let parentId = $(this).val();
     console.log('parentId', parentId);
+    //  0だったら、true
+    // ０でなく、aprentIdがfalsyならtrue
     if (parentId === '0' || !(parentId)) {
       console.log('0desu')
       $('#grandchildren').parent().hide();
@@ -68,14 +72,11 @@ $(function () {
           console.log('childerror')
         })
     }
-
   })
 
   $('#grandchildren').on('change', (event) => {
     let select = $(event.currentTarget).val();
     console.log('select', select);
-    // debugger
-
     if (!(select === '0')) {
       console.log('サイズ、ブランド、hide')
       $('#size-area').show();
