@@ -1,7 +1,31 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.order('id ASC').limit(10)
+    @ladies_id = Category.find(1).subtree_ids
+    @ladies = Item.limit(10).where(category_id: @ladies_id)
+
+
+    @man_id = Category.find(200).subtree_ids
+    @men = Item.limit(10).where(category_id: @man_id)
+
+    @home_id = Category.find(898).subtree_ids
+    @homes = Item.limit(10).where(category_id: @home_id)
+
+    @toy_id = Category.find(685).subtree_ids
+    @toys = Item.limit(10).where(category_id: @toy_id)
+
+    @chanel_id = Brand.find(1)
+    @chanels = Item.limit(10).where(brand_id: @chanel_id)
+
+    @lv_id = Brand.find(2)
+    @lvs = Item.limit(10).where(brand_id: @lv_id)
+
+    @supreme_id = Brand.find(3)
+    @supremes = Item.limit(10).where(brand_id: @supreme_id)
+    
+    @nike_id = Brand.find(4)
+    @nikes = Item.limit(10).where(brand_id: @nike_id)
+
   end
 
   def new
