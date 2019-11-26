@@ -1,0 +1,119 @@
+= render 'shared/sub-header'
+.hensyu-box
+  .hensyu-box__head
+    %h2 商品情報を入力
+  = form_with model: @item, method: :patch do |f|
+    .hensyu-box__gazou
+      %h3 
+        出品情報 
+        %span.hissu 必須
+      %p 最大10枚までアップロード出来ます
+      .hensyu-box__dropbox
+        - @item.images.first(1).each do |image|
+          = image_tag image.image.url, id: :img_prev, :size => '105x120'
+        = f.fields_for :images do |img|
+          = f.label :image do
+            = img.file_field :image, id: :item_image
+            -# = img.check_box :_destroy, id: :delete
+            -# = img.label :_destroy,"削除"
+        %pre
+          ドラッグアンドドロップ
+          またはクリックしてファイルをアップロード
+        .upload-item__button
+          %a{ :href => '#'}
+            編集
+          %a{ :href => '#'}
+            削除
+    .main-box-name
+      .main-box-syouhinmei
+        = f.label :item do
+          商品名 
+          %span.hissu 必須
+        %div
+          = f.text_field :name,{class: 'input-text'}
+      .main-box-syouhinsetumei
+        = f.label :item do
+          商品の説明 
+          %span.hissu 必須
+          = f.text_area :description,{class: 'textarea'}
+    .hensyu-box__item
+      %h3 商品の詳細
+      .hensyu-box__itemname
+        = f.label :category do
+          カテゴリー 
+          %span.hissu 必須
+        %div
+          .select-wrap
+            = f.collection_select :category_id, @categorys, :id, :name, {}, class: 'select-default'
+            %i.fa.fa-angle-down.fa-lg.fa-down.icon
+          .select-wrap2
+            = f.label :brand do
+              ブランド
+              %span.nini 任意    
+            = f.collection_select :brand_id, @brands, :id, :name, {}, class: 'select-default'
+            %i.fa.fa-angle-down.fa-lg.fa-down.icon
+          .select-wrap2  
+            = f.label :item_status do
+              商品の状態
+              %span.hissu 必須   
+            = f.collection_select :item_status_id, @item_statuses, :id, :status, {}, class: 'select-default'
+            %i.fa.fa-angle-down.fa-lg.fa-down.icon
+    .hensyu-box__item2
+      %h3 配送について
+      .hensyu-box__itemname
+        = f.label :delivery_fee do
+          配送料の負担
+          %span.hissu 必須
+        %div
+          .select-wrap
+            = f.select :delivery_fee, [["送料込み（出品者負担）"],["着払い（購入者負担）"]], {},class: 'select-default'
+            %i.fa.fa-angle-down.fa-lg.fa-down.icon
+          .select-wrap2  
+            = f.label :delivery_method_id do
+              配送の方法
+              %span.hissu 必須   
+            = f.collection_select :delivery_method_id, @delivery_methods, :id, :method,{}, class: 'select-default'
+            %i.fa.fa-angle-down.fa-lg.fa-down.icon
+          .select-wrap2 
+            = f.label :prefecture do
+              発送元の地域
+              %span.hissu 必須   
+            = f.collection_select :prefecture_id, @prefecture, :id, :name, {}, class: 'select-default'
+            %i.fa.fa-angle-down.fa-lg.fa-down.icon
+          .select-wrap2 
+            = f.label :delivery_status do
+              発送までの日数
+              %span.hissu 必須   
+            = f.collection_select :delivery_status_id, @delivery_statuses,:id, :status,{}, class: 'select-default'
+            %i.fa.fa-angle-down.fa-lg.fa-down.icon
+    .main-box__price
+      %h3
+        販売価格(300~9,999,999)
+        %i{class: 'icon-question fa fa-question-circle'}
+      .main-box__price__form
+        %ul
+          %li.first-list
+            .left
+              = f.label :price do
+                価格 
+                %span.hissu 必須
+            .right
+              %div
+                %p ¥
+                = f.text_field :price,{type: 'text',placeholder: '例）300円'}
+          %li.clear-fix
+            .p-left 
+              販売手数料(10%)
+            .p-right -
+          %li.clear-fix
+            .p-left 
+              %p 販売利益
+            .p-right 
+              %p -
+    .hensyu-box-last
+      %button.button-red
+        変更する
+      %p.button-gray
+        = link_to "キャンセル", "#"
+      
+= render 'shared/sub-footer'
