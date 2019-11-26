@@ -1,23 +1,53 @@
+.notification
+  - flash.each do |key, value|
+    = content_tag :div, value, class: key
 = render 'shared/sub-header'
 -# %header.single-header
+
+-# .test
+-#   - @img = Item.new.images
+-#   - @test = Image.new
+-#   - if @img
+-#     - @img.each  do |i|
+-#       = image_tag i.image.url
+      -# , id: 'preview'
+-# = image_tag @test.image.url, id: 'preview' if @test.image?
+  
+      
+
 .main-box
   .main-box__head 商品の情報を入力
-  - @item = Item.new
   = form_with model: @item do |f|
     .main-box__image
-      %h3 
-        出品情報 
+      %h3
+        出品情報
         %span.hissu 必須
       %p 最大10枚までアップロードできます
-      
-      = fields_for :images do |image|
-        .box
-          = image.label :image do
-            .main-box__image__box
-              %pre
-                ドラッグアンドドロップ
-                またはクリックしてファイルをアップロード
-              = image.file_field :image,{style: "display: none;"}
+      -# = f.fields_for :images do |image|
+      -# = f.file_field :image, multiple: true
+      = f.fields_for :images, @item.images.build do |image|
+        -# .box
+        -#   .test
+        -#     %ul
+        -#       %li
+        -#         .figure
+        -#           %img{src: '#'}
+        -#         .con
+        -#           %p 削除
+        -#           %p 編集
+        = image.label :image do
+          .main-box__image__area
+            %pre
+              ドラッグアンドドロップ
+              またはクリックしてファイルをアップロード
+              -# maltiple true を一旦削除, name: 'images[image][]'
+              = image.file_field :image, id: 'fileField'
+
+              -# = image.file_field :image
+            -# , class: 'main-box__image__area--hidden'
+            -# item[images_attributes][0][image][]
+            -# = image.file_field :image, multiple: true, name: 'images[image][]'
+            -# , class: 'main-box__image__area--hidden', name: 'images[image][]'
     .main-box__name
       .main-box__syouhinmei
         = f.label :name do
@@ -41,18 +71,12 @@
             %span.hissu 必須
           %div
             %div.select-box.parent
-              -# %i.fa.fa-angle-down.fa-lg.fa-down.icon
-              - @parents = Category.roots
-              -# - @children = @parents.first.children
-              -# - @grandchildren = @children.find()
               = f.collection_select :category_id, @parents, :id, :name, {include_blank: '---'}, class: 'select-default', id: 'parent'
 
             %div.select-box#children-area
-              -# %i.fa.fa-angle-down.fa-lg.fa-down.icon
               = f.select :category_id, [], {include_blank: '---'}, class: 'select-default', id: 'children'
                 
             %div.select-box#grandchildren-area
-              -# %i.fa.fa-angle-down.fa-lg.fa-down.icon
               = f.select :category_id, [], {include_blank: '---'}, class: 'select-default', id: 'grandchildren'
 
         .main-box__select-group#size-area
@@ -61,7 +85,6 @@
             %span.hissu 必須
           %div
             %div.select-box
-              - @sizes = Size.all
               = f.collection_select :size_id, @sizes, :id, :size, {include_blank: '---'}, class: 'select-default'
 
         .main-box__select-group#brand-area
@@ -70,7 +93,6 @@
             %span.optional 任意
           %div
             %div.select-box
-              - @brands = Brand.all
               = f.collection_select :brand_id, @brands, :id, :name, {include_blank: '---'}, class: 'select-default'
 
         %div.main-box__zyoutai
@@ -79,10 +101,8 @@
             %span.hissu 必須
           %div
             %div.select-box
-              
-              - @item_statuses = ItemStatus.all
               = f.collection_select :item_status_id, @item_statuses, :id, :status, {include_blank: '---'}, class: 'select-default'
-    .main-box__haisou
+    .main-box__haisou.clear-fix
       %h3.h3sub 
         配送について
         %i{class: 'icon-question fa fa-question-circle'}
@@ -93,25 +113,31 @@
             %span.hissu 必須
           %div
             %div.select-box
-              
+              - @test = ['着払い','送料込み']
+              = f.select :delivery_fee ,@delivery_fee, {include_blank: '---'}, class: 'select-default'
+                
+        .main-box__select-group#method-area
+          = f.label :brand_id do
+            発送方法
+            %span.hissu 必須
+          %div
+            %div.select-box
+              = f.collection_select :delivery_method_id, @delivery_method, :id, :method, {include_blank: '---'}, class: 'select-default',id: 'method'
 
-              = f.select :delivery_fee ,[['---',''],['着払い',1],['送料込み',2]], {}, class: 'select-default'
         %div.haisou-area
-          - @prefectures = Prefecture.all
           = f.label :prefecture do
             発送元の地域 
             %span.hissu 必須
           %div
             %div.select-box
-              = f.collection_select :prefecture_id, @prefectures, :id, :name, {include_blank: '---'}, class: 'select-default'
+              = f.collection_select :prefecture_id, @prefectures, :id, :name, {include_blank: '---'}, class: 'select-default', id: 'pref'
         %div.haisou-nissu
           = f.label :delivery_status do
             発送までの日数 
             %span.hissu 必須
           %div
             %div.select-box
-              - @deliveryStatus = DeliveryStatus.all
-              = f.collection_select :delivery_status_id, @deliveryStatus, :id, :status, {include_blank: '---'}, class: 'select-default'
+              = f.collection_select :delivery_status_id, @delivery_statuses, :id, :status, {include_blank: '---'}, class: 'select-default'
               
     .main-box__price
       %h3

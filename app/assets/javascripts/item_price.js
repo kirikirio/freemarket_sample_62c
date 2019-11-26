@@ -4,9 +4,10 @@ $(function () {
     const price = $(e.currentTarget).val();
     const taxRate = 0.1;
     const fee = Math.floor(price * taxRate);
-    const newFee = fee.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,')
 
     const profit = price - fee;
+    // 正規表現でカンマ区切りに置換
+    const newFee = fee.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,')
     const newProfit = profit.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,')
     console.log('profit', price, fee, profit)
     if (300 <= price && price < 10000000) {

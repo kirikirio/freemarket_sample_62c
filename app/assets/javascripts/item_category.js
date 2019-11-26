@@ -11,6 +11,7 @@ $(function () {
     console.log('発火親');
     let parentId = $(this).val();
     console.log('parent', parentId);
+    console.log('url', url)
     // 0だったら、true
     // ０でなく、aprentIdがfalsyならtrue
     if (parentId === '0' || !(parentId)) {
@@ -20,7 +21,7 @@ $(function () {
     } else {
       $.ajax({
         type: 'GET',
-        url: url,
+        url: '/items/new',
         data: { parentId },
         dataType: 'json'
       })
@@ -76,9 +77,7 @@ $(function () {
 
   $('#grandchildren').on('change', (event) => {
     let select = $(event.currentTarget).val();
-    console.log('select', select);
     if (!(select === '0')) {
-      console.log('サイズ、ブランド、hide')
       $('#size-area').show();
       $('#brand-area').show();
     }
