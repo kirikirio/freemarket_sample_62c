@@ -10,22 +10,38 @@
           .form-group__label
             %label{class: 'form-group__label__text'} ニックネーム
             %span{class: 'form-group__label__require'} 必須
-          = f.text_field :nickname, class: "form-group__input", placeholder: "例）エフ太郎"
+          = f.text_field :nickname, class: "form-group__input", placeholder: "例）エフ太郎", maxlength: "30"
+          - if flash[:nickname] == "ニックネームを入力してください"
+            .form-group__error
+              = flash[:nickname]
 
         .form-group  
           .form-group__label
             %label{class: 'form-group__label__text'} メールアドレス
             %span{class: 'form-group__label__require'} 必須
           = f.text_field :email, class: "form-group__input", placeholder: "PC・携帯どちらでも可"
+          - if flash[:email] == "メールアドレスを入力してください"
+            .form-group__error
+              = flash[:email]
+          - elsif flash[:email] == "このメールアドレスはすでに使用されています"
+            .form-group__error
+              = flash[:email]
 
         .form-group
           .form-group__label
             %label{class: 'form-group__label__text'} パスワード
             %span{class: 'form-group__label__require'}  必須
-          = f.password_field :password, class: "form-group__input", placeholder: "７文字以上"  
+          = f.password_field :password, class: "form-group__input", placeholder: "７文字以上", id: "password"
+          - if flash[:password] == {a: "パスワードを入力してください", b: "パスワードは7文字以上128文字以下で入力してください", c: "英字と数字両方を含むパスワードを設定してください"}
+            .form-group__error
+              = flash[:password][:a]
+            .form-group__error-wide
+              = flash[:password][:b]
+            .form-group__error
+              = flash[:password][:c]
           
           .form-group__revelation-pass
-            %input{type: "checkbox", class: 'form-group__revelation-pass__checkbox'}
+            %input{type: "checkbox", name: "check", class: 'form-group__revelation-pass__checkbox'}
             %label{class: 'form-group__revelation-pass__label'} パスワードを表示する
         .form-group
           %h3{class: 'form-group__subtitle'} 本人確認
@@ -35,15 +51,27 @@
           .form-group__label
             %label{class: 'form-group__label__text'} お名前(全角)
             %span{class: 'form-group__label__require'} 必須
-          = f.text_field :lastname, class: "form-group__input--half-first", placeholder: "例）山田"
-          = f.text_field :firstname, class: "form-group__input--half", placeholder: "例）彩"
+          = f.text_field :lastname, class: "form-group__input--half-first", placeholder: "例）山田", maxlength: "30"
+          = f.text_field :firstname, class: "form-group__input--half", placeholder: "例）彩", maxlength: "30"
+          - if flash[:lastname] == "性を入力してください"
+            .form-group__error
+              = flash[:lastname]
+          - if flash[:firstname] == "名を入力してください"
+            .form-group__error
+              = flash[:firstname]
 
         .form-group
           .form-group__label
             %label{class: 'form-group__label__text'} お名前カナ(全角) 
             %span{class: 'form-group__label__require'} 必須
-          = f.text_field :lastname_kana, class: "form-group__input--half-first", placeholder: "例）ヤマダ"
-          = f.text_field :firstname_kana, class: "form-group__input--half", placeholder: "例）アヤ"
+          = f.text_field :lastname_kana, class: "form-group__input--half-first", placeholder: "例）ヤマダ", maxlength: "30"
+          = f.text_field :firstname_kana, class: "form-group__input--half", placeholder: "例）アヤ", maxlength: "30"
+          - if flash[:lastname_kana] == "性カナを入力してください"
+            .form-group__error
+              = flash[:lastname_kana]
+          - if flash[:firstname_kana] == "名カナを入力してください"
+            .form-group__error
+              = flash[:firstname_kana]
 
         .form-group.full-width
           .form-group__label
@@ -52,12 +80,18 @@
           .form-group__select
             .flex-wrap
               .form-group__select__item
-                != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'###', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'&nbsp;年&nbsp;','&nbsp;月&nbsp;')+'&nbsp;日'
+                != sprintf(f.date_select(:birthday, prefix:'user',with_css_classes:'###', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'&nbsp;年&nbsp;','&nbsp;月&nbsp;')+'&nbsp;日'
+            - if flash[:birthday] == "生年月日を正しく入力してください"
+              .form-group__error
+                = flash[:birthday]
 
         %p{class: 'form-attention'} ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
         .form-group.captcha-wrap
-        .g-recaptcha.captcha-wrap__item{data:{callback: "clearcall", sitekey: "6Lfn0cIUAAAAAHtZSYzSvSZrwyRQ4sXtvS9jGZaS"}}
+        = recaptcha_tags callback: "clearcall", sitekey: ENV['RECAPTCHA_SITE_KEY']
+        - if flash[:base] == "選択してください"
+          .form-group__error
+            = flash[:base]
         
         .form-group
           %p{class: 'registration-box__contents__form__info'}

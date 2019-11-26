@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  if(document.URL.match("/signup/registration")) {
+  if($("h1").text() == "会員情報入力") {
     $('.stepper li').each(function(i, val) {
       $(".stepper li").eq(i).css({'color':'#ea352d','font-weight':'600'})
       $(".stepper li").eq(i).children("div").css('background-color','#ea352d')
@@ -10,7 +10,7 @@ $(document).on('turbolinks:load', function() {
     })
   }
 
-  if(document.URL.match("/signup/authentication")) {
+  if($("h1").text() == "電話番号認証") {
     $('.stepper li').each(function(i, val) {
       $(".stepper li").eq(i).css({'color':'#ea352d','font-weight':'600'})
       $(".stepper li").eq(i).children("div").css('background-color','#ea352d')
@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', function() {
     })
   }
 
-  if(document.URL.match("/signup/address")) {
+  if($("h1").text() == "発送元・お届け情報入力") {
     $('.stepper li').each(function(i, val) {
       $(".stepper li").eq(i).css({'color':'#ea352d','font-weight':'600'})
       $(".stepper li").eq(i).children("div").css('background-color','#ea352d')
@@ -32,7 +32,7 @@ $(document).on('turbolinks:load', function() {
     })
   }
 
-  if(document.URL.match("/signup/credit")) {
+  if($("h1").text() == "支払い方法") {
     $('.stepper li').each(function(i, val) {
       $(".stepper li").eq(i).css({'color':'#ea352d','font-weight':'600'})
       $(".stepper li").eq(i).children("div").css('background-color','#ea352d')
@@ -43,7 +43,7 @@ $(document).on('turbolinks:load', function() {
     })
   }
 
-  if(document.URL.match("/signup/completed")) {
+  if($("h1").text() == "会員登録完了") {
     $('.stepper li').each(function(i, val) {
       $(".stepper li").eq(i).css({'color':'#ea352d','font-weight':'600'})
       $(".stepper li").eq(i).children("div").css('background-color','#ea352d')
