@@ -26,7 +26,7 @@ class SignupController < ApplicationController
       firstname: session[:firstname],
       lastname_kana: session[:lastname_kana],
       firstname_kana: session[:firstname_kana],
-      tel_number: session[:tel_number]
+      tel_number: user_params[:tel_number]
     )
     session[:tel_number] = user_params[:tel_number]
   end
@@ -68,8 +68,7 @@ class SignupController < ApplicationController
           customer_id: customer.id,
           card_id: customer.default_card
         )
-        @user.save
-        sign_in @user
+        sign_in @user if @user.save
     end
     
   end
