@@ -31,7 +31,7 @@ $(document).on('turbolinks:load', function() {
         }
         else {
           alert("カード情報が正しくありません。")
-          form.find('button').prop('disabled', false);
+          form.find("input[type=submit]").prop('disabled', false);
         }
       });
     });
