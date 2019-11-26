@@ -95,16 +95,16 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @items.each do |item|
+      - @ladies.each do |lady|
         = link_to "#" do
           .new__items__container__box
             %figure
-              = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
+              = image_tag lady.images[0].image , class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
-                = "¥#{item.price.to_s(:delimited)}"
+                = "¥#{lady.price.to_s(:delimited)}"
             .new__items__container__box__item_body
               %h3 
-                = item.name
+                = lady.name
   
   %section.new__items
     .new__items-genre
@@ -115,16 +115,16 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @items.each do |item|
+      - @men.each do |man|
         = link_to "#" do
           .new__items__container__box
             %figure
-              = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
+              = image_tag man.images[0].image , class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
-                = "¥#{item.price.to_s(:delimited)}"
+                = "¥#{man.price.to_s(:delimited)}"
             .new__items__container__box__item_body
               %h3 
-                = item.name
+                = man.name
 
   %section.new__items
     .new__items-genre
@@ -135,16 +135,16 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @items.each do |item|
+      - @homes.each do |home|
         = link_to "#" do
           .new__items__container__box
             %figure
-              = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
+              = image_tag home.images[0].image , class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
-                = "¥#{item.price.to_s(:delimited)}"
+                = "¥#{home.price.to_s(:delimited)}"
             .new__items__container__box__item_body
               %h3 
-                = item.name
+                = home.name
 
   %section.new__items
     .new__items-genre
@@ -155,25 +155,25 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @items.each do |item|
+      - @toys.each do |toy|
         = link_to "#" do
           .new__items__container__box
             %figure
-              = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
+              = image_tag toy.images[0].image , class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
-                = "¥#{item.price.to_s(:delimited)}"
+                = "¥#{toy.price.to_s(:delimited)}"
             .new__items__container__box__item_body
               %h3 
-                = item.name
+                = toy.name
 
   .top__header__area
     .top__header__area__popularity
       %h2.top__header__area__popularity-headline 人気のブランド
     %ul.top__header__area__popularity__category
       %li シャネル
-      %li ルイビトン
-      %li ポーター
-      %li アディダス
+      %li ルイヴィトン
+      %li シュプリーム
+      %li ナイキ
   %section.new__items
     .new__items-genre
       %h3
@@ -183,16 +183,16 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @items.each do |item|
+      - @chanels.each do |chanel|
         = link_to "#" do
           .new__items__container__box
             %figure
               = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
-                = "¥#{item.price.to_s(:delimited)}"
+                = "¥#{chanel.price.to_s(:delimited)}"
             .new__items__container__box__item_body
               %h3 
-                = item.name
+                = chanel.name
 
   %section.new__items
     .new__items-genre
@@ -203,44 +203,58 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @items.each do |item|
+      - @lvs.each do |lv|
         = link_to "#" do
           .new__items__container__box
             %figure
               = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
-                = "¥#{item.price.to_s(:delimited)}"
+                = "¥#{lv.price.to_s(:delimited)}"
             .new__items__container__box__item_body
               %h3 
-                = item.name
+                = lv.name
 
   %section.new__items
     .new__items-genre
       %h3
-        ポーター新着アイテム
+        シュプリーム新着アイテム
       = link_to "###" do
         %span.new__items-more もっと見る
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @items.each do |item|
+      - @supremes.each do |supreme|
         = link_to "#" do
           .new__items__container__box
             %figure
               = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
-                = "¥#{item.price.to_s(:delimited)}"
+                = "¥#{supreme.price.to_s(:delimited)}"
             .new__items__container__box__item_body
               %h3 
-                = item.name
+                = supreme.name
 
   %section.new__items
     .new__items-genre
       %h3
-        アディダス新着アイテム
+        ナイキ新着アイテム
       = link_to "###" do
         %span.new__items-more もっと見る
         %i.fas.fa-angle-right
-  
+  %section.new__items
+    .new__items__container
+      - @nikes.each do |nike|
+        = link_to "#" do
+          .new__items__container__box
+            %figure
+              = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
+              %p.new__items__container__box-price
+                = "¥#{nike.price.to_s(:delimited)}"
+            .new__items__container__box__item_body
+              %h3 
+                = nike.name
+
+
+
 
 = render partial: 'shared/footer'
