@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_090219) do
     t.integer "price", null: false
     t.text "description", null: false
     t.bigint "item_status_id", null: false
-    t.bigint "sale_status_id", default: 1, null: false
+    t.bigint "sale_status_id", null: false
     t.bigint "size_id", null: false
     t.bigint "brand_id", null: false
     t.bigint "delivery_status_id", null: false
