@@ -5,28 +5,41 @@
     .address-box__title
       %h1 発送元・お届け情報入力
     .address-box__contents
-      = form_with model: User.new, class: "address-box__contents__form", url: credit_signup_index_path  do |f|
+      = form_with model: @user, class: "address-box__contents__form", url: credit_signup_index_path  do |f|
         .form-group.first-form
           .form-group__label
             %label{class: 'form-group__label__text'} お名前
             %span{class: 'form-group__label__require'} 必須
-          = f.text_field :firstname, class: "form-group__input", value: "", placeholder: "例）山田"
-          = f.text_field :lastname, class: "form-group__input second-input", value: "", placeholder: "例）彩"
-          
-
+          = f.text_field :lastname, class: "form-group__input", placeholder: "例）山田", maxlength: "30"
+          = f.text_field :firstname, class: "form-group__input second-input", placeholder: "例）彩", maxlength: "30"
+          - if flash[:lastname] == "性を入力してください"
+            .form-group__error
+              = flash[:lastname]
+          - if flash[:firstname] == "名を入力してください"
+            .form-group__error
+              = flash[:firstname]
 
         .form-group  
           .form-group__label
             %label{class: 'form-group__label__text'} お名前カナ
             %span{class: 'form-group__label__require'} 必須
-          = f.text_field :firstname_kana, class: "form-group__input", value: "", placeholder: "例）ヤマダ"  
-          = f.text_field :lastname_kana, class: "form-group__input second-input", value: "", placeholder: "例）アヤ"
+          = f.text_field :lastname_kana, class: "form-group__input", placeholder: "例）ヤマダ", maxlength: "30"
+          = f.text_field :firstname_kana, class: "form-group__input second-input", placeholder: "例）アヤ", maxlength: "30"
+          - if flash[:lastname_kana] == "性カナを入力してください"
+            .form-group__error
+              = flash[:lastname_kana]
+          - if flash[:firstname_kana] == "名カナを入力してください"
+            .form-group__error
+              = flash[:firstname_kana]
 
         .form-group  
           .form-group__label
             %label{class: 'form-group__label__text'} 郵便番号
             %span{class: 'form-group__label__require'} 必須
           = f.text_field :postal_code, class: "form-group__input", value: "", placeholder: "例）123-4567", maxlength: "8"
+          - if flash[:postal_code] == "郵便番号を正しく入力してください"
+            .form-group__error
+              = flash[:postal_code]
 
         .form-group  
           .form-group__label
@@ -34,21 +47,28 @@
             %span{class: 'form-group__label__require'} 必須
           .form-group__select__item
             %i{class: 'icon-arrow-down fa fa-chevron-down'}
-            %select{name: "prefecture", class: "first-select"}
-              %option 北海道
-              -# = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", class: 'first-select'
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", class: 'first-select'
+            - if flash[:prefecture_id] == "都道府県を正しく入力してください"
+              .form-group__error
+                = flash[:prefecture_id]
 
         .form-group  
           .form-group__label
             %label{class: 'form-group__label__text'} 市区町村
             %span{class: 'form-group__label__require'} 必須
-          = f.text_field :city, class: "form-group__input", value: "", placeholder: "例）横浜市緑区"
+          = f.text_field :city, class: "form-group__input", value: "", placeholder: "例）横浜市緑区", maxlength: "30"
+          - if flash[:city] == "市区町村を入力してください"
+            .form-group__error
+              = flash[:city]
 
         .form-group  
           .form-group__label
             %label{class: 'form-group__label__text'} 番地
             %span{class: 'form-group__label__require'} 必須
-          = f.text_field :city_block, class: "form-group__input", value: "", placeholder: "例）青山1-1-1"
+          = f.text_field :city_block, class: "form-group__input", value: "", placeholder: "例）青山1-1-1", maxlength: "30"
+          - if flash[:city_block] == "番地を入力してください"
+            .form-group__error
+              = flash[:city_block]
 
         .form-group  
           .form-group__label
@@ -60,7 +80,7 @@
           .form-group__label
             %label{class: 'form-group__label__text'} 電話
             %span{class: 'form-group__label__optional optional'} 任意
-          = f.phone_field :tel_number, class: "form-group__input", value: "", placeholder: "例）09012345678", maxlength: "15"
+          = f.phone_field :tel_number, class: "form-group__input", placeholder: "例）09012345678", maxlength: "15"
       
         
         = f.submit "次へ進む", class:'btn address-box__contents__form__submit'

@@ -12,6 +12,9 @@
             %label{class: 'form-group__label__text'} カード番号
             %span{class: 'form-group__label__require'} 必須
           = f.text_field :card_number, class: "form-group__input", value: "", placeholder: "半角数字のみ", maxlength: "16", id: "card_number"
+          - if flash[:card_number] == "カード番号を正しく入力してください"
+            .form-group__error
+              = flash[:card_number]
 
           .form-group__image
             = image_tag 'credits/card_logo'
@@ -31,12 +34,18 @@
                 %i{class: 'icon-arrow-down fa fa-chevron-down'}
                 = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{}, class: "first-select", value: "", id: "exp_year"
               %span 年
+            - if flash[:exp_month] == "月を正しく入力してください"
+              .form-group__error
+                = flash[:exp_month]
 
         .form-group
           .form-group__label
             %label{class: 'form-group__label__text'} セキュリティコード
             %span{class: 'form-group__label__require'} 必須
           = f.text_field :cvc, class: "form-group__input", value: "", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "card_cvc"
+          - if flash[:cvc] == "セキュリティコードを正しく入力してください"
+            .form-group__error
+              = flash[:cvc]
 
         .info-wrap
           .payment-box__contents__form__info-link
