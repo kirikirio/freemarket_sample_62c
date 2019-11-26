@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_085503) do
     t.bigint "size_id", null: false
     t.bigint "brand_id", null: false
     t.bigint "delivery_status_id", null: false
-    t.text "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
     t.string "delivery_fee", null: false
