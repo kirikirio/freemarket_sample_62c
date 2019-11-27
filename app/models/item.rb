@@ -11,9 +11,9 @@ class Item < ApplicationRecord
 
   # belongs_to :user
 
-  validates :name, presence: true
-  validates :price, presence: true
-  validates :description, presence: true
+  validates :name, presence: true, length: {maximum: 40}
+  validates :price, presence: true,numericality: {only_integer: true, greater_than_or_equal_to: 300,less_than_or_equal_to: 9999999} 
+  validates :description, presence: true,length: {maximum: 1000}
   validates :item_status_id, presence: true
   validates :sale_status_id, presence: true
   validates :size_id, presence: true

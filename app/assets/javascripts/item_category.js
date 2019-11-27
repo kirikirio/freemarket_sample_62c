@@ -4,7 +4,8 @@ $(function () {
     $(`#${target}`).append(html)
 
   }
-  const url = window.location.href;
+  // const url = window.location.href;
+  const url = '/items/new';
 
   $('#parent').on('change', function () {
     $('#children').empty();
@@ -21,7 +22,7 @@ $(function () {
     } else {
       $.ajax({
         type: 'GET',
-        url: '/items/new',
+        url: url,
         data: { parentId },
         dataType: 'json'
       })

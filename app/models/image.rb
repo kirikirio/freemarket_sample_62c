@@ -5,5 +5,5 @@ class Image < ApplicationRecord
   # , optional: true
   mount_uploader :image, ImageUploader
 
-  validates :image, presence: true, on: :hoge
+  validates :image, presence: true
 end
