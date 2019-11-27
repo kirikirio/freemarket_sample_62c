@@ -2,13 +2,13 @@
 %section.item_detail_contents
 
   %h1.item_detail_contents__item-name 
-    = @items.name
+    = @item.name
   .item_detail_contents__box
     .item_detail_contents__box__images
       .item_detail_contents__box__images-main
-        = image_tag @items.images[0].image, class:'item_detail_contents__box__images-img'
+        = image_tag @item.images[0].image, class:'item_detail_contents__box__images-img'
         .item_detail_contents__box__images-subs
-          = image_tag @items.images[0].image, class:'item_detail_contents__box__images-sub'
+          = image_tag @item.images[0].image, class:'item_detail_contents__box__images-sub'
           -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
           -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
           -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
@@ -25,7 +25,7 @@
           %td
             = link_to "###" do
               %p
-                = @items.user.nickname
+                = @item.user.nickname
             %br/
             .evaluation
               %i.fas.fa-laugh
@@ -47,53 +47,53 @@
           %td
             %div
               = link_to "###" do
-                = @items.category.path[0].name
+                = @item.category.path[0].name
             %div
               = link_to "###" do
                 %i.fas.fa-chevron-right>
-                = @items.category.path[1].name
+                = @item.category.path[1].name
             %div
               = link_to "###" do
                 %i.fas.fa-chevron-right>
-                = @items.category.path[2].name
+                = @item.category.path[2].name
         %tr
           %th ブランド
           %td
             = link_to "###" do
-              = @items.brand.name
+              = @item.brand.name
         %tr
           %th 商品の状態
           %td 
-            = @items.item_status.status
+            = @item.item_status.status
         %tr
           %th 配送料の負担
           %td 
-            = @items.delivery_fee
+            = @item.delivery_fee
         %tr
           %th 配送の方法
           %td 
-            = @items.delivery_method.method
+            = @item.delivery_method.method
         %tr
           %th 配送元地域
           %td
             = link_to "###" do
-              = @items.prefecture.name
+              = @item.prefecture.name
         %tr
           %th 発送日の目安
           %td 
-            = @items.delivery_status.status
+            = @item.delivery_status.status
   .price__section
     %span.price__section-pricetext 
-      = "¥#{@items.price.to_s(:delimited)}"
+      = "¥#{@item.price.to_s(:delimited)}"
     %span.price__section-tax (税込)
     %span.price__section-delivery-fee 
-      = @items.delivery_fee
-  = link_to "/items/:id/confirmation", class: "buy-button" do
+      = @item.delivery_fee
+  = link_to confirmation_item_path, class: "buy-button" do
     %p.buy-text 購入画面に進む
   -# %p.delivery_caution この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
   .item__description
     %p.item__description-text
-      = @items.description
+      = @item.description
   .item__bottun__container
     %ul.item__bottun__container__box
       %li.item__bottun__container__box-tag
@@ -143,7 +143,7 @@
 %section.related__item
   %h2.related__item-head
     = link_to "###" do
-      = "#{@items.user.nickname}のその他の出品"
+      = "#{@item.user.nickname}のその他の出品"
     .items__container
       = link_to "###" do
         .items__container__box
@@ -184,5 +184,5 @@
       = link_to "/" do
         メルカリ 
       %i.fas.fa-angle-right
-      = @items.name
+      = @item.name
 = render partial: 'shared/footer'
