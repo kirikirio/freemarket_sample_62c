@@ -1,4 +1,5 @@
 class ItemStatus < ApplicationRecord
+  has_many :items​​
 end
 
 # 下記activehashの記述

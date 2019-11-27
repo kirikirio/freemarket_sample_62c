@@ -5,12 +5,15 @@
     .auth-phoneNum-box__title
       %h1 電話番号認証
     .auth-phoneNum-box__contents
-      %form{class: 'auth-phoneNum-box__contents__form'}
+      = form_with model: User.new, class: "auth-phoneNum-box__contents__form", url: address_signup_index_path  do |f|
         .form-group.first-form
           .form-group__label
             %label{class: 'form-group__label__text'} 携帯電話の番号
-          %input{type: "tel", name: "tel_number", value: "", placeholder: "携帯電話の番号を入力", class: "form-group__input"}
+          = f.telephone_field :tel_number, class: "form-group__input", placeholder: "携帯電話の番号を入力", maxlength: "11"
         %p{class: 'form-note'} 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        - if flash[:tel_number] == "電話番号を正しく入力してください"
+          .form-group__error
+            = flash[:tel_number]
 
         %button{type: 'submit', class: 'btn auth-phoneNum-box__contents__form__submit'}
           SMSを送信する

@@ -1,4 +1,79 @@
-= render partial: 'shared/header'
+-# ログイン前
+- if user_signed_in?
+  %header.toppage-login
+    .contents
+      .contents__top
+        .contents__top__image
+          = link_to "###" do
+            = image_tag "logo/fmarket_logo_red.svg", width: "134", height: "36"
+        .contents__top__search
+          .contents__top__search--icon
+            = fa_icon 'search'
+          %input{type:"text", placeholder:"何をお探しですか？", class: "contents__top__search--box"}
+
+      .contents__bottom
+        .contents__bottom__left
+          .contents__bottom__left__category
+            = fa_icon 'list-ul'
+            カテゴリーから探す
+          .contents__bottom__left__brand
+            = fa_icon 'tag'
+            ブランドから探す
+        .contents__bottom__right
+          = link_to "###" do
+            .contents__bottom__right__like
+              .contents__bottom__right__like--icon
+                %i.far.fa-heart
+              .contents__bottom__right__like--text
+                いいね！一覧
+          = link_to "###" do
+            .contents__bottom__right__notice
+              .contents__bottom__right__notice--icon
+                %i.far.fa-bell
+              .contents__bottom__right__notice--text
+                お知らせ
+
+          = link_to "###" do
+            .contents__bottom__right__list
+              .contents__bottom__right__list--icon
+                %i.fas.fa-check
+              .contents__bottom__right__list--text
+                やることリスト
+
+          = link_to "###" do
+            .contents__bottom__right__mypage
+              .contents__bottom__right__mypage--icon
+                = image_tag 'my-page.jpg', width: "32", height: "32"
+              .contents__bottom__right__mypage--text
+                マイページ
+
+- else
+  %header.toppage-main
+    .contents
+      .contents__top
+        .contents__top__image
+          = link_to items_path do
+            = image_tag "logo/fmarket_logo_red.svg", width: "134", height: "36"
+        .contents__top__search
+          .contents__top__search--icon
+            = fa_icon 'search'
+          %input{type:"text", placeholder:"何をお探しですか？", class: "contents__top__search--box"}
+
+      .contents__bottom
+        .contents__bottom__left
+          .contents__bottom__left__category
+            = fa_icon 'list-ul'
+            カテゴリーから探す
+          .contents__bottom__left__brand
+            = fa_icon 'tag'
+            ブランドから探す
+        .contents__bottom__right
+          .contents__bottom__right__registration
+            = link_to select_singup_users_path do
+              新規会員登録
+          .contents__bottom__right__login
+            = link_to new_user_session_path do
+              ログイン
 
 .content
   .top__header__area
@@ -20,76 +95,17 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
+      - @ladies.each do |lady|
+        = link_to "#" do
+          .new__items__container__box
+            %figure
+              = image_tag lady.images[0].image , class:'new__items__container__box-item_phot'
+              %p.new__items__container__box-price
+                = "¥#{lady.price.to_s(:delimited)}"
+            .new__items__container__box__item_body
+              %h3 
+                = lady.name
+  
   %section.new__items
     .new__items-genre
       %h3
@@ -99,76 +115,17 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/mens01.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥5,500
-          .new__items__container__box__item_body
-            %h3 kutir black テーラードブルゾン
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/mens01.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥5,500
-          .new__items__container__box__item_body
-            %h3 kutir black テーラードブルゾン
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/mens01.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥5,500
-          .new__items__container__box__item_body
-            %h3 kutir black テーラードブルゾン
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/mens01.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥5,500
-          .new__items__container__box__item_body
-            %h3 kutir black テーラードブルゾン
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/mens01.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥5,500
-          .new__items__container__box__item_body
-            %h3 kutir black テーラードブルゾン
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/mens01.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥5,500
-          .new__items__container__box__item_body
-            %h3 kutir black テーラードブルゾン
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/mens01.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥5,500
-          .new__items__container__box__item_body
-            %h3 kutir black テーラードブルゾン
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/mens01.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥5,500
-          .new__items__container__box__item_body
-            %h3 kutir black テーラードブルゾン
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/mens01.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥5,500
-          .new__items__container__box__item_body
-            %h3 kutir black テーラードブルゾン
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/mens01.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥5,500
-          .new__items__container__box__item_body
-            %h3 kutir black テーラードブルゾン
+      - @men.each do |man|
+        = link_to "#" do
+          .new__items__container__box
+            %figure
+              = image_tag man.images[0].image , class:'new__items__container__box-item_phot'
+              %p.new__items__container__box-price
+                = "¥#{man.price.to_s(:delimited)}"
+            .new__items__container__box__item_body
+              %h3 
+                = man.name
+
   %section.new__items
     .new__items-genre
       %h3
@@ -178,76 +135,17 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/iphonese.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥12,500
-          .new__items__container__box__item_body
-            %h3 iPhone SE Space Gray 32 GB（中古）
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/iphonese.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥12,500
-          .new__items__container__box__item_body
-            %h3 iPhone SE Space Gray 32 GB（中古）
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/iphonese.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥12,500
-          .new__items__container__box__item_body
-            %h3 iPhone SE Space Gray 32 GB（中古）
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/iphonese.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥12,500
-          .new__items__container__box__item_body
-            %h3 iPhone SE Space Gray 32 GB（中古）
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/iphonese.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥12,500
-          .new__items__container__box__item_body
-            %h3 iPhone SE Space Gray 32 GB（中古）
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/iphonese.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥12,500
-          .new__items__container__box__item_body
-            %h3 iPhone SE Space Gray 32 GB（中古）
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/iphonese.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥12,500
-          .new__items__container__box__item_body
-            %h3 iPhone SE Space Gray 32 GB（中古）
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/iphonese.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥12,500
-          .new__items__container__box__item_body
-            %h3 iPhone SE Space Gray 32 GB（中古）
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/iphonese.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥12,500
-          .new__items__container__box__item_body
-            %h3 iPhone SE Space Gray 32 GB（中古）
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/iphonese.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥12,500
-          .new__items__container__box__item_body
-            %h3 iPhone SE Space Gray 32 GB（中古）
+      - @homes.each do |home|
+        = link_to "#" do
+          .new__items__container__box
+            %figure
+              = image_tag home.images[0].image , class:'new__items__container__box-item_phot'
+              %p.new__items__container__box-price
+                = "¥#{home.price.to_s(:delimited)}"
+            .new__items__container__box__item_body
+              %h3 
+                = home.name
+
   %section.new__items
     .new__items-genre
       %h3
@@ -257,84 +155,25 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/slime.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥3,000
-          .new__items__container__box__item_body
-            %h3 スライムぬいぐるみセット
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/slime.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥3,000
-          .new__items__container__box__item_body
-            %h3 スライムぬいぐるみセット
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/slime.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥3,000
-          .new__items__container__box__item_body
-            %h3 スライムぬいぐるみセット
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/slime.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥3,000
-          .new__items__container__box__item_body
-            %h3 スライムぬいぐるみセット
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/slime.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥3,000
-          .new__items__container__box__item_body
-            %h3 スライムぬいぐるみセット
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/slime.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥3,000
-          .new__items__container__box__item_body
-            %h3 スライムぬいぐるみセット
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/slime.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥3,000
-          .new__items__container__box__item_body
-            %h3 スライムぬいぐるみセット
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/slime.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥3,000
-          .new__items__container__box__item_body
-            %h3 スライムぬいぐるみセット
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/slime.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥3,000
-          .new__items__container__box__item_body
-            %h3 スライムぬいぐるみセット
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/slime.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥3,000
-          .new__items__container__box__item_body
-            %h3 スライムぬいぐるみセット
+      - @toys.each do |toy|
+        = link_to "#" do
+          .new__items__container__box
+            %figure
+              = image_tag toy.images[0].image , class:'new__items__container__box-item_phot'
+              %p.new__items__container__box-price
+                = "¥#{toy.price.to_s(:delimited)}"
+            .new__items__container__box__item_body
+              %h3 
+                = toy.name
+
   .top__header__area
     .top__header__area__popularity
       %h2.top__header__area__popularity-headline 人気のブランド
     %ul.top__header__area__popularity__category
       %li シャネル
-      %li ルイビトン
-      %li ポーター
-      %li アディダス
+      %li ルイヴィトン
+      %li シュプリーム
+      %li ナイキ
   %section.new__items
     .new__items-genre
       %h3
@@ -344,76 +183,17 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/CHANEL.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥9,000
-          .new__items__container__box__item_body
-            %h3 1番人気 新品未開封！大人気 CHANEL チャンス 100ml
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/CHANEL.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥9,000
-          .new__items__container__box__item_body
-            %h3 1番人気 新品未開封！大人気 CHANEL チャンス 100ml
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/CHANEL.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥9,000
-          .new__items__container__box__item_body
-            %h3 1番人気 新品未開封！大人気 CHANEL チャンス 100ml
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/CHANEL.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥9,000
-          .new__items__container__box__item_body
-            %h3 1番人気 新品未開封！大人気 CHANEL チャンス 100ml
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/CHANEL.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥9,000
-          .new__items__container__box__item_body
-            %h3 1番人気 新品未開封！大人気 CHANEL チャンス 100ml
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/CHANEL.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥9,000
-          .new__items__container__box__item_body
-            %h3 1番人気 新品未開封！大人気 CHANEL チャンス 100ml
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/CHANEL.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥9,000
-          .new__items__container__box__item_body
-            %h3 1番人気 新品未開封！大人気 CHANEL チャンス 100ml
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/CHANEL.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥9,000
-          .new__items__container__box__item_body
-            %h3 1番人気 新品未開封！大人気 CHANEL チャンス 100ml
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/CHANEL.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥9,000
-          .new__items__container__box__item_body
-            %h3 1番人気 新品未開封！大人気 CHANEL チャンス 100ml
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/CHANEL.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥9,000
-          .new__items__container__box__item_body
-            %h3 1番人気 新品未開封！大人気 CHANEL チャンス 100ml
+      - @chanels.each do |chanel|
+        = link_to "#" do
+          .new__items__container__box
+            %figure
+              = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
+              %p.new__items__container__box-price
+                = "¥#{chanel.price.to_s(:delimited)}"
+            .new__items__container__box__item_body
+              %h3 
+                = chanel.name
+
   %section.new__items
     .new__items-genre
       %h3
@@ -423,233 +203,58 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/luisvuitton.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥6,900
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ミュール サンダル パンプス ヒール 35
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/luisvuitton.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥6,900
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ミュール サンダル パンプス ヒール 35
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/luisvuitton.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥6,900
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ミュール サンダル パンプス ヒール 35
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/luisvuitton.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥6,900
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ミュール サンダル パンプス ヒール 35
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/luisvuitton.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥6,900
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ミュール サンダル パンプス ヒール 35
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/luisvuitton.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥6,900
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ミュール サンダル パンプス ヒール 35
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/luisvuitton.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥6,900
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ミュール サンダル パンプス ヒール 35
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/luisvuitton.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥6,900
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ミュール サンダル パンプス ヒール 35
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/luisvuitton.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥6,900
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ミュール サンダル パンプス ヒール 35
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/luisvuitton.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥6,900
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ミュール サンダル パンプス ヒール 35
+      - @lvs.each do |lv|
+        = link_to "#" do
+          .new__items__container__box
+            %figure
+              = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
+              %p.new__items__container__box-price
+                = "¥#{lv.price.to_s(:delimited)}"
+            .new__items__container__box__item_body
+              %h3 
+                = lv.name
+
   %section.new__items
     .new__items-genre
       %h3
-        ポーター新着アイテム
+        シュプリーム新着アイテム
       = link_to "###" do
         %span.new__items-more もっと見る
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/porter.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥16,000
-          .new__items__container__box__item_body
-            %h3 ポーター2wayトートバッグ／タンゴブラックシリーズ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/porter.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥16,000
-          .new__items__container__box__item_body
-            %h3 ポーター2wayトートバッグ／タンゴブラックシリーズ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/porter.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥16,000
-          .new__items__container__box__item_body
-            %h3 ポーター2wayトートバッグ／タンゴブラックシリーズ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/porter.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥16,000
-          .new__items__container__box__item_body
-            %h3 ポーター2wayトートバッグ／タンゴブラックシリーズ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/porter.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥16,000
-          .new__items__container__box__item_body
-            %h3 ポーター2wayトートバッグ／タンゴブラックシリーズ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/porter.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥16,000
-          .new__items__container__box__item_body
-            %h3 ポーター2wayトートバッグ／タンゴブラックシリーズ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/porter.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥16,000
-          .new__items__container__box__item_body
-            %h3 ポーター2wayトートバッグ／タンゴブラックシリーズ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/porter.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥16,000
-          .new__items__container__box__item_body
-            %h3 ポーター2wayトートバッグ／タンゴブラックシリーズ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/porter.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥16,000
-          .new__items__container__box__item_body
-            %h3 ポーター2wayトートバッグ／タンゴブラックシリーズ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/porter.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥16,000
-          .new__items__container__box__item_body
-            %h3 ポーター2wayトートバッグ／タンゴブラックシリーズ
+      - @supremes.each do |supreme|
+        = link_to "#" do
+          .new__items__container__box
+            %figure
+              = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
+              %p.new__items__container__box-price
+                = "¥#{supreme.price.to_s(:delimited)}"
+            .new__items__container__box__item_body
+              %h3 
+                = supreme.name
+
   %section.new__items
     .new__items-genre
       %h3
-        アディダス新着アイテム
+        ナイキ新着アイテム
       = link_to "###" do
         %span.new__items-more もっと見る
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/adidas.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥17,500
-          .new__items__container__box__item_body
-            %h3 90's adidas ADVENTURE デナリジャケット デサント製
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/adidas.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥17,500
-          .new__items__container__box__item_body
-            %h3 90's adidas ADVENTURE デナリジャケット デサント製
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/adidas.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥17,500
-          .new__items__container__box__item_body
-            %h3 90's adidas ADVENTURE デナリジャケット デサント製
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/adidas.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥17,500
-          .new__items__container__box__item_body
-            %h3 90's adidas ADVENTURE デナリジャケット デサント製
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/adidas.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥17,500
-          .new__items__container__box__item_body
-            %h3 90's adidas ADVENTURE デナリジャケット デサント製
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/adidas.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥17,500
-          .new__items__container__box__item_body
-            %h3 90's adidas ADVENTURE デナリジャケット デサント製
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/adidas.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥17,500
-          .new__items__container__box__item_body
-            %h3 90's adidas ADVENTURE デナリジャケット デサント製
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/adidas.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥17,500
-          .new__items__container__box__item_body
-            %h3 90's adidas ADVENTURE デナリジャケット デサント製
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/adidas.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥17,500
-          .new__items__container__box__item_body
-            %h3 90's adidas ADVENTURE デナリジャケット デサント製
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/adidas.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥17,500
-          .new__items__container__box__item_body
-            %h3 90's adidas ADVENTURE デナリジャケット デサント製
+      - @nikes.each do |nike|
+        = link_to "#" do
+          .new__items__container__box
+            %figure
+              = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
+              %p.new__items__container__box-price
+                = "¥#{nike.price.to_s(:delimited)}"
+            .new__items__container__box__item_body
+              %h3 
+                = nike.name
+
+
+
 
 = render partial: 'shared/footer'

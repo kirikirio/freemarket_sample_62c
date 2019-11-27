@@ -5,14 +5,11 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :price, null:false
       t.text :description, null:false
       t.references :item_status, null: false, foreign_key: true
-      # default追加
       t.references :sale_status, null: false, foreign_key: true, default: 1
       t.references :size, null: false, foreign_key: true
       t.references :brand, null: false, foreign_key: true
       t.references :delivery_status, null: false, foreign_key: true
-      # _idに変更
-      t.text :prefecture_id, null: false
-
+      t.integer :prefecture_id, null: false
       t.references :user, null: false, foreign_key: true
       t.references :category, null: false , foreign_key: true
       t.string :delivery_fee, null: false

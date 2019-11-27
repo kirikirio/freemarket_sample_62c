@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :item do
+
     name               {'パーカー'}
     price              {3000}
     description        {'いい生地です'}

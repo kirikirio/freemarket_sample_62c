@@ -1,0 +1,386 @@
+
+.kari-header{
+  background: red;
+  height: 128px;
+  width: 1440px;
+}
+.hensyu-box{
+  margin:0 auto;
+  height: 2275px;
+  width: 700px;
+  background:$button;
+  &__head{
+    height: 97px;
+    width: 700px;
+    padding:32px 16px;
+    border-bottom: 1px solid $visit;
+    h2{
+      text-align: center;
+      font-size:22px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+  }
+  &__gazou{
+    height: auto;
+    width: auto;
+    padding:40px;
+    border-bottom: 1px solid $visit;
+    h3{
+    height: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    margin:0 0 8px 0;
+  }
+  }
+  .hissu{
+    font-size:12px;
+    border-radius: 2px;
+    margin:0 0 0 8px;
+    padding: 2px 4px;
+    color: $button;
+    height: 32px;
+    width: 19px;
+    background: $accent;
+  }
+  &__dropbox{
+    position: relative;
+    display:flex;
+    height: 172px;
+    width: 700px;
+    margin: 16px auto 0;
+    cursor: pointer;
+    // input{
+    //   display: none;
+    // }
+    label{
+      width: 491px;
+      padding:40px;
+      margin: 0 0 0 10px;
+      background: #f5f5f5;
+      height: 162px;
+      border: 1px dashed #ccc;
+    }
+    #item_image{
+      display: none;
+    }
+    #delete{
+      font-size:20px;
+      size:100px;
+      height: 100px;
+      width: 100px;
+      color:red;
+      background-color:red;
+    }
+
+    // #img_prev{
+    //   display: none;
+    // }
+    #img_prev:first-child {
+      display: block;
+      background:#eee;
+      font-size:x-large;
+}
+    pre{
+      position: absolute;
+      top:40%;
+      right: 30%;
+      text-align: center;
+    }
+    .upload-item__button{
+      display: flex;
+      position: absolute;
+      bottom:10px;
+      left:0;
+      height: 44px;
+      width: 114px;
+      a{
+        cursor: pointer;
+        line-height: 44px;
+        display: inline-block;
+        color:#0099e8;
+        text-align: center;
+        width: 46%;
+        background: #f5f5f5;
+      }
+      a:first-child{
+        border-right:1px solid #eee;
+      }
+  }
+    .upload-dropbox{
+    border: 1px dashed #ccc;
+    background: #f5f5f5;
+    height: 172px;
+    width: 491px;
+    padding:40px;
+    margin:0 0 0 12px;
+  }
+}
+  .main-box-name{
+    border-bottom: 1px solid $visit;
+    background: $button;
+    height: 355px;
+    width : 100%;
+    padding: 40px;
+  .main-box-syouhinmei{
+    width: 620px;
+    height: 70px;
+  }
+  label{
+    font-weight: 600;
+  }
+  .input-text{
+    height: 48px;
+    width: 620px;
+    font-size: 16px;
+    margin: 8px 0 0 0;
+    padding: 10px 16px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .main-box-syouhinsetumei{
+    height: 164px;
+    width: 620px;
+    margin: 40px 0 0 ;
+    }
+  .textarea{
+    height: 142px;
+    width: 620px;
+    font-size:16px;
+    margin: 8px 0 0 0 ;
+    padding:10px;
+    line-height: 1.5;
+    min-height: 104px;
+  }
+  ::placeholder {
+    font-size: 16px;
+  }
+}
+&__item{
+  height: 403px;
+  width: 700px;
+  padding:40px;
+  border-bottom: 1px solid $visit;
+  h3{
+    float: left;
+  }
+  .hensyu-box__itemname{
+    float: right;
+    height: 402px;
+    width: 400px;
+    border-bottom: 1px solid $visit;
+  label{
+    font-weight: bold;
+  }
+  .nini{
+    font-size:12px;
+    border-radius: 2px;
+    margin:0 0 0 8px;
+    padding: 2px 4px;
+    color: white;
+    height: 32px;
+    width: 19px;
+    background: gainsboro;
+  }
+  div{
+    height: 290px;
+    width: 400px;
+
+  .select-wrap{
+    position: relative;
+    height: 48px;
+    widows: 400px;
+    margin:8px 0 0;
+  }
+  .select-wrap2{
+    position: relative;
+    height: 70px;
+    widows: 400px;
+    margin:40px 0 0;
+  }
+  select{
+    font-size:16px;
+    border:1px;
+  }
+  .select-default{
+    position: relative;
+  -webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 8px 0 0;
+  padding:0 16px;
+  height: 48px;
+  width: 400px;
+  }
+  .icon{
+    position: absolute;
+    top:55%;
+    right:20px;
+    font-weight: bold;
+    }
+    }
+  }
+}
+.hensyu-box__item2{
+  height: 483px;
+  width: 700px;
+  padding:40px;
+  border-bottom: 1px solid $visit;
+  h3{
+    float: left;
+  }
+  .hensyu-box__itemname{
+    float: right;
+    height: 402px;
+    width: 400px;
+    border-bottom: 1px solid $visit;
+  label{
+    font-weight: bold;
+  }
+  .hissu{
+    font-weight: bold;
+  }
+  div{
+    height: 290px;
+    width: 400px;
+
+  .select-wrap{
+    position: relative;
+    height: 48px;
+    widows: 400px;
+    margin:8px 0 0;
+  }
+  .select-wrap2{
+    position: relative;
+    height: 70px;
+    widows: 400px;
+    margin:40px 0 0;
+  }
+  select{
+    font-size:16px;
+    border:1px;
+  }
+  .select-default{
+    position: relative;
+  -webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 8px 0 0;
+  padding: 0 16px;
+  height: 48px;
+  width: 400px;
+  }
+  .icon{
+    position: absolute;
+    top:55%;
+    right:16px;
+    font-weight: bold;
+    }
+    }
+  }
+  &__price{
+      border-bottom: 1px solid $visit;
+      background: $button;
+      height: 350px;
+      width: 100%;
+      padding: 40px;
+      h3 {
+        color:#888888;
+        float: left;
+        .icon-question {
+          color: $link;
+          cursor: pointer;
+        }
+      }
+      &__form {
+        float: right;
+
+        ul {
+          width: 400px;
+          list-style: none;
+
+          li {
+            height: 100%;
+            line-height: 1;
+            .left {
+              @extend %label;
+              width: 200px;
+            }
+            .right {
+              width: 100%;
+              div{
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+              }
+              input {
+                @include input;
+                width: 160px;
+                margin:0 0 0 8px;
+                padding: 10px 16px 8px;
+                &::placeholder {
+                  text-align: right;
+                }
+              }
+            }
+            padding: 24px 0;
+            border-top: 1px solid $main;
+            p {
+              margin: 0;
+            }
+            span {
+              font-weight: bold;
+            }
+            .p-left{
+              float: left;
+              p{
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 1;
+              }
+            }
+            .p-right{
+              float: right;
+              p{
+                font-weight: 600;
+                font-size: 34px;
+              }
+            }
+          }
+        }
+      }
+  }
+}
+.hensyu-box-last{
+  border-bottom: 1px solid $visit;
+  height: 245px;
+  width: 700px;
+  padding: 40px;
+
+  .button-red{
+    font-size:16px;
+    height: 50px;
+    width: 620px;
+    margin:40px 0 0;
+    background:red;
+    color: white;
+  }
+  a{
+    color: white;
+  }
+  .button-gray{
+    font-size: 14px;
+    height: 50px;
+    width: 271px;
+    text-align: center;
+    line-height: 50px;
+    margin: 24px auto;
+    background: gray;
+  }
+}
+}

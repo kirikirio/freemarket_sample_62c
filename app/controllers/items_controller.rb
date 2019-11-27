@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-
     # js非同期処理
     if (params[:parentId])
       parent = Category.find(params[:parentId])
@@ -20,12 +19,26 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @items = Item.all
+    @brands = Brand.all
+    @categorys = Category.all
+    @size = Size.all
+    @item_statuses = ItemStatus.all
+    @sale_statuses = SaleStatus.all
+    @delivery_statuses = DeliveryStatus.all
+    @delivery_methods = DeliveryMethod.all
+    @prefecture = Prefecture.all
   end
-
+  
   def show
+    @item = Item.find(params[:id])
   end
-
+  
   def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to action: 'index'
   end
 
   def create
@@ -68,7 +81,7 @@ class ItemsController < ApplicationController
                             :category_id,
                             :delivery_fee,
                             :delivery_method_id,
-                            images_attributes: [:image]
+                            images_attributes: [:id, :image]
                           ).merge(
                             user_id: 1
                           )
@@ -85,5 +98,13 @@ class ItemsController < ApplicationController
     @delivery_fee = ['着払い','送料込み']
   end
 
+#   def item_params
+#     params.require(:item).permit(:name,:description,:delivery_fee,:price,:brand_id,:prefecture_id,:category_id,:size_id,:item_status_id,:sale_status_id,:delivery_status_id,:delivery_method_id,
+#     images_attributes: [:id, :image]).merge(
+#       name: 'パーカー', price: 3000, description: '商品の説明',
+#       item_status_id: 1,size_id: 1,brand_id:1,
+#       delivery_status_id: 1,prefecture_id: 1, category_id: 1,delivery_fee: 1,
+#       user_id: 1, sale_status_id: 1,delivery_method_id: 1 )
+#   end
 
 end

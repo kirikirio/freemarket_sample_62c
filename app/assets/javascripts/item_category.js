@@ -29,7 +29,6 @@ $(function () {
             appendHTML(d, target);
           })
         })
-        .fail(() => {
           alert('error');
         })
     }

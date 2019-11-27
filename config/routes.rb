@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'items#index'
+  
   devise_for :users
   resources :users, only: [:show, :new] do
     collection do
@@ -10,10 +12,11 @@ Rails.application.routes.draw do
     member do
       get 'profile'
     end  
-
-    resources :credits, only: [:index, :new]
-    resources :addresses, only: [:edit]
+  
+  resources :credits, only: [:index, :new, :create]
+  resources :addresses, only: [:edit]
   end
+
   resources :items do
 
     member do
@@ -25,10 +28,10 @@ Rails.application.routes.draw do
   resources :signup, except: [:index, :new, :create, :edit, :show, :update, :destroy] do
     collection do
       get 'registration'
-      get 'authentication'
-      get 'address'
-      get 'credit'
-      get 'completed'
+      post 'authentication'
+      post 'address'
+      post 'credit'
+      post 'completed'
     end
   end
 end

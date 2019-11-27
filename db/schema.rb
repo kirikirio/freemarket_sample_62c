@@ -10,20 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_18_090219) do
-
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "postal_code", null: false
-    t.string "prefecture", null: false
-    t.string "city", null: false
-    t.string "city_block", null: false
-    t.string "building"
-    t.integer "tel_number"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2019_11_18_085503) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -48,15 +35,6 @@ ActiveRecord::Schema.define(version: 2019_11_18_090219) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_comments_on_item_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "customer_id", null: false
-    t.string "card_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_credits_on_user_id"
   end
 
   create_table "delivery_methods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -94,7 +72,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_090219) do
     t.bigint "size_id", null: false
     t.bigint "brand_id", null: false
     t.bigint "delivery_status_id", null: false
-    t.text "prefecture_id", null: false
+    t.integer "prefecture_id", null: false
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
     t.string "delivery_fee", null: false
@@ -139,10 +117,20 @@ ActiveRecord::Schema.define(version: 2019_11_18_090219) do
     t.string "firstname_kana", null: false
     t.string "lastname_kana", null: false
     t.string "nickname", null: false
-    t.string "user_image", null: false
-    t.integer "point", null: false
-    t.integer "birthday", null: false
     t.text "profile"
+    t.string "birthday", null: false
+    t.string "user_image", default: "", null: false
+    t.integer "point", default: 0, null: false
+    t.string "postal_code", null: false
+    t.string "prefecture", default: ""
+    t.string "city", default: ""
+    t.string "city_block", default: "", null: false
+    t.string "building", default: "", null: false
+    t.string "tel_number"
+    t.string "customer_id", default: "", null: false
+    t.string "card_id", default: "", null: false
+    t.string "provider"
+    t.string "uid"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -158,10 +146,8 @@ ActiveRecord::Schema.define(version: 2019_11_18_090219) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "addresses", "users"
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
-  add_foreign_key "credits", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"

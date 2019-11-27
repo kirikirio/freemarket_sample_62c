@@ -1,12 +1,16 @@
 = render partial: 'shared/header'
 
+-# パンくずリスト
+- breadcrumb :users_profile
+= render partial: 'shared/breadcrumbs'
+
 %section.content-section
   = render partial: 'shared/sidebar'
   .profile-content
     %section.profile-container
       %h2.content-head プロフィール
       .image-top
-        = image_tag 'users/user-bg', class: 'bg-img'
+        = image_tag 'users/user-bg.jpg', class: 'bg-img'
         .profile-box
           %figure.icon-box
             = image_tag 'my-page.jpg', class: 'profile-img'
