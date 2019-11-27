@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.images.build
 
     # js非同期処理
     if (params[:parentId])
@@ -37,7 +38,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to new_item_path, notice: '送信しました'
     else
-      
+      flash.now[:alert] = '必須項目を入力してください。'
       render :new
     end
   end
@@ -69,8 +70,7 @@ class ItemsController < ApplicationController
                             :delivery_method_id,
                             images_attributes: [:image]
                           ).merge(
-                            user_id: 1,
-                            sale_status_id: 1,
+                            user_id: 1
                           )
   end
 

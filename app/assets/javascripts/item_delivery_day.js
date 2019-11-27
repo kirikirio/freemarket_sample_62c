@@ -7,5 +7,4 @@ $(function () {
       $('#method-area').hide();
     }
   })
-
 })

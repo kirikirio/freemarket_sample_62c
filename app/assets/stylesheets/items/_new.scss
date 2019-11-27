@@ -57,7 +57,6 @@
           margin-bottom: 10px;
           
           .figure{
-            // height: 40px;
             .preview-image{
               width: 100%;
               object-fit: cover;
@@ -72,8 +71,6 @@
             }
           }
         }
-        // margin-right: 10px;
-        // width: 150px;
         background-color: $main;
         
       }
@@ -93,8 +90,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
       pre{
       text-align: center;
+    }
+    &--hidden{
+      display: none;
     }
   }
 } 
@@ -119,10 +120,6 @@
     width: 19px;
     background-color: #888
   }
-  .box{
-      margin: 16px 0 0 0 ;
-  }
-
   
   &__name{
     border-bottom: 1px solid $visit;
@@ -170,7 +167,6 @@
   &__show{
     border-bottom: 1px solid $visit;
     background: $button;
-    // height: 261px;
     height: 100%;
     width : 700px;
     padding:40px;
@@ -184,11 +180,9 @@
   }
   &__showbox{
     float: right;
-    // height: 180px;
     width: 400px;
   }
   &__kategori{
-    // height: 70px;
     width: 400px;
   }
   &__zyoutai{
@@ -202,14 +196,13 @@
   #children-area,
   #grandchildren-area,
   #size-area,
-  #brand-area{
-    display: none;
+  #brand-area,
+  #method-area{
+  display: none;
   }
   .select-box{
     position: relative;
-    // height: 48px;
     width: 400px;
-    // margin: 8px 0 0 ;
     margin: 18px 0 ;
     &:after{
       font-family: "Font Awesome 5 Free";
@@ -230,8 +223,6 @@
   }
   .select-default{
     -webkit-appearance: none;
-  　-moz-appearance: none;
-  　appearance: none;
     height: 48px;
     width: 400px;
     padding: 0 16px;
@@ -240,7 +231,6 @@
     cursor: pointer;
     background: $button;
   }
-
     
   
   .icon{
@@ -254,32 +244,27 @@
   &__haisou{
     border-bottom: 1px solid $visit;
     background:$button;
-    height: 371px;
     width : 700px;
     padding: 40px;
     .h3sub{
       .icon-question {
-          color: $link;
-          cursor: pointer;
-        }
+        color: $link;
+        cursor: pointer;
+      }
     }
   }
   .haisou-box{
-    height: 290px;
     width: 400px;
     float: right;
   }
   .haisou-futan{
-    height: 70px;
     width: 400px;
   }
   .haisou-area{
-    height: 70px;
     width: 400px;
     margin:40px 0 0 0;
   }
   .haisou-nissu{
-    height: 70px;
     width: 400px;
     margin:40px 0 0 0;
   }
@@ -340,23 +325,13 @@
             
             .p-left{
               float: left;
-              p{
-                // font-weight: 600;
-                // font-size: 16px;
-                // line-height: 1;
-              }
             }
             .p-right{
               float: right;
-              p{
-                // font-weight: 600;
-                // font-size: 34px;
-              }
             }
             
           }
           .fee-area{
-            // font-weight: 600;
               font-size: 14px;
               line-height: 1;
           }
@@ -372,13 +347,8 @@
             line-height: 1;
             display: flex;
             border: 0;
-            padding:0 0  24px 0;
+            padding:0 0 24px 0;
           }
-          // .clear-fix:after{
-          //   content: '';
-          //   clear: both;
-          //   display: block;
-          // }
         }
       }
   }
