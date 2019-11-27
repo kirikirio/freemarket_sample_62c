@@ -1,29 +1,31 @@
-= render partial: 'shared/login-header'
-
+= render partial: 'shared/header'
 %section.item_detail_contents
-  %h1.item_detail_contents__item-name ルイヴィトン アクセサリーポーチ ショルダーバッグ
+
+  %h1.item_detail_contents__item-name 
+    = @items.name
   .item_detail_contents__box
     .item_detail_contents__box__images
       .item_detail_contents__box__images-main
-        = image_tag 'items/bag_sample01.jpg', class:'item_detail_contents__box__images-img'
+        = image_tag @items.images[0].image, class:'item_detail_contents__box__images-img'
         .item_detail_contents__box__images-subs
-          = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
-          = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
-          = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
-          = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
-          = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
-          = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
-          = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
-          = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
-          = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
-          = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
+          = image_tag @items.images[0].image, class:'item_detail_contents__box__images-sub'
+          -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
+          -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
+          -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
+          -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
+          -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
+          -# = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
+          -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
+          -# = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
+          -# = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
     .item_detail_contents__box__details-area
       %table.item_detail_contents__box__details-table
         %tr
           %th 出品者
           %td
             = link_to "###" do
-              %p はな
+              %p
+                = @items.user.nickname
             %br/
             .evaluation
               %i.fas.fa-laugh
@@ -45,54 +47,53 @@
           %td
             %div
               = link_to "###" do
-                レディース
+                = @items.category.path[0].name
             %div
               = link_to "###" do
                 %i.fas.fa-chevron-right>
-                バッグ
+                = @items.category.path[1].name
             %div
               = link_to "###" do
                 %i.fas.fa-chevron-right>
-                ショルダーバッグ
+                = @items.category.path[2].name
         %tr
           %th ブランド
           %td
             = link_to "###" do
-              ルイ ヴィトン
+              = @items.brand.name
         %tr
           %th 商品の状態
-          %td 目立った傷や汚れなし
+          %td 
+            = @items.item_status.status
         %tr
           %th 配送料の負担
-          %td 送料込み(出品者負担)
+          %td 
+            = @items.delivery_fee
         %tr
           %th 配送の方法
-          %td ゆうゆうメルカリ便
+          %td 
+            = @items.delivery_method.method
         %tr
           %th 配送元地域
           %td
             = link_to "###" do
-              和歌山県
+              = @items.prefecture.name
         %tr
           %th 発送日の目安
-          %td 2~3日で発送
+          %td 
+            = @items.delivery_status.status
   .price__section
-    %span.price__section-pricetext ¥42,300
+    %span.price__section-pricetext 
+      = "¥#{@items.price.to_s(:delimited)}"
     %span.price__section-tax (税込)
-    %span.price__section-delivery-fee 送料込み
-  = link_to "###", class: "buy-button" do
+    %span.price__section-delivery-fee 
+      = @items.delivery_fee
+  = link_to "/items/:id/confirmation", class: "buy-button" do
     %p.buy-text 購入画面に進む
-  %p.delivery_caution この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+  -# %p.delivery_caution この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
   .item__description
     %p.item__description-text
-      ダミーのアクセサリーポーチです。
-      状態は綺麗です。
-      写真の通り中には少し汚れがあります。
-      中古品のため神経質な方はお控えください。
-      ご理解ある方宜しくお願いします。
-      正規品です。
-      シリアル番号あり。
-      すり替え防止のため返品はお断りさせて頂きます。
+      = @items.description
   .item__bottun__container
     %ul.item__bottun__container__box
       %li.item__bottun__container__box-tag
@@ -142,7 +143,7 @@
 %section.related__item
   %h2.related__item-head
     = link_to "###" do
-      はなさんのその他の出品
+      = "#{@items.user.nickname}のその他の出品"
     .items__container
       = link_to "###" do
         .items__container__box
@@ -181,7 +182,7 @@
   %ul.bottom__nav__crumbs
     %li.bottom__nav__crumbs__crumbs-list
       = link_to "/" do
-        エフマーケット
+        メルカリ 
       %i.fas.fa-angle-right
-      ルイヴィトン アクセサリーポーチ ショルダーバッグ
+      = @items.name
 = render partial: 'shared/footer'
