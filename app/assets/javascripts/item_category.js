@@ -67,7 +67,9 @@ $(function () {
 
   $('#grandchildren').on('change', (event) => {
     let select = $(event.currentTarget).val();
+    console.log('select', select);
     if (!(select === '0')) {
+      console.log('サイズ、ブランド、hide')
       $('#size-area').show();
       $('#brand-area').show();
     }

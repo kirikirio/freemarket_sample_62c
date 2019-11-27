@@ -13,7 +13,6 @@
   }
 }
 
-
 .main-box{
     margin: 0 auto;
     width: 700px;
@@ -32,8 +31,8 @@
     padding: 40px;
     border-bottom: 1px solid $visit;
     background: $button;
-    // height: 303px;
-    // width : 100%;
+    height: 303px;
+    width : 100%;
     h3{
     height: 16px;
     font-size: 16px;
@@ -88,7 +87,7 @@
       margin: 0 auto;
       background: $main;
       height: 162px;
-      width : 100%;
+      width : 620px;
       padding: 40px;
       box-sizing: border-box;
       display: flex;
@@ -96,9 +95,6 @@
       align-items: center;
       pre{
       text-align: center;
-    }
-    &--hidden{
-      display: none;
     }
   }
 } 
@@ -123,7 +119,10 @@
     width: 19px;
     background-color: #888
   }
-  
+  .box{
+      margin: 16px 0 0 0 ;
+  }
+
   
   &__name{
     border-bottom: 1px solid $visit;
@@ -203,13 +202,14 @@
   #children-area,
   #grandchildren-area,
   #size-area,
-  #brand-area,
-  #method-area{
+  #brand-area{
     display: none;
   }
   .select-box{
     position: relative;
+    // height: 48px;
     width: 400px;
+    // margin: 8px 0 0 ;
     margin: 18px 0 ;
     &:after{
       font-family: "Font Awesome 5 Free";
@@ -230,6 +230,8 @@
   }
   .select-default{
     -webkit-appearance: none;
+  　-moz-appearance: none;
+  　appearance: none;
     height: 48px;
     width: 400px;
     padding: 0 16px;
@@ -252,6 +254,7 @@
   &__haisou{
     border-bottom: 1px solid $visit;
     background:$button;
+    height: 371px;
     width : 700px;
     padding: 40px;
     .h3sub{
@@ -262,17 +265,21 @@
     }
   }
   .haisou-box{
+    height: 290px;
     width: 400px;
     float: right;
   }
   .haisou-futan{
+    height: 70px;
     width: 400px;
   }
   .haisou-area{
+    height: 70px;
     width: 400px;
     margin:40px 0 0 0;
   }
   .haisou-nissu{
+    height: 70px;
     width: 400px;
     margin:40px 0 0 0;
   }
@@ -292,9 +299,11 @@
       }
       &__form {
         float: right;
+
         ul {
           width: 400px;
           list-style: none;
+
           li {
             height: 100%;
             line-height: 1;
@@ -331,31 +340,47 @@
             
             .p-left{
               float: left;
+              p{
+                // font-weight: 600;
+                // font-size: 16px;
+                // line-height: 1;
+              }
             }
             .p-right{
               float: right;
+              p{
+                // font-weight: 600;
+                // font-size: 34px;
+              }
+            }
+            
           }
-          
-        }
-        .fee-area{
-            font-size: 14px;
+          .fee-area{
+            // font-weight: 600;
+              font-size: 14px;
+              line-height: 1;
+          }
+          .profit-area{
+            font-size: 16px;
+            &__text{
+              font-size: 34px;
+            }
+            font-weight: 600;
+            
+          }
+          .first-list {
             line-height: 1;
-        }
-        .profit-area{
-          font-size: 16px;
-          &__text{
-            font-size: 34px;
+            display: flex;
+            border: 0;
+            padding:0 0  24px 0;
           }
-          font-weight: 600;
-        }
-        .first-list {
-          line-height: 1;
-          display: flex;
-          border: 0;
-          padding:0 0  24px 0;
+          // .clear-fix:after{
+          //   content: '';
+          //   clear: both;
+          //   display: block;
+          // }
         }
       }
-    }
   }
   &__foot{
     background: $button;

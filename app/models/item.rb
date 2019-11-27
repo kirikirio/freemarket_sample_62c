@@ -6,10 +6,8 @@ class Item < ApplicationRecord
   belongs_to :category
 
   has_many :images
-  # , dependent: :destroy
-  accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :images
 
-  # belongs_to :user
 
   validates :name, presence: true, length: {maximum: 40}
   validates :price, presence: true,numericality: {only_integer: true, greater_than_or_equal_to: 300,less_than_or_equal_to: 9999999} 
@@ -23,4 +21,5 @@ class Item < ApplicationRecord
   validates :delivery_fee, presence: true
   validates :delivery_method_id, presence: true
   # validates :images, associated: true
+
 end
