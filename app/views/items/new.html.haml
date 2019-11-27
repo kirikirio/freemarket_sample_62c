@@ -5,7 +5,6 @@
 -#   = image_tag @img.image.to_s
 .main-box
   .main-box__head 商品の情報を入力
-  - @item = Item.new
   = form_with model: @item do |f|
     .main-box__image
       %h3 
@@ -14,7 +13,8 @@
       %p 最大10枚までアップロードできます
       -# = f.fields_for :images do |image|
       -# = f.file_field :image, multiple: true
-      = f.fields_for :images, @item.images.build do |image|
+      -# -  binding.pry
+      = f.fields_for :images do |image|
         .box
           = image.label :image do
             .main-box__image__area
@@ -22,7 +22,6 @@
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
               = image.file_field :image
-
     .main-box__name
       .main-box__syouhinmei
         = f.label :name do
