@@ -1,3 +1,4 @@
+// flashメッセージ
 .notification{
   .notice{
   background-color: #38AEF0;
@@ -42,24 +43,39 @@
     margin: 8px 0 0 0;
     height: 21px;
     }
-    .box{
+    &__previews{
+      width: 100%;
       margin: 16px 0 0 0 ;
       display: flex;
-      .test{
-        // height: 162px;
+      .preview-list{
+        display: none;
+        margin-right: 10px;
         ul{
           list-style: none;
         }
         li{
           width: 116px;
           margin-bottom: 10px;
-          // .figure{
-          //   line-height: 40px;
-          // }
+          
+          .figure{
+            // height: 40px;
+            .preview-image{
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+          .article{
+            border-top: 1px solid #eee;
+            display: flex;
+            p{
+              text-align: center;
+              width: 50%;
+            }
+          }
         }
         // margin-right: 10px;
         // width: 150px;
-        background-color: red;
+        background-color: $main;
         
       }
       label{
@@ -70,7 +86,7 @@
     &__area{
       border: 1px dashed #ccc;
       margin: 0 auto;
-      background: #f5f5f5;
+      background: $main;
       height: 162px;
       width : 100%;
       padding: 40px;

@@ -5,18 +5,22 @@ $(function () {
     console.log(file)
 
     reader.onload = (e) => {
-      // const result = e.target.result;
-      console.log(e.target.result)
+
+      // console.log(e.target.result)
       // $('#preview').attr('src', e.target.result)
-      const html = `<img src=${e.target.result}>`
+      const html = `<img
+              src=${e.target.result}
+              class="preview-image"
+              >`
       // $('#preview').attr('src', e.target.result)
-      $('.test').empty();
-      $('.test').append(html);
+      $('.figure').empty();
+      $('.figure').append(html);
     }
     reader.readAsDataURL(file);
   }
 
   $('#fileField').on('change', (e) => {
+    $('.preview-list').show();
     imagePreview(e.target)
   })
 });
