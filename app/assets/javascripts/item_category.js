@@ -29,11 +29,12 @@ $(function () {
             appendHTML(d, target);
           })
         })
+        .fail(() => {
           alert('error');
         })
     }
-
   })
+
 
   $('#children').on('change', function () {
     $('#grandchildren').empty();

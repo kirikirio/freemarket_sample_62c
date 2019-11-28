@@ -18,7 +18,7 @@
             %ul
               %li
                 .figure
-                  -# = image_tag "my-page.jpg"
+                  
                 .article
                   %p 削除
                   %p 編集
@@ -26,6 +26,7 @@
             .main-box__image__area
               %pre
                 ドラッグアンドドロップ
+                またはクリックしてファイルをアップロード
               = image.file_field :image, class: 'main-box__image__area--hidden'
     .main-box__name
       .main-box__syouhinmei
@@ -43,19 +44,19 @@
 
     .main-box__show.clear-fix
       %h3.h3sub 商品の詳細
-      %div.main-box__showbox
-        %div.main-box__kategori
+      .main-box__showbox
+        .main-box__kategori
           = f.label :category do
             カテゴリー 
             %span.hissu 必須
           %div
-            %div.select-box.parent
+            .select-box.parent
               = f.collection_select :category_id, @parents, :id, :name, {include_blank: '---'}, class: 'select-default', id: 'parent'
 
-            %div.select-box#children-area
+            .select-box#children-area
               = f.select :category_id, [], {include_blank: '---'}, class: 'select-default', id: 'children'
                 
-            %div.select-box#grandchildren-area
+            .select-box#grandchildren-area
               = f.select :category_id, [], {include_blank: '---'}, class: 'select-default', id: 'grandchildren'
 
         .main-box__select-group#size-area
@@ -63,7 +64,7 @@
             サイズ
             %span.hissu 必須
           %div
-            %div.select-box
+            .select-box
               = f.collection_select :size_id, @sizes, :id, :size, {include_blank: '---'}, class: 'select-default'
 
         .main-box__select-group#brand-area
@@ -71,27 +72,27 @@
             ブランド
             %span.optional 任意
           %div
-            %div.select-box
+            .select-box
               = f.collection_select :brand_id, @brands, :id, :name, {include_blank: '---'}, class: 'select-default'
 
-        %div.main-box__zyoutai
+        .main-box__zyoutai
           = f.label :item_status do
             商品の状態
             %span.hissu 必須
           %div
-            %div.select-box
+            .select-box
               = f.collection_select :item_status_id, @item_statuses, :id, :status, {include_blank: '---'}, class: 'select-default'
     .main-box__haisou.clear-fix
       %h3.h3sub 
         配送について
         %i{class: 'icon-question fa fa-question-circle'}
-      %div.haisou-box
-        %div.haisou-futan
+      .haisou-box
+        .haisou-futan
           = f.label :delivery_fee do
             配送料の負担 
             %span.hissu 必須
           %div
-            %div.select-box
+            .select-box
               = f.select :delivery_fee ,@delivery_fee, {include_blank: '---'}, class: 'select-default'
 
         .main-box__select-group#method-area
@@ -99,22 +100,22 @@
             発送方法
             %span.hissu 必須
           %div
-            %div.select-box
+            .select-box
               = f.collection_select :delivery_method_id, @delivery_method, :id, :method, {include_blank: '---'}, class: 'select-default',id: 'method'
 
-        %div.haisou-area
+        .haisou-area
           = f.label :prefecture do
             発送元の地域 
             %span.hissu 必須
           %div
-            %div.select-box
+            .select-box
               = f.collection_select :prefecture_id, @prefectures, :id, :name, {include_blank: '---'}, class: 'select-default'
-        %div.haisou-nissu
+        .haisou-nissu
           = f.label :delivery_status do
             発送までの日数 
             %span.hissu 必須
           %div
-            %div.select-box
+            .select-box
               = f.collection_select :delivery_status_id, @delivery_statuses, :id, :status, {include_blank: '---'}, class: 'select-default'
               
     .main-box__price
