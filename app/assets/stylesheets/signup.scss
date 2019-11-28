@@ -220,7 +220,7 @@
     background-color: #fff;
 
     &__new-account {
-      padding: 24px 32px;
+      padding: 40px 64px;
       display: flex;
       flex-direction: column;
       // align-content: center;
@@ -234,10 +234,10 @@
     }
     &__sns-account {
       border-top: 1px solid $main;
-      padding: 24px 32px;
+      padding: 32px 64px;
     }
     &__contents {
-      padding: 24px 32px;
+      padding: 24px 64px 32px;
       &__form {
         .form-group {
           margin-top: 24px;

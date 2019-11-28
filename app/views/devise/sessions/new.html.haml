@@ -12,15 +12,17 @@
       = link_to '#', {class: 'btn btn-google'} do
         Googleでログイン
     .login-box__contents
-      %form{class: 'login-box__contents__form'}
-        %input{type: "email", name: "email", value: "", placeholder: "メールアドレス", class: "login-box__contents__form__input"}
-        %input{type: "password", name: "password", value: "", placeholder: "パスワード", class: "login-box__contents__form__input"}
+      = form_with model: User.new, class: 'login-box__contents__form', url: user_session_path  do |f|
+        = f.text_field :email, class: "login-box__contents__form__input", placeholder: "メールアドレス"
+        = f.password_field :password, class: "login-box__contents__form__input", placeholder: "パスワード"
+
         -# 私はロボットではありません
         .form-group.captcha-wrap
-        .g-recaptcha.captcha-wrap__item{data:{callback: "clearcall", sitekey: "6Lfn0cIUAAAAAHtZSYzSvSZrwyRQ4sXtvS9jGZaS"}}
+        = recaptcha_tags callback: "clearcall", sitekey: ENV['RECAPTCHA_SITE_KEY']
 
-        %button{type: 'submit', class: 'btn login-box__contents__form__submit'}
-          ログイン
+        -# = link_to , method: :post do
+        = f.submit "ログイン", class: 'btn login-box__contents__form__submit'
+
         = link_to '#', {class: 'login-box__contents__form__forget-pass'} do
           パスワードをお忘れの方
 
