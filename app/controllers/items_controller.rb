@@ -43,7 +43,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.images == []
+    if @item.images.blank?
+      @item.images.build
       flash.now[:alert] = '必須項目を入力してください。'
       render 'items/new' and return
     end
