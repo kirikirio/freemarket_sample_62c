@@ -6,9 +6,9 @@
   .item_detail_contents__box
     .item_detail_contents__box__images
       .item_detail_contents__box__images-main
-        = image_tag @item.images[0].image, class:'item_detail_contents__box__images-img'
+        = image_tag @item.images[0].image.url, class:'item_detail_contents__box__images-img'
         .item_detail_contents__box__images-subs
-          = image_tag @item.images[0].image, class:'item_detail_contents__box__images-sub'
+          = image_tag @item.images[0].image.url, class:'item_detail_contents__box__images-sub'
           -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
           -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
           -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
