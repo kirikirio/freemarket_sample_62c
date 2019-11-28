@@ -21,5 +21,6 @@ config/secrets.yml
 /config/master.key
 
 # 追加
-.DS_store
+.DS_Store
+public/uploads/*
 .env

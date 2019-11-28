@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+
   belongs_to :user
   belongs_to :brand
   belongs_to :size
@@ -14,4 +15,23 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
+  
+  validates :name, length: {maximum: 40}
+  validates :price, numericality: {
+                      only_integer: true,
+                      greater_than_or_equal_to: 300,
+                      less_than_or_equal_to: 9999999
+                      } 
+  validates :description,length: {maximum: 1000}
+  validates :name,
+            :price,
+            :description,
+            :item_status_id,
+            :sale_status_id,
+            :size_id,
+            :delivery_status_id,
+            :prefecture_id,
+            :category_id,
+            :delivery_fee,
+            presence: true
 end

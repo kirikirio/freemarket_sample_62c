@@ -1,6 +1,21 @@
+// flashメッセージ
+.notification{
+  .notice{
+  background-color: #38AEF0;
+  color: #fff;
+  text-align: center;
+  }
+
+  .alert{
+    background-color: #F35500;;
+    color: #fff;
+    text-align: center;
+  }
+}
+
 .main-box{
-    margin: 0 auto;
-    width: 700px;
+  margin: 0 auto;
+  width: 700px;
   &__head{
     text-align: center;
     font-size:20px;
@@ -19,18 +34,54 @@
     height: 303px;
     width : 100%;
     h3{
-    height: 16px;
-    font-size: 16px;
-    font-weight: bold;
-  }
-    p {
-    margin: 8px 0 0 0;
-    height: 21px;
+      height: 16px;
+      font-size: 16px;
+      font-weight: bold;
     }
-    &__box{
+    p {
+      margin: 8px 0 0 0;
+      height: 21px;
+    }
+    &__previews{
+      width: 100%;
+      
+      display: flex;
+      .preview-list{
+        display: none;
+        ul{
+          list-style: none;
+        }
+        li{
+          width: 116px;
+          margin-bottom: 10px;
+          
+          .figure{
+            .preview-image{
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+          .article{
+            border-top: 1px solid #eee;
+            display: flex;
+            p{
+              text-align: center;
+              width: 50%;
+            }
+          }
+        }
+        background-color: $main;
+        
+      }
+      label{
+        width: 100%;
+      }
+    }
+    
+    &__area{
       border: 1px dashed #ccc;
       margin: 0 auto;
-      background: #f5f5f5;
+      background: $main;
       height: 162px;
       width : 620px;
       padding: 40px;
@@ -38,11 +89,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
       pre{
       text-align: center;
+      }
+      &--hidden{
+        display: none;
+      }
     }
-  }
-} 
+  } 
 
   .hissu{
     font-size:12px;
@@ -64,10 +119,6 @@
     width: 19px;
     background-color: #888
   }
-  .box{
-      margin: 16px 0 0 0 ;
-  }
-
   
   &__name{
     border-bottom: 1px solid $visit;
@@ -95,7 +146,7 @@
     height: 164px;
     width: 620px;
     margin: 40px 0 0 ;
-    }
+  }
   .textarea{
     height: 142px;
     width: 620px;
@@ -115,7 +166,6 @@
   &__show{
     border-bottom: 1px solid $visit;
     background: $button;
-    // height: 261px;
     height: 100%;
     width : 700px;
     padding:40px;
@@ -125,15 +175,12 @@
     letter-spacing: 1px;
     font-size: 14px;
     color: #888;
-
   }
   &__showbox{
     float: right;
-    // height: 180px;
     width: 400px;
   }
   &__kategori{
-    // height: 70px;
     width: 400px;
   }
   &__zyoutai{
@@ -147,14 +194,13 @@
   #children-area,
   #grandchildren-area,
   #size-area,
-  #brand-area{
-    display: none;
+  #brand-area,
+  #method-area{
+  display: none;
   }
   .select-box{
     position: relative;
-    // height: 48px;
     width: 400px;
-    // margin: 8px 0 0 ;
     margin: 18px 0 ;
     &:after{
       font-family: "Font Awesome 5 Free";
@@ -166,8 +212,7 @@
       transform: translateY(-50%);
       pointer-events: none;
       color: #888;
-    }
-    
+    }  
   }
   selct{
     font-size: 16px;
@@ -175,8 +220,6 @@
   }
   .select-default{
     -webkit-appearance: none;
-  　-moz-appearance: none;
-  　appearance: none;
     height: 48px;
     width: 400px;
     padding: 0 16px;
@@ -185,9 +228,6 @@
     cursor: pointer;
     background: $button;
   }
-
-    
-  
   .icon{
     position: absolute;
     top:40%;
@@ -199,32 +239,27 @@
   &__haisou{
     border-bottom: 1px solid $visit;
     background:$button;
-    height: 371px;
     width : 700px;
     padding: 40px;
     .h3sub{
       .icon-question {
-          color: $link;
-          cursor: pointer;
-        }
+        color: $link;
+        cursor: pointer;
+      }
     }
   }
   .haisou-box{
-    height: 290px;
     width: 400px;
     float: right;
   }
   .haisou-futan{
-    height: 70px;
     width: 400px;
   }
   .haisou-area{
-    height: 70px;
     width: 400px;
     margin:40px 0 0 0;
   }
   .haisou-nissu{
-    height: 70px;
     width: 400px;
     margin:40px 0 0 0;
   }
@@ -285,23 +320,13 @@
             
             .p-left{
               float: left;
-              p{
-                // font-weight: 600;
-                // font-size: 16px;
-                // line-height: 1;
-              }
             }
             .p-right{
               float: right;
-              p{
-                // font-weight: 600;
-                // font-size: 34px;
-              }
             }
             
           }
           .fee-area{
-            // font-weight: 600;
               font-size: 14px;
               line-height: 1;
           }
@@ -317,13 +342,8 @@
             line-height: 1;
             display: flex;
             border: 0;
-            padding:0 0  24px 0;
+            padding:0 0 24px 0;
           }
-          // .clear-fix:after{
-          //   content: '';
-          //   clear: both;
-          //   display: block;
-          // }
         }
       }
   }
@@ -360,6 +380,6 @@
         width: calc(50% - 6px);
         margin: 24px auto 0;
       }
-  }
+    }
 }
 

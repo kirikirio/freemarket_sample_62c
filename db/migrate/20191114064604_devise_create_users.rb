@@ -3,7 +3,7 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
-      # KIRIMICHI!
+      
       t.string :firstname, null: false
       t.string :lastname, null: false
       t.string :firstname_kana, null: false
