@@ -13,21 +13,24 @@
         %span.hissu 必須
       %p 最大10枚までアップロードできます
       = f.fields_for :images do |image|
-        .main-box__image__previews
-          .preview-list
-            %ul
-              %li
-                .figure
-                  
-                .article
-                  %p 削除
-                  %p 編集
-        = image.label :image do
-          .main-box__image__area
-            %pre
-              ドラッグアンドドロップ
-              またはクリックしてファイルをアップロード
-            = image.file_field :image, class: 'main-box__image__area--hidden fileFiel'
+        .image-area
+          .image-area__preview
+            .image-area__preview__list
+              %ul
+                %li
+                  .figure
+                    
+                  .article
+                    = link_to '#' do
+                      削除
+                    = link_to '#', class: 'right-link' do
+                      編集
+          = image.label :image do
+            .image-area__input
+              %pre
+                ドラッグアンドドロップ
+                またはクリックしてファイルをアップロード
+              = image.file_field :image, class: 'image-area__input--hidden fileField'
     .main-box__name
       .main-box__syouhinmei
         = f.label :name do
