@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_085503) do
     t.integer "price", null: false
     t.text "description", null: false
     t.bigint "item_status_id", null: false
-    t.bigint "sale_status_id", null: false
+    t.bigint "sale_status_id", default: 1, null: false
     t.bigint "size_id", null: false
     t.bigint "brand_id", null: false
     t.bigint "delivery_status_id", null: false
@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_085503) do
     t.string "user_image", default: "", null: false
     t.integer "point", default: 0, null: false
     t.string "postal_code", null: false
-    t.string "prefecture", default: ""
+    t.string "prefecture_id", default: ""
     t.string "city", default: ""
     t.string "city_block", default: "", null: false
     t.string "building", default: "", null: false
