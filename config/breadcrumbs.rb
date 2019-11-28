@@ -15,6 +15,12 @@ crumb :users_logout do
   parent :users_show
 end
 
+# 出品の中商品一覧
+crumb :sellings_index do
+  link "出品した商品 - 出品中"
+  parent :users_show
+end
+
 # 本人情報の登録
 crumb :addresses_edit do
   link "本人情報の登録"

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   
   resources :credits, only: [:index, :new, :create]
   resources :addresses, only: [:edit]
+  resources :sellings, only: [:index, :show, :edit, :destroy]
   end
 
   resources :items do

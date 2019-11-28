@@ -24,7 +24,7 @@
         = link_to "#" do
           .new__items__container__box
             %figure
-              = image_tag lady.images[0].image , class:'new__items__container__box-item_phot'
+              = image_tag lady.images[0].image.url , class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
                 = "¥#{lady.price.to_s(:delimited)}"
             .new__items__container__box__item_body
@@ -44,7 +44,7 @@
         = link_to "#" do
           .new__items__container__box
             %figure
-              = image_tag man.images[0].image , class:'new__items__container__box-item_phot'
+              = image_tag man.images[0].image.url , class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
                 = "¥#{man.price.to_s(:delimited)}"
             .new__items__container__box__item_body
@@ -64,7 +64,7 @@
         = link_to "#" do
           .new__items__container__box
             %figure
-              -# = image_tag home.images[0].image , class:'new__items__container__box-item_phot'
+              = image_tag home.images[0].image.url , class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
                 = "¥#{home.price.to_s(:delimited)}"
             .new__items__container__box__item_body
@@ -84,7 +84,7 @@
         = link_to "#" do
           .new__items__container__box
             %figure
-              = image_tag toy.images[0].image , class:'new__items__container__box-item_phot'
+              = image_tag toy.images[0].image.url , class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
                 = "¥#{toy.price.to_s(:delimited)}"
             .new__items__container__box__item_body
