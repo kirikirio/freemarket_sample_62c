@@ -1,0 +1,41 @@
+= render partial: 'shared/header'
+
+-# パンくずリスト
+- breadcrumb :sellings_index
+= render partial: 'shared/breadcrumbs'
+
+%section.content-section
+  = render partial: 'shared/sidebar'
+  .r-content
+    %section.sellings-content
+      %h2.sellings-info 出品した商品
+      %ul.list-content
+        %li.selling
+          出品中
+        %li.none
+          取引中
+        %li.none
+          売却済
+      .products-content
+        -# - @sellings.each do |selling|
+          %ul#my-page-selling.sellings-list.tab-pane.active
+            %li
+              =link_to "/users/:user_id/sellings/#{selling.id}",{class:"product-link" } do
+                %figure
+                  = image_tag 'my-page.jpg', class: 'product-img'
+                .item-box.show-stock-item
+                  .item-name
+                    = selling.name
+                  %div
+                    %span.likes-count
+                      %i.far.fa-heart
+                      %span 0
+                    %span.comments-count
+                      %i.far.fa-comment-alt
+                      %span 0
+                    .selling-status.bold.awaiting
+                      出品中
+                %i.fas.fa-chevron-right
+        .p-top__paginate
+          -# = paginate(@sellings)
+= render partial: 'shared/footer'
