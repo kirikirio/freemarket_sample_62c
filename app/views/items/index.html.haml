@@ -119,7 +119,7 @@
         = link_to "#" do
           .new__items__container__box
             %figure
-              = image_tag man.images[0].image , class:'new__items__container__box-item_phot'
+              = image_tag man.images[0].image.url , class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
                 = "¥#{man.price.to_s(:delimited)}"
             .new__items__container__box__item_body
