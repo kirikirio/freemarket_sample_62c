@@ -39,7 +39,7 @@
               .contents__bottom__right__list--text
                 やることリスト
 
-          = link_to "###" do
+          = link_to user_path(current_user.id) do
             .contents__bottom__right__mypage
               .contents__bottom__right__mypage--icon
                 = image_tag 'my-page.jpg', width: "32", height: "32"
