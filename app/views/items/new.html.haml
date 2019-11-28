@@ -22,12 +22,12 @@
                 .article
                   %p 削除
                   %p 編集
-          = image.label :image do
-            .main-box__image__area
-              %pre
-                ドラッグアンドドロップ
-                またはクリックしてファイルをアップロード
-              = image.file_field :image, class: 'main-box__image__area--hidden'
+        = image.label :image do
+          .main-box__image__area
+            %pre
+              ドラッグアンドドロップ
+              またはクリックしてファイルをアップロード
+            = image.file_field :image, class: 'main-box__image__area--hidden fileFIeld'
     .main-box__name
       .main-box__syouhinmei
         = f.label :name do

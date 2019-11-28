@@ -19,7 +19,7 @@ $(function () {
     reader.readAsDataURL(file);
   }
 
-  $('#fileField').on('change', (e) => {
+  $('.fileField').on('change', (e) => {
     $('.preview-list').show();
     imagePreview(e.target)
   })
