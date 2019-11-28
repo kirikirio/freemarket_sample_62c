@@ -96,7 +96,6 @@ class ItemsController < ApplicationController
     @delivery_statuses = DeliveryStatus.all
     @delivery_method = DeliveryMethod.all
     @delivery_fee = ['着払い','送料込み']
-  end
 
 #   def item_params
 #     params.require(:item).permit(:name,:description,:delivery_fee,:price,:brand_id,:prefecture_id,:category_id,:size_id,:item_status_id,:sale_status_id,:delivery_status_id,:delivery_method_id,
