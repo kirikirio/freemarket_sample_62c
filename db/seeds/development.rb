@@ -18,6 +18,23 @@ DeliveryStatus.create!([{status: '1~2日で発送'},{status: '2~3日で発送'},
 
 SaleStatus.create!([{status: '出品中'},{status: '取引中'},{status: 'sold out'}])
 
+user = User.create!(
+  {
+    firstname: '肉',
+    lastname: '郎',
+    firstname_kana: 'ヤク',
+    lastname_kana: 'タ',
+    nickname: 'tamura',
+    password: '12345678',
+    email: 'gfsssxxsaa@example.com',
+    user_image: '',
+    postal_code: 'aiueo',
+    point: 0,
+    birthday: 20191120,
+    profile:'あいう'
+  }
+)
+
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
 lady_1.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},{name: "Tシャツ/カットソー(七分/長袖)"},{name: "シャツ/ブラウス(半袖/袖なし)"},{name: "シャツ/ブラウス(七分/長袖)"},{name: "ポロシャツ"},{name: "キャミソール"},{name: "タンクトップ"},{name: "ホルターネック"},{name: "ニット/セーター"},{name: "チュニック"},{name: "カーディガン/ボレロ"},{name: "アンサンブル"},{name: "ベスト/ジレ"},{name: "パーカー"},{name: "トレーナー/スウェット"},{name: "ベアトップ/チューブトップ"},{name: "ジャージ"},{name: "その他"}])
