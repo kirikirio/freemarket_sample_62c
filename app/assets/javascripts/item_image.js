@@ -16,7 +16,7 @@ $(function () {
   }
 
   $('.fileField').on('change', (e) => {
-    $('.preview-list').show();
+    $('.image-area__preview').show();
     imagePreview(e.target)
   })
 });

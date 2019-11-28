@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
+    # 10.times{@item.images.build}
     # js非同期処理
     if (params[:parentId])
       parent = Category.find(params[:parentId])
