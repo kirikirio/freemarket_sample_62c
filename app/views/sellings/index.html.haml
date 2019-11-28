@@ -17,25 +17,25 @@
         %li.none
           売却済
       .products-content
-        -# - @sellings.each do |selling|
+        - @sellings.each do |selling|
           %ul#my-page-selling.sellings-list.tab-pane.active
             %li
               =link_to "/users/:user_id/sellings/#{selling.id}",{class:"product-link" } do
                 %figure
-                  = image_tag 'my-page.jpg', class: 'product-img'
+                  = image_tag selling.images[0].image.url, class: 'product-img'
                 .item-box.show-stock-item
                   .item-name
                     = selling.name
                   %div
-                    %span.likes-count
+                    %span.user-count
                       %i.far.fa-heart
                       %span 0
-                    %span.comments-count
+                    %span.user-count
                       %i.far.fa-comment-alt
                       %span 0
                     .selling-status.bold.awaiting
                       出品中
                 %i.fas.fa-chevron-right
         .p-top__paginate
-          -# = paginate(@sellings)
+          = paginate(@sellings)
 = render partial: 'shared/footer'
