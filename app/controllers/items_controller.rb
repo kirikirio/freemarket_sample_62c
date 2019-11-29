@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_submodel, only: [:new, :create]
+  before_action :move_to_sign_in, except: [:index, :show]
 
   def index
     @ladies_ids = Category.find(1).subtree_ids
@@ -121,6 +122,11 @@ class ItemsController < ApplicationController
     @delivery_statuses = DeliveryStatus.all
     @delivery_method = DeliveryMethod.all
     @delivery_fee = ['着払い','送料込み']
+  end
+
+  def move_to_sign_in
+    # redirect_to action: :index unless user_signed_in?
+    redirect_to controller: 'devise/sessions', action: 'new' unless user_signed_in?
   end
 
 end
