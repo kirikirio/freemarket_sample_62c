@@ -1,11 +1,12 @@
-= render partial: 'shared/header'
+= render 'shared/header'
 
 -# パンくずリスト
 - breadcrumb :sellings_index
-= render partial: 'shared/breadcrumbs'
+= render 'shared/breadcrumbs'
+= render 'shared/post'
 
 %section.content-section
-  = render partial: 'shared/sidebar'
+  = render 'shared/sidebar'
   .r-content
     %section.sellings-content
       %h2.sellings-info 出品した商品
@@ -38,4 +39,4 @@
                 %i.fas.fa-chevron-right
         .p-top__paginate
           = paginate(@sellings)
-= render partial: 'shared/footer'
+= render 'shared/footer'

@@ -1,11 +1,12 @@
-= render partial: 'shared/header'
+= render 'shared/header'
 
 -# パンくずリスト
 - breadcrumb :users_profile
-= render partial: 'shared/breadcrumbs'
+= render 'shared/breadcrumbs'
+= render 'shared/post'
 
 %section.content-section
-  = render partial: 'shared/sidebar'
+  = render 'shared/sidebar'
   .profile-content
     %section.profile-container
       %h2.content-head プロフィール
@@ -18,4 +19,4 @@
       .profile-text-content
         %textarea.input-profile-text{placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
         %button.btn-change-profile{type: "submit"} 変更する
-= render partial: 'shared/footer'
+= render 'shared/footer'
