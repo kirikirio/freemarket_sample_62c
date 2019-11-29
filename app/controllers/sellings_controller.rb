@@ -6,6 +6,15 @@ class SellingsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
+  def edit
+  end
+  def destroy 
+    item = Item.find(params[:id])
+    item.destroy! if item.user_id == current_user.id
+    #destroyメソッドを使用し対象のツイートを削除する。
+    redirect_to user_sellings_path
+  end
 end

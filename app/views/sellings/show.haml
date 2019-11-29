@@ -1,0 +1,110 @@
+= render partial: 'shared/header'
+-# パンくずリスト
+- breadcrumb :sellings_show
+= render partial: 'shared/breadcrumbs'
+
+.item_detail_contents__sabo
+  %section.item_detail_contents
+    %h1.item_detail_contents__item-name 
+      = @item.name
+    .item_detail_contents__box
+      .item_detail_contents__box__images
+        .item_detail_contents__box__images-main
+          = image_tag  @item.images[0].image.url, class:'item_detail_contents__box__images-img'
+          .item_detail_contents__box__images-subs
+            = image_tag  @item.images[0].image.url, class:'item_detail_contents__box__images-sub'
+      .item_detail_contents__box__details-area
+        %table.item_detail_contents__box__details-table
+          %tr
+            %th 出品者
+            %td
+              = link_to "###" do
+                %p 
+                  = @item.user.nickname
+              %br/
+              .evaluation
+                %i.fas.fa-laugh
+                %span
+                  72
+                  %span
+              .evaluation
+                %i.fas.fa-meh
+                %span
+                  0
+                  %span
+              .evaluation
+                %i.fas.fa-frown
+                %span
+                  0
+                  %span
+          %tr
+            %th カテゴリー
+            %td
+              %div
+                = link_to "###" do
+                  = @item.category.path[0].name
+              %div
+                = link_to "###" do
+                  %i.fas.fa-chevron-right>
+                  = @item.category.path[1].name
+              %div
+                = link_to "###" do
+                  %i.fas.fa-chevron-right>
+                  = @item.category.path[2].name
+          %tr
+            %th ブランド
+            %td
+              = link_to "###" do
+                = @item.brand.name
+          %tr
+            %th 商品の状態
+            %td 
+              = @item.item_status.status
+          %tr
+            %th 配送料の負担
+            %td 
+              = @item.delivery_fee
+          %tr
+            %th 配送の方法
+            %td 
+              = @item.delivery_method.method
+          %tr
+            %th 配送元地域
+            %td
+              = link_to "###" do
+                = @item.prefecture.name
+          %tr
+            %th 発送日の目安
+            %td 
+              = @item.delivery_status.status
+    .price__section
+      %span.price__section-pricetext 
+        = "¥#{@item.price.to_s(:delimited)}"
+      %span.price__section-tax (税込)
+      %span.price__section-delivery-fee 
+        = @item.delivery_fee
+    .item__description
+      %p.item__description-text
+        = @item.description
+
+  %section.comment__container
+    .comment__container__lis.asd
+      = link_to edit_user_selling_path, class: "buy-button" do
+        %p.buy-text 商品の編集
+    %p.text-cener or
+    .comment__container__lis
+      = link_to "###", class: "buy-button" do
+        %p.buy-text 出品を一旦停止する
+    .comment__container__lis
+      = link_to user_selling_path, class: "text-danger", method: :delete, data: {confirm: '削除すると二度と復活できません。',cancel: 'やめる', commit: '削除'}, title: '確認' do
+        %p.buy-text この商品を削除
+  %section.comment__container
+    .comment__container__box
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    %input{type: "hidden"}/
+    %textarea.comment__container__comment{type: "text"}
+        
+    %button.comment__container__submit{type: "submit"}
+      %span コメントする
+
+= render partial: 'shared/footer'
