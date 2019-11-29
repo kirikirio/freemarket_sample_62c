@@ -5,7 +5,7 @@ FactoryBot.define do
     lastname{'太郎'}
     firstname_kana{'プログラミング'}
     lastname_kana{'タロウ'}
-    nickname{'タロウ君'}
+    nickname{'sampleuser1'}
     profile{'こんにちは'}
     birthday{'20191120'}
     user_image{''}
@@ -18,9 +18,9 @@ FactoryBot.define do
     tel_number{'9011'}
     customer_id{'1'}
     card_id{'1'}
-    provider{'1'}
-    uid{'1'}
-    email{'hfiglh@e'}
+    provider{'facebook'}
+    uid{'12345'}
+    email{'sample@test.com'}
     encrypted_password{''}
     reset_password_token{''}
     reset_password_sent_at{''}
