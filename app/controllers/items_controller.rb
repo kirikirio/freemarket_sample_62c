@@ -108,7 +108,7 @@ class ItemsController < ApplicationController
                             :delivery_method_id,
                             images_attributes: [:id, :image]
                           ).merge(
-                            user_id: 1
+                            user_id: current_user.id
                           )
   end
 
