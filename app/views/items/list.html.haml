@@ -1,8 +1,9 @@
-= render partial: 'shared/header'
+= render 'shared/header'
 
 -# パンくずリスト
 - breadcrumb :items_list
-= render partial: 'shared/breadcrumbs'
+= render 'shared/breadcrumbs'
+= render 'shared/post'
 
 .content
   %section.new__items
@@ -83,4 +84,4 @@
             %h3 ルイヴィトン ダミエ リビラ
 
 
-= render partial: 'shared/footer'
+= render 'shared/footer'

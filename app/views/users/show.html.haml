@@ -1,11 +1,12 @@
-= render partial: 'shared/header'
+= render 'shared/header'
 
 -# パンくずリスト
 - breadcrumb :users_show
-= render partial: 'shared/breadcrumbs'
+= render 'shared/breadcrumbs'
+= render 'shared/post'
 
 %section.my-maine
-  = render partial: 'shared/sidebar'
+  = render 'shared/sidebar'
   .my-page
     .my-page__user
       = image_tag "users/user-bg.jpg", class:"bg-img"
@@ -54,4 +55,4 @@
           %ul.mypage-item-list.tab-pane.active{id: "#"}
             %li.mypage-item-not-found.bold 取引中の商品がありません
         = image_tag "logo/logo_gray.svg", class:"logo-gray"
-= render partial: 'shared/footer'
+= render 'shared/footer'
