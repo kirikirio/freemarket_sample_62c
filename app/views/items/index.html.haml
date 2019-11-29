@@ -113,7 +113,7 @@
         = link_to "#" do
           .new__items__container__box
             %figure
-              = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
+              = image_tag chanel.images[0].image.url, class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
                 = "¥#{chanel.price.to_s(:delimited)}"
             .new__items__container__box__item_body
@@ -133,7 +133,7 @@
         = link_to "#" do
           .new__items__container__box
             %figure
-              = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
+              = image_tag lv.images[0].image.url, class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
                 = "¥#{lv.price.to_s(:delimited)}"
             .new__items__container__box__item_body
@@ -153,7 +153,7 @@
         = link_to "#" do
           .new__items__container__box
             %figure
-              = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
+              = image_tag supreme.images[0].image.url, class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
                 = "¥#{supreme.price.to_s(:delimited)}"
             .new__items__container__box__item_body
@@ -173,7 +173,7 @@
         = link_to "#" do
           .new__items__container__box
             %figure
-              = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
+              = image_tag nike.images[0].image.url, class:'new__items__container__box-item_phot'
               %p.new__items__container__box-price
                 = "¥#{nike.price.to_s(:delimited)}"
             .new__items__container__box__item_body
