@@ -104,7 +104,7 @@
           メール/パスワード
           %i.fa.fa-angle-right{class:"side__list__icon"}
     %li
-      =link_to "#",{class:"side__list" } do
+      =link_to edit_user_path(current_user.id),{class:"side__list" } do
         .side__list__tex
           本人情報
           %i.fa.fa-angle-right{class:"side__list__icon"}
