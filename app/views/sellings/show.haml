@@ -13,15 +13,6 @@
           = image_tag  @item.images[0].image.url, class:'item_detail_contents__box__images-img'
           .item_detail_contents__box__images-subs
             = image_tag  @item.images[0].image.url, class:'item_detail_contents__box__images-sub'
-            -# = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
-            -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
-            -# = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
-            -# = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
-            -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
-            -# = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
-            -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
-            -# = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
-            -# = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
       .item_detail_contents__box__details-area
         %table.item_detail_contents__box__details-table
           %tr
@@ -105,29 +96,6 @@
       = link_to "###", class: "buy-button" do
         %p.buy-text 出品を一旦停止する
     .comment__container__lis
-      -#   #modal-content.modal
-      -#     .modal__confirmation
-      -#       .modal__confirmation__content 確認 
-      -#       .modal__confirmation__list
-      -#         %br 削除すると二度と復活できません。
-      -#         %br 削除する代わりに停止することもできます。
-      -#         %br
-      -#         %br 本当に削除しますか？
-      -#     #a.modal__list
-      -#       .modal__list__right
-      -#         %a#modal-close キャンセル
-      -#       .modal__list__left
-      -#         %a#modal-close 削除する
-      -# %p 
-      -#   %a#modal-open.button-link クリックするとモーダルウィンドウを開きます。
-      -# = link_to "", item_path(@item), method: :DELETE, id: 'item-delete-btn'
-      -# #overlay
-      -#   #modalWindow
-      -#     .modal-message-box
-      -#       %div 確認
-      -#       %div 本当に削除しますか？
-      -#     %button#modal-close-btn キャンセル
-      -#     %button#delete-comformation-btn 削除する
       = link_to user_selling_path, class: "text-danger", method: :delete, data: {confirm: '削除すると二度と復活できません。',cancel: 'やめる', commit: '削除'}, title: '確認' do
         %p.buy-text この商品を削除
   %section.comment__container
