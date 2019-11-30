@@ -167,8 +167,9 @@ class ItemsController < ApplicationController
 
   def correct_user
     @item_current = current_user.items.find_by(id: params[:id])
-  if @item_current
-    redirect_to root_url
+    if @item_current
+      redirect_to root_url
+    end
   end
 
 end
