@@ -10,7 +10,10 @@
           .form-group__label
             %label{class: 'form-group__label__text'} ニックネーム
             %span{class: 'form-group__label__require'} 必須
-          = f.text_field :nickname, class: "form-group__input", placeholder: "例）エフ太郎", maxlength: "30"
+          - if session[:nickname].blank?
+            = f.text_field :nickname, class: "form-group__input", placeholder: "例）エフ太郎", maxlength: "30"
+          - else
+            = f.text_field :nickname, class: "form-group__input", placeholder: "例）エフ太郎", maxlength: "30", readonly: "readonly", value: session[:nickname]
           - if flash[:nickname] == "ニックネームを入力してください"
             .form-group__error
               = flash[:nickname]
@@ -19,7 +22,10 @@
           .form-group__label
             %label{class: 'form-group__label__text'} メールアドレス
             %span{class: 'form-group__label__require'} 必須
-          = f.text_field :email, class: "form-group__input", placeholder: "PC・携帯どちらでも可"
+          - if session[:email].blank?
+            = f.text_field :email, class: "form-group__input", placeholder: "PC・携帯どちらでも可"
+          - else
+            = f.text_field :email, class: "form-group__input", placeholder: "PC・携帯どちらでも可", readonly: "readonly", value: session[:email]
           - if flash[:email] == "メールアドレスを入力してください"
             .form-group__error
               = flash[:email]
@@ -31,7 +37,10 @@
           .form-group__label
             %label{class: 'form-group__label__text'} パスワード
             %span{class: 'form-group__label__require'}  必須
-          = f.password_field :password, class: "form-group__input", placeholder: "７文字以上", id: "password"
+          - if session[:password].blank?
+            = f.password_field :password, class: "form-group__input", placeholder: "７文字以上", id: "password"
+          - else
+            = f.password_field :password, class: "form-group__input", placeholder: "７文字以上", id:"password", readonly: "readonly", value: session[:password]
           - if flash[:password] == {a: "パスワードを入力してください", b: "パスワードは7文字以上128文字以下で入力してください", c: "英字と数字両方を含むパスワードを設定してください"}
             .form-group__error
               = flash[:password][:a]

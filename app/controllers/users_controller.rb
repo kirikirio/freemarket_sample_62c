@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   end
 
   def logout
-
   end
 
   # 新規会員登録
@@ -14,4 +13,9 @@ class UsersController < ApplicationController
 
   def profile
   end
+
+  def edit
+
+  end
+
 end
