@@ -1,13 +1,6 @@
 .post
-  - if user_signed_in?
-    = link_to new_item_path do
-      .post__text
-        出品
-      .post__camera
-        = fa_icon 'camera 4x'
-  - else
-    = link_to new_user_session_path do
-      .post__text
-        出品
-      .post__camera
-        = fa_icon 'camera 4x'
+  = link_to new_item_path do
+    .post__text
+      出品
+    .post__camera
+      = fa_icon 'camera 4x'

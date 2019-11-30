@@ -1,4 +1,5 @@
 class SignupController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :validates_registration, only: :authentication
   before_action :validates_authentication, only: :address
   before_action :validates_address, only: :credit
