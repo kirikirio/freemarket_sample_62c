@@ -8,18 +8,13 @@
   .item_detail_contents__box
     .item_detail_contents__box__images
       .item_detail_contents__box__images-main
+        -if @item.sale_status_id == 2
+          .triangle
+          .sold
+            SOLD
         = image_tag @item.images[0].image.url, class:'item_detail_contents__box__images-img'
         .item_detail_contents__box__images-subs
           = image_tag @item.images[0].image.url, class:'item_detail_contents__box__images-sub'
-          -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
-          -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
-          -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
-          -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
-          -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
-          -# = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
-          -# = image_tag 'items/bag_sample02.jpg', class:'item_detail_contents__box__images-sub'
-          -# = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
-          -# = image_tag 'items/bag_sample03.jpg', class:'item_detail_contents__box__images-sub'
     .item_detail_contents__box__details-area
       %table.item_detail_contents__box__details-table
         %tr
@@ -90,8 +85,12 @@
     %span.price__section-tax (税込)
     %span.price__section-delivery-fee 
       = @item.delivery_fee
-  = link_to confirmation_item_path, class: "buy-button" do
-    %p.buy-text 購入画面に進む
+  -if @item.sale_status_id == 1
+    = link_to confirmation_item_path, class: "buy-button" do
+      %p.buy-text 購入画面に進む
+  -elsif @item.sale_status_id == 2
+    .buy-button{style: "background: #888888;"}
+      %p.buy-text 売り切れました
   -# %p.delivery_caution この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
   .item__description
     %p.item__description-text

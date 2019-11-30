@@ -1,0 +1,15 @@
+= render 'shared/sub-header'
+
+.main
+  .complete-box
+    .complete-box__title
+      %h1 購入完了
+    .complete-box__contents
+      .complete-box__contents__message
+        .form-group
+          %p{class: 'form-group-text'} 購入ありがとうございました。
+        = link_to items_path do
+          %button{type: 'button', class: 'btn'}
+            トップページに戻る
+
+= render 'shared/sub-footer'

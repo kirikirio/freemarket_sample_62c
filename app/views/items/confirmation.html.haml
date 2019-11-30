@@ -5,19 +5,32 @@
   %section.purchase_confirmation__contents__buy
     %section.purchase_confirmation__contents__buy__inner
       %h3
-        = image_tag 'items/item04.jpg', class:'purchase_confirmation__contents__buy__inner-item_img'
-      %p.purchase_confirmation__contents__buy__inner-item_name ルイヴィトン ハンドバッグ
+        = image_tag @item.images[0].image.url, class:'purchase_confirmation__contents__buy__inner-item_img'
+      %p.purchase_confirmation__contents__buy__inner-item_name
+        = @item.name
       .purchase_confirmation__contents__buy__inner__buying-form
-        %p.purchase_confirmation__contents__buy__inner__buying-form-price ¥6,500
+        %p.purchase_confirmation__contents__buy__inner__buying-form-price
+          = "¥#{@item.price}"
         %span.purchase_confirmation__contents__buy__inner__buying-form-delivery-fee 送料込み
         %ul.purchase_confirmation__contents__buy__inner__buying-form__pointbox
-          %li.purchase_confirmation__contents__buy__inner__buying-form-pointbox ポイントはありません
+          %li.purchase_confirmation__contents__buy__inner__buying-form-pointbox
+            - if current_user.point == 0
+              ポイントはありません
+            - else
+              = current_user.point.to_s + "ポイント"
         %ul.purchase_confirmation__contents__buy__inner__buying-form__payment
           %li.purchase_confirmation__contents__buy__inner__buying-form__payment-pay_amount
             .purchase_confirmation__contents__buy__inner__buying-form__payment-pay_amount-text 支払い金額
-            .purchase_confirmation__contents__buy__inner__buying-form__payment-pay_amount-price_cell ¥6,500
-        %p.purchase_confirmation__contents__buy__inner__buying-form-error_text この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-        %button.purchase_confirmation__contents__buy__inner__buying-form-btn{type:"submit"} 購入する
+            .purchase_confirmation__contents__buy__inner__buying-form__payment-pay_amount-price_cell
+              = "¥#{@item.price}"
+        -# %p.purchase_confirmation__contents__buy__inner__buying-form-error_text この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+        = link_to "購入する", buy_item_path,  method: :patch, class:"purchase_confirmation__contents__buy__inner__buying-form-btn"
+        - if flash[:credit] == "クレジットカードが登録されていません"
+          .form-group__error
+            = flash[:credit]
+        - if flash[:buy] == "購入に失敗しました"
+          .form-group__error
+            = flash[:buy]
         %p.purchase_confirmation__contents__buy__inner__buying-form-apprecommend アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
         .purchase_confirmation__contents__buy__inner__buying-form-app-icon
           = link_to "###" do
@@ -28,11 +41,11 @@
     .purchase_confirmation__contents__buyer_info
       %h3 配送先
       %address.purchase_confirmation__contents__buyer_info-add
-        〒000-0000
+        = current_user.postal_code
         %br/
-        大阪府 大阪市中央区中市浜 4-2-2
+        = "#{current_user.prefecture.name}  " + "#{current_user.city}  " + "#{current_user.city_block}  " + "#{current_user.building}  "
         %br/
-        メルカリ 花子
+        = "#{current_user.lastname}  " + "#{current_user.firstname}  "
       = link_to "###", class: "purchase_confirmation__contents__buyer_info-change" do
         %span 変更する
         %i.fas.fa-angle-right
@@ -41,7 +54,9 @@
       %h3 支払い方法
       %address.purchase_confirmation__contents__buyer_info-payway
         %br/
-        \/
+        = @card_information.brand
+        %br/
+        = "**** - **** - **** - #{@card_information.last4}"
       = link_to "###", class: "purchase_confirmation__contents__buyer_info-change" do
         %span 変更する
         %i.fas.fa-angle-right

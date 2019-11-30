@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     member do
       get 'confirmation'
       get 'list'
+      patch 'buy'
+      get 'buy_completed'
     end
   end
 
