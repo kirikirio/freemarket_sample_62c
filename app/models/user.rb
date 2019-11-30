@@ -14,6 +14,12 @@ class User < ApplicationRecord
   #ニックネームのバリデーション
   validates :nickname, length: { minimum: 1, maximum: 30 }, on: :validates_registration
 
+  #providerのバリデーション
+  validates :provider, length: { maximum: 13 }, on: :validates_registration
+
+  #uidのバリデーション
+  # validates :uid, numericality: true, on: :validates_registration
+
   #性のバリデーション
   validates :lastname, length: { minimum: 1, maximum: 30 }, on: :validates_registration
   validates :lastname, length: { minimum: 1, maximum: 30 }, on: :validates_address
@@ -65,4 +71,5 @@ class User < ApplicationRecord
       end
      return @user
   end
+
 end

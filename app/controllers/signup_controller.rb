@@ -143,6 +143,7 @@ class SignupController < ApplicationController
       end
 
     else
+
       flash[:base] = "選択してください" unless verify_recaptcha(model: @user, secret_key: ENV['RECAPTCHA_SECRET_KEY'])
       @user.errors.details.keys.each do |key|
         case key
