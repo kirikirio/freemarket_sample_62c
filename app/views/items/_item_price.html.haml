@@ -1,0 +1,25 @@
+.main-box__price.clear-fix
+  %h3
+    販売価格(300~9,999,999)
+    %i{class: 'icon-question fa fa-question-circle'}
+  .main-box__price__form
+    %ul
+      %li.first-list
+        .left
+          = f.label :price do
+            価格
+            %span.hissu 必須
+        .right
+          %div
+            %p ¥
+            = f.text_field :price,{placeholder: '例）300円', class: 'price-input'}
+      %li.clear-fix.fee-area
+        .p-left 
+          販売手数料(10%)
+        .p-right
+          %p.fee-area__tax-rate -
+      %li.clear-fix.profit-area
+        .p-left 
+          %p 販売利益
+        .p-right 
+          %p.profit-area__text -

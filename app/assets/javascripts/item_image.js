@@ -34,9 +34,7 @@ $(function () {
   })
   // モデルの画像の削除
   $('.removeBtn').on('click', () => {
-    console.log('remove')
     $('.removeField').val(true);
-    console.log($('.removeField').val());
 
     $('.saved-image').hide();
   })

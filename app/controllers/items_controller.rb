@@ -1,8 +1,6 @@
 class ItemsController < ApplicationController
-
-  before_action :set_submodel, only: [:new, :create]
+  before_action :set_submodel, only: [:new, :create, :edit, :update]
   before_action :move_to_sign_in, except: [:index, :show]
-
 
   def index
     @ladies_ids = Category.find(1).subtree_ids
@@ -48,14 +46,10 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @items = Item.all
-    @brands = Brand.all
     @categorys = Category.all
-    @size = Size.all
-    @item_statuses = ItemStatus.all
-    @sale_statuses = SaleStatus.all
-    @delivery_statuses = DeliveryStatus.all
-    @delivery_methods = DeliveryMethod.all
-    @prefecture = Prefecture.all
+    @oya = Category.find(@item.category_id).parent.parent.siblings
+    @mago = Category.find(@item.category_id).siblings
+    @childrens = Category.find(@item.category_id).root.children
   end
   
   def show
@@ -64,8 +58,16 @@ class ItemsController < ApplicationController
   
   def update
     @item = Item.find(params[:id])
-    @item.update(item_params)
-    redirect_to action: 'index'
+    if @item.images.blank?
+      @item.images.build
+      flash.now[:alert] = '画像をアップロードしてください。'
+      render 'items/edit' and return
+    end
+    if @item.update(item_params)
+      redirect_to action: 'index'
+    else
+      render :edit
+    end
   end
 
   def create
@@ -144,7 +146,7 @@ class ItemsController < ApplicationController
                             :category_id,
                             :delivery_fee,
                             :delivery_method_id,
-                            images_attributes: [:id, :image]
+                            images_attributes: [:id, :image, :_destory]
                           ).merge(
                             user_id: current_user.id
                           )
@@ -157,7 +159,7 @@ class ItemsController < ApplicationController
     @item_statuses = ItemStatus.all
     @prefectures = Prefecture.all
     @delivery_statuses = DeliveryStatus.all
-    @delivery_method = DeliveryMethod.all
+    @delivery_methods = DeliveryMethod.all
     @delivery_fee = ['着払い','送料込み']
   end
 
