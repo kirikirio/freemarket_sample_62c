@@ -9,7 +9,7 @@ Devise.setup do |config|
   
   
 
-  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
+  config.omniauth :facebook, ENV['FACEBOOK_CLIENT_ID'], ENV['FACEBOOK_CLIENT_SECRET']
   # Rails.application.secrets.facebook_client_id,
   # Rails.application.secrets.facebook_client_secret
  
