@@ -4,7 +4,26 @@
 .content
   .top__header__area
     .top__header__area__carousel
-      = image_tag 'items/top-banner-camp.jpg', class:'top__header__area__carousel-img'
+      .top__header__area__carousel-img
+        = image_tag 'items/top-banner-camp.jpg', class:'top__header__area__carousel-img'
+      .top__header__area__carousel-img
+        = image_tag 'items/top-banner-sale.png', class:'top__header__area__carousel-img'
+      .top__header__area__carousel-imgapp
+        .top__header__area__carousel-imgapp-headeblock
+          .top__header__area__carousel-imgapp-headeblock-headtext
+            スマホで かんたん
+            %br/
+            フリマアプリ
+          .top__header__area__carousel-imgapp-headeblock-headbody
+            メルカリはスマホカメラからすぐに出品できる
+            %br/
+            購入時も安心な独自システムのアプリです
+          .top__header__area__carousel-imgapp-headeblock-appbox
+            = link_to "###" do
+              = image_tag 'logo/download-on-the-app-store-apple.svg', class:'top__header__area__carousel-imgapp-headeblock-appbox-apple'  
+            = link_to "###" do
+              = image_tag 'logo/google-play-download-android-app.svg', class:'top__header__area__carousel-imgapp-headeblock-appbox-google'
+    
     .top__header__area__popularity
       %h2.top__header__area__popularity-headline 人気のカテゴリー
     %ul.top__header__area__popularity__category
