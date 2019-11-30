@@ -1,5 +1,5 @@
 class SellingsController < ApplicationController
-  before_action :move_to_index, only: [:show]
+  before_action :selling_to_show, only: [:show]
   def index
     user = User.find(current_user.id)
     @sellings = user.items.page(params[:page]).per(10).order("created_at DESC")
@@ -18,10 +18,11 @@ class SellingsController < ApplicationController
     redirect_to user_sellings_path
   end
   private
-  def move_to_index
+  def selling_to_show
     item = Item.find_by(id: params[:id])
     if item.user_id != current_user.id
       redirect_to root_path
     end
   end
+  
 end
