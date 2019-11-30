@@ -1,7 +1,7 @@
 .side
   %ul.side__menubox
     %li
-      =link_to '#',{class:"side__list active" } do
+      =link_to user_path(current_user.id),{class:"side__list active" } do
         マイページ
         %i.fa.fa-angle-right{class:"side__list__icon"}
     %li
@@ -25,7 +25,7 @@
           出品する
           %i.fa.fa-angle-right{class:"side__list__icon"}
     %li
-      =link_to '#',{class:"side__list" } do
+      =link_to user_sellings_path(current_user.id),{class:"side__list" } do
         .side__list__tex
           出品した商品-出品中
           %i.fa.fa-angle-right{class:"side__list__icon"}
@@ -84,7 +84,7 @@
   %h3 設定
   %ul.side__menubox
     %li
-      =link_to '#',{class:"side__list" } do
+      =link_to profile_user_path(current_user.id),{class:"side__list" } do
         .side__list__tex
           プロフィール
           %i.fa.fa-angle-right{class:"side__list__icon"}
@@ -94,7 +94,7 @@
           発送元・お届け先住所変更
           %i.fa.fa-angle-right{class:"side__list__icon"}
     %li
-      =link_to '#',{class:"side__list" } do
+      =link_to user_credits_path(current_user.id),{class:"side__list" } do
         .side__list__tex
           支払い方法
           %i.fa.fa-angle-right{class:"side__list__icon"}
@@ -104,7 +104,7 @@
           メール/パスワード
           %i.fa.fa-angle-right{class:"side__list__icon"}
     %li
-      =link_to '#',{class:"side__list" } do
+      =link_to edit_user_path(current_user.id),{class:"side__list" } do
         .side__list__tex
           本人情報
           %i.fa.fa-angle-right{class:"side__list__icon"}

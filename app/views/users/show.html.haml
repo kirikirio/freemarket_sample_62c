@@ -14,7 +14,8 @@
         = link_to "###", class: "move__my-page" do
           %figure
             = image_tag "my-page.jpg", class:"user-img"
-          %h2.bold 内村叶菜
+          %h2.bold 
+            = current_user.nickname
           .my-page__user__icon__number
             .my-page__user__icon__number__status-lelt
               評価

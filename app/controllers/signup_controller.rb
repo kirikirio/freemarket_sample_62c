@@ -6,7 +6,13 @@ class SignupController < ApplicationController
   prepend_before_action :clear_flash
 
   def registration
+    session[:password]
 
+    @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password]
+    )
   end
 
   def authentication
@@ -66,6 +72,8 @@ class SignupController < ApplicationController
           city_block: session[:city_block],
           building: session[:building],
           tel_number: session[:tel_number],
+          uid: session[:uid],
+          provider: session[:provider],
           customer_id: customer.id,
           card_id: customer.default_card
         )
@@ -137,6 +145,7 @@ class SignupController < ApplicationController
       end
 
     else
+
       flash[:base] = "選択してください" unless verify_recaptcha(model: @user, secret_key: ENV['RECAPTCHA_SECRET_KEY'])
       @user.errors.details.keys.each do |key|
         case key

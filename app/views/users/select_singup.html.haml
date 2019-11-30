@@ -7,9 +7,9 @@
       = link_to registration_signup_index_path, class: 'btn  main__signup-form__mail' do
         メールアドレスで登録する
         
-      = link_to '#', {class: 'btn btn-facebook  main__signup-form__facebook'} do
+      = link_to user_facebook_omniauth_authorize_path,  method: :post, class: 'btn btn-facebook  main__signup-form__facebook' do
         Facebookで登録する
-      = link_to '#', {class: 'btn btn-google main__signup-form__google'} do
+      = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: 'btn btn-google main__signup-form__google' do
         Googleで登録する
 
 = render 'shared/sub-footer'

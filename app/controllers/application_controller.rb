@@ -46,6 +46,8 @@ class ApplicationController < ActionController::Base
     session[:city] = nil
     session[:city_block] = nil
     session[:building] = nil
+    session[:uid] = nil
+    session[:provider] = nil
   end
   
 end

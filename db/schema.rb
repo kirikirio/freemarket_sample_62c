@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_085503) do
     t.string "user_image", default: "", null: false
     t.integer "point", default: 0, null: false
     t.string "postal_code", null: false
-    t.string "prefecture_id", default: ""
+    t.integer "prefecture_id"
     t.string "city", default: ""
     t.string "city_block", default: "", null: false
     t.string "building", default: "", null: false
@@ -136,6 +136,11 @@ ActiveRecord::Schema.define(version: 2019_11_18_085503) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"

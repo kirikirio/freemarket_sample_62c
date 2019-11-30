@@ -5,13 +5,20 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :trackable, 
+         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 
   #ニックネームのバリデーション
   validates :nickname, length: { minimum: 1, maximum: 30 }, on: :validates_registration
+
+  #providerのバリデーション
+  validates :provider, length: { maximum: 13 }, on: :validates_registration
+
+  #uidのバリデーション
+  # validates :uid, numericality: true, on: :validates_registration
 
   #性のバリデーション
   validates :lastname, length: { minimum: 1, maximum: 30 }, on: :validates_registration
@@ -46,5 +53,23 @@ class User < ApplicationRecord
   
   #番地のバリデーション
   validates :city_block, length: { minimum: 1, maximum: 30 }, on: :validates_address
-  
+
+
+  # SNS認証 facebookとGoogleからuid,provider,email,などの値を受け取ってomniauth_callbacks_controller.rbにsessionとして送る。
+  def self.find_oauth(auth)
+    @user = User.where(uid: auth.uid, provider: auth.provider).first #usersテーブルにprovider、uidがあったらログイン処理
+              
+      unless @user       
+        @user = User.new(
+                        uid: auth.uid,
+                        provider: auth.provider,
+                        nickname: auth.info.nickname,
+                        email: auth.info.email,
+                        user_image:auth.info.image,
+                        password: Devise.friendly_token[0, 20],
+                      )
+      end
+     return @user
+  end
+
 end

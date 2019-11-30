@@ -5,7 +5,7 @@ end
 
 # マイページ
 crumb :users_show do
-  link "マイページ",  "/users/:id"
+  link "マイページ",  "/users/#{current_user.id}"
   parent :root
 end
 
@@ -17,8 +17,13 @@ end
 
 # 出品の中商品一覧
 crumb :sellings_index do
-  link "出品した商品 - 出品中"
+  link "出品した商品 - 出品中" ,"/users/#{current_user.id}/sellings"
   parent :users_show
+end
+# 出品の中商品詳細
+crumb :sellings_show do
+  link "出品商品画面"
+  parent :sellings_index
 end
 
 # 本人情報の登録
