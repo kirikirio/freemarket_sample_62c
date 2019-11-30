@@ -73,7 +73,7 @@
               }
             }
             &__payment{
-              margin: 18px 0;
+              margin: 10px 0 16px 0;
               width: 100%;
               list-style: none;
               
@@ -90,7 +90,7 @@
                 }
               }
             &-error_text{
-              color: #ea352d;
+              color: $accent;
               margin: 8px 0 0;
               line-height: 1.5;
               font-weight: lighter;
@@ -102,11 +102,12 @@
               width: 100%;
               line-height: 45px;
               border: 1px solid #ccc;
-              background: #ccc;
+              background: $accent;
               font-size: 14px;
               font-weight: 200;
               transition: all ease-out .3s;
               outline: none;
+              color: $button;
               }
             &-apprecommend{
               font-weight: 400;
@@ -129,10 +130,10 @@
               }
             }
             a:hover{
-              text-decoration: underline;
-              opacity: 0.7;
+              text-decoration: none;
+              background: $accent;
+              background-color: darken($accent, 5%); 
               }
-              
             }
           }
         }
