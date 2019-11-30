@@ -189,5 +189,25 @@ describe User do
       expect(user.errors[:city_block]).to include("is too long (maximum is 30 characters)")
     end
   end
-  
+
+
+    describe 'self.find_oauth(auth)' do
+      
+      before do
+        @facebook = facebook_mock
+      end
+
+      context "facebookのuidを持っている場合" do
+
+        before do
+          user = create(:user, uid:'12345')
+        end
+
+        example "@userが返ってくる" do
+          @user = User.where(uid: @facebook[:uid], provider: @facebook[:provider]).first
+          expect(@user.uid).to eq ("12345")
+        end
+      
+    end
+  end
 end
