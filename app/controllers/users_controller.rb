@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user
+
 
   def show
-
+    @user = User.find(current_user.id)
   end
 
   def logout
@@ -13,16 +13,10 @@ class UsersController < ApplicationController
   end
 
   def profile
-
+    @user = User.find(current_user.id)
   end
 
   def edit
-    
-  end
-
-  private
-
-  def set_user
     @user = User.find(current_user.id)
   end
 
