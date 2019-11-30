@@ -15,8 +15,9 @@
         .profile-box
           %figure.icon-box
             = image_tag 'my-page.jpg', class: 'profile-img'
-          %input.input-profile-name{placeholder: "例)AYA☆セール中", type: "text"}/
+          %input.input-profile-name{value: "#{@user.nickname}", placeholder: "例)AYA☆セール中", type: "text"}
       .profile-text-content
         %textarea.input-profile-text{placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+          = @user.profile
         %button.btn-change-profile{type: "submit"} 変更する
 = render 'shared/footer'
