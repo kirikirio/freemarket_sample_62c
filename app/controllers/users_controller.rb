@@ -2,10 +2,10 @@ class UsersController < ApplicationController
 
 
   def show
+    @user = User.find(current_user.id)
   end
 
   def logout
-
   end
 
   # 新規会員登録
@@ -13,5 +13,11 @@ class UsersController < ApplicationController
   end
 
   def profile
+    @user = User.find(current_user.id)
   end
+
+  def edit
+    @user = User.find(current_user.id)
+  end
+
 end

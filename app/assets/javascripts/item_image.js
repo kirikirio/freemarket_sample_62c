@@ -21,7 +21,7 @@ $(function () {
     reader.readAsDataURL(file);
   }
   // プレビュー画像の表示
-  $('.fileField').on('change', function (e) {
+  $('.fileField').on('change', (e) => {
 
     $('.preview-image').show();
     imagePreview(e.target);

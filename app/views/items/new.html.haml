@@ -17,13 +17,13 @@
           .image-area__preview
             .image-area__preview__list
               %ul
-                %li
+                %li.preview-image
                   .figure
                     
                   .article
-                    = link_to '#' do
+                    %button.removePreviewBtn{type: 'button'}
                       削除
-                    = link_to '#', class: 'right-link' do
+                    %button.right-link{type: 'button'}
                       編集
           = image.label :image do
             .image-area__input
@@ -104,7 +104,7 @@
             %span.hissu 必須
           %div
             .select-box
-              = f.collection_select :delivery_method_id, @delivery_method, :id, :method, {include_blank: '---'}, class: 'select-default',id: 'method'
+              = f.collection_select :delivery_method_id, @delivery_methods, :id, :method, {include_blank: '---'}, class: 'select-default',id: 'method'
 
         .haisou-area
           = f.label :prefecture do
@@ -120,7 +120,7 @@
           %div
             .select-box
               = f.collection_select :delivery_status_id, @delivery_statuses, :id, :status, {include_blank: '---'}, class: 'select-default'
-              
+
     .main-box__price
       %h3
         販売価格(300~9,999,999)

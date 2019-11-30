@@ -6,7 +6,13 @@ class SignupController < ApplicationController
   prepend_before_action :clear_flash
 
   def registration
+    session[:password]
 
+    @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password]
+    )
   end
 
   def authentication
@@ -42,10 +48,11 @@ class SignupController < ApplicationController
     session[:city_block] = user_params[:city_block]
     session[:building] = user_params[:building]
     session[:tel_number] = user_params[:tel_number]
+    gon.setPublicKey = ENV['SET_PUBLIC_KEY']
   end
 
   def completed
-    Payjp.api_key = 'sk_test_04387e0973780d6cbbb78c9e' #pay.jpの秘密キー
+    Payjp.api_key = ENV['PAYJP_API_KEY'] #pay.jpの秘密キー
     if pay_params['payjp_token'].blank?
         render :completed
     else  
@@ -65,10 +72,13 @@ class SignupController < ApplicationController
           city_block: session[:city_block],
           building: session[:building],
           tel_number: session[:tel_number],
+          uid: session[:uid],
+          provider: session[:provider],
           customer_id: customer.id,
           card_id: customer.default_card
         )
         sign_in @user if @user.save
+
     end
     
   end
@@ -135,6 +145,7 @@ class SignupController < ApplicationController
       end
 
     else
+
       flash[:base] = "選択してください" unless verify_recaptcha(model: @user, secret_key: ENV['RECAPTCHA_SECRET_KEY'])
       @user.errors.details.keys.each do |key|
         case key

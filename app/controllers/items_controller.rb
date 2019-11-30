@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_submodel, only: [:new, :create, :edit, :update]
+  before_action :move_to_sign_in, except: [:index, :show]
 
   def index
     @ladies_ids = Category.find(1).subtree_ids
@@ -89,6 +90,41 @@ class ItemsController < ApplicationController
   end
 
   def confirmation
+    if user_signed_in?
+      Payjp.api_key = ENV['PAYJP_API_KEY']
+      @item = Item.find(params[:id])
+      customer = Payjp::Customer.retrieve(current_user.customer_id)
+      @card_information = customer.cards.retrieve(current_user.card_id)
+    else
+      redirect_to new_user_session_path
+    end
+  end
+
+  def buy
+
+    if current_user.customer_id.blank?
+      flash[:credit] = "クレジットカードが登録されていません"
+      redirect_to action: :confirmation
+    else
+      Payjp.api_key = ENV['PAYJP_API_KEY']
+      @item = Item.find(params[:id])
+
+      if @item.price.blank? || current_user.customer_id.blank?
+        flash[:buy] = "購入に失敗しました"
+        redirect_to action: :confirmation
+      else
+        Payjp::Charge.create(
+          amount: @item.price, #支払金額
+          customer: current_user.customer_id, #顧客ID
+          currency: 'jpy', #日本円
+        )
+        @item.update(sale_status_id: 2)
+        redirect_to buy_completed_item_path
+      end
+    end
+  end
+
+  def buy_completed
   end
 
   def list
@@ -127,4 +163,10 @@ class ItemsController < ApplicationController
     @delivery_fee = ['着払い','送料込み']
   end
 
+  def move_to_sign_in
+    redirect_to controller: 'devise/sessions', action: 'new' unless user_signed_in?
+  end
+
+
 end
+

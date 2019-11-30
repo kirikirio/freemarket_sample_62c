@@ -1,7 +1,7 @@
 class CreditsController < ApplicationController
 
   require "payjp"
-  before_action :entry_card
+  before_action :entry_card, only: [:new]
 
   def index
 
