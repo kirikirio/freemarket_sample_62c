@@ -18,22 +18,22 @@ DeliveryStatus.create!([{status: '1~2日で発送'},{status: '2~3日で発送'},
 
 SaleStatus.create!([{status: '出品中'},{status: '取引中'},{status: 'sold out'}])
 
-user = User.create!(
-  {
-    firstname: '肉',
-    lastname: '郎',
-    firstname_kana: 'ヤク',
-    lastname_kana: 'タ',
-    nickname: 'tamura',
-    password: '12345678',
-    email: 'gfsssxxsaa@example.com',
-    user_image: '',
-    postal_code: 'aiueo',
-    point: 0,
-    birthday: 20191120,
-    profile:'あいう'
-  }
-)
+# user = User.create!(
+#   {
+#     firstname: '肉',
+#     lastname: '郎',
+#     firstname_kana: 'ヤク',
+#     lastname_kana: 'タ',
+#     nickname: 'tamura',
+#     password: '12345678',
+#     email: 'gfsssxxsaa@example.com',
+#     user_image: '',
+#     postal_code: 'aiueo',
+#     point: 0,
+#     birthday: 20191120,
+#     profile:'あいう'
+#   }
+# )
 
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
@@ -363,452 +363,452 @@ others_8.children.create([{name: "オフィス用品一般"},{name: "オフィ�
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
 
-image = Image.new(
-    {
-      image: 'items/top/chanel/chanel1',
-      item_id: 1,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/chanel/chanel1',
+#       item_id: 1,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/chanel/chanel2',
-      item_id: 2,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/chanel/chanel2',
+#       item_id: 2,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/chanel/chanel3',
-      item_id: 3,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/chanel/chanel3',
+#       item_id: 3,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/chanel/chanel4',
-      item_id: 4,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/chanel/chanel4',
+#       item_id: 4,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/chanel/chanel5',
-      item_id: 5,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/chanel/chanel5',
+#       item_id: 5,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/chanel/chanel6',
-      item_id: 6,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/chanel/chanel6',
+#       item_id: 6,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/chanel/chanel7',
-      item_id: 7,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/chanel/chanel7',
+#       item_id: 7,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/chanel/chanel8',
-      item_id: 8,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/chanel/chanel8',
+#       item_id: 8,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/chanel/chanel9',
-      item_id: 9,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/chanel/chanel9',
+#       item_id: 9,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/chanel/chanel10',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/chanel/chanel10',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/home/home1',
-      item_id: 11,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/home/home1',
+#       item_id: 11,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/home/home2',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/home/home2',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/home/home3',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/home/home3',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/home/home4',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/home/home4',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/home/home5',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/home/home5',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/home/home6',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/home/home6',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/home/home7',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/home/home7',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/home/home8',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/home/home8',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/home/home9',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/home/home9',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/home/home10',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/home/home10',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/ladies/ladies1',
-      item_id: 1,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/ladies/ladies1',
+#       item_id: 1,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/ladies/ladies2',
-      item_id: 2,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/ladies/ladies2',
+#       item_id: 2,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/ladies/ladies3',
-      item_id: 3,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/ladies/ladies3',
+#       item_id: 3,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/ladies/ladies4',
-      item_id: 4,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/ladies/ladies4',
+#       item_id: 4,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/ladies/ladies5',
-      item_id: 5,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/ladies/ladies5',
+#       item_id: 5,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/ladies/ladies6',
-      item_id: 6,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/ladies/ladies6',
+#       item_id: 6,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/ladies/ladies7',
-      item_id: 7,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/ladies/ladies7',
+#       item_id: 7,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/ladies/ladies8',
-      item_id: 8,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/ladies/ladies8',
+#       item_id: 8,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/ladies/ladies9',
-      item_id: 9,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/ladies/ladies9',
+#       item_id: 9,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/ladies/ladies10',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/ladies/ladies10',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/mens/mens1',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/mens/mens1',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/mens/mens2',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/mens/mens2',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/mens/mens3',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/mens/mens3',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/mens/mens4',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/mens/mens4',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/mens/mens5',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/mens/mens5',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/mens/mens6',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/mens/mens6',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/mens/mens7',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/mens/mens7',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/mens/mens8',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/mens/mens8',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/mens/mens9',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/mens/mens9',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/mens/mens10',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/mens/mens10',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/toy/toy1',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/toy/toy1',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/toy/toy2',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/toy/toy2',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/toy/toy3',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/toy/toy3',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/toy/toy4',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/toy/toy4',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/toy/toy5',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/toy/toy5',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/toy/toy6',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/toy/toy6',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/toy/toy7',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/toy/toy7',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/toy/toy8',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/toy/toy8',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/toy/toy9',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/toy/toy9',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
 
-image = Image.new(
-    {
-      image: 'items/top/toy/toy10',
-      item_id: 10,
-    },
+# image = Image.new(
+#     {
+#       image: 'items/top/toy/toy10',
+#       item_id: 10,
+#     },
     
-)
-image.save!(validate: false)
+# )
+# image.save!(validate: false)
