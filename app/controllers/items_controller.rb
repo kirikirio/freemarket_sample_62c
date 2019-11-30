@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_submodel, only: [:new, :create]
   before_action :move_to_sign_in, except: [:index, :show]
-
+  before_action :correct_user, only: [:show]
   def index
     @ladies_ids = Category.find(1).subtree_ids
     @ladies = Item.limit(10).where(category_id: @ladies_ids).order("created_at DESC")
@@ -125,8 +125,15 @@ class ItemsController < ApplicationController
   end
 
   def move_to_sign_in
-    # redirect_to action: :index unless user_signed_in?
     redirect_to controller: 'devise/sessions', action: 'new' unless user_signed_in?
   end
+
+  def correct_user
+  @item_current = current_user.items.find_by(id: params[:id])
+  if @item_current
+    redirect_to root_url
+  end
+
+end
 
 end
