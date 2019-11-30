@@ -42,10 +42,11 @@ class SignupController < ApplicationController
     session[:city_block] = user_params[:city_block]
     session[:building] = user_params[:building]
     session[:tel_number] = user_params[:tel_number]
+    gon.setPublicKey = ENV['SET_PUBLIC_KEY']
   end
 
   def completed
-    Payjp.api_key = 'sk_test_04387e0973780d6cbbb78c9e' #pay.jpの秘密キー
+    Payjp.api_key = ENV['PAYJP_API_KEY'] #pay.jpの秘密キー
     if pay_params['payjp_token'].blank?
         render :completed
     else  
@@ -69,6 +70,7 @@ class SignupController < ApplicationController
           card_id: customer.default_card
         )
         sign_in @user if @user.save
+
     end
     
   end
