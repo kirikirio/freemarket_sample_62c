@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'items#index'
   
-  devise_for :users
-  resources :users, only: [:show, :new] do
+  devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'} 
+  resources :users, only: [:show, :new, :edit] do
     collection do
       get 'logout'
       get 'select_singup'
@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     end  
   
   resources :credits, only: [:index, :new, :create]
-  resources :addresses, only: [:edit]
   resources :sellings, only: [:index, :show, :edit, :destroy]
   end
 
