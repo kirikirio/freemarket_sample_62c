@@ -4,7 +4,7 @@
   .login-box
     .login-box__new-account
       %p アカウントをお持ちでない方はこちら
-      = link_to '#', {class: ' btn login-box__new-account__btn'} do
+      = link_to select_singup_users_path, {class: ' btn login-box__new-account__btn'} do
         新規会員登録
     .login-box__sns-account
       = link_to user_facebook_omniauth_authorize_path,  method: :post, class: 'btn btn-facebook' do
