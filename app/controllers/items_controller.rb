@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    # 10.times{@item.images.build}
+    
     # js非同期処理
     if (params[:parentId])
       parent = Category.find(params[:parentId])
@@ -58,14 +58,16 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.images.blank?
+    image_presence = params[:item][:images_attributes].nil?
+    
+    if image_presence
       @item.images.build
       flash.now[:alert] = '必須項目を入力してください。'
       render 'items/new' and return
     end
-
+    
     if @item.save
-      redirect_to new_item_path, notice: '送信しました'
+      redirect_to root_path, notice: '送信しました'
     else
       flash.now[:alert] = '必須項目を入力してください。'
       render :new
@@ -80,19 +82,19 @@ class ItemsController < ApplicationController
     @childrens = Category.find(@item.category_id).root.children
     @tesuryo = (@item.price)*(0.1)
     @rieki = (@item.price) - (@item.price)*(0.1)
-    @parents = Category.roots
-    @sizes = Size.all
-    @brands = Brand.all
-    @item_statuses = ItemStatus.all
-    @prefectures = Prefecture.all
-    @delivery_statuses = DeliveryStatus.all
-    @delivery_methods = DeliveryMethod.all
-    @delivery_fee = ['着払い','送料込み']
   end
 
   def update
+    @item = Item.find(params[:id])
+    @oya = Category.find(@item.category_id).parent.parent.siblings
+    @mago = Category.find(@item.category_id).siblings
+    @childrens = Category.find(@item.category_id).root.children
+    @tesuryo = (@item.price)*(0.1)
+    @rieki = (@item.price) - (@item.price)*(0.1)
 
     @item = Item.find(params[:id])
+    binding.pry
+
     if @item.images.blank?
       @item.images.build
       flash.now[:alert] = '画像をアップロードしてください。'
@@ -101,6 +103,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to user_selling_path(current_user.id)
     else
+      flash.now[:alert] = '必須項目を入力してください。'
       render :edit
     end
   end

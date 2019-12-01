@@ -54,10 +54,10 @@
             %span.hissu 必須
           %div
             .select-box.parent
-              = f.collection_select :category_id, @parents, :id, :name, {include_blank: '---'}, class: 'select-default', id: 'parent'
+              = f.collection_select :c, @parents, :id, :name, {include_blank: '---'}, class: 'select-default', id: 'parent'
 
             .select-box#children-area
-              = f.select :category_id, [], {include_blank: '---'}, class: 'select-default', id: 'children'
+              = f.select :c, [], {include_blank: '---'}, class: 'select-default', id: 'children'
                 
             .select-box#grandchildren-area
               = f.select :category_id, [], {include_blank: '---'}, class: 'select-default', id: 'grandchildren'
@@ -168,7 +168,7 @@
       %button{type: 'submit'}
         出品する
 
-      = link_to '#' do
+      = link_to root_path do
         %button{type: 'button'}
           もどる
 
