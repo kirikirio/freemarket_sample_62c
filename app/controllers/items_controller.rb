@@ -43,32 +43,11 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
-    @item = Item.find(params[:id])
-    @items = Item.all
-    @categorys = Category.all
-    @oya = Category.find(@item.category_id).parent.parent.siblings
-    @mago = Category.find(@item.category_id).siblings
-    @childrens = Category.find(@item.category_id).root.children
-  end
   
   def show
     @item = Item.find(params[:id])
   end
   
-  def update
-    @item = Item.find(params[:id])
-    if @item.images.blank?
-      @item.images.build
-      flash.now[:alert] = '画像をアップロードしてください。'
-      render 'items/edit' and return
-    end
-    if @item.update(item_params)
-      redirect_to action: 'index'
-    else
-      render :edit
-    end
-  end
 
   def create
     @item = Item.new(item_params)
