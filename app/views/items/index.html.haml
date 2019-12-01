@@ -40,17 +40,18 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @ladies.each do |lady|
-        = link_to item_path(lady.id) do
-          .new__items__container__box
-            %figure
-              = image_tag lady.images[0].image.url , class:'new__items__container__box-item_phot'
-              %p.new__items__container__box-price
-                = "¥#{lady.price.to_s(:delimited)}"
-            .new__items__container__box__item_body
-              %h3 
-                = lady.name
-  
+      - if @ladies.present?
+        - @ladies.each do |lady|
+          = link_to item_path(lady.id) do
+            .new__items__container__box
+              %figure
+                = image_tag lady.images[0].image.url , class:'new__items__container__box-item_phot'
+                %p.new__items__container__box-price
+                  = "¥#{lady.price.to_s(:delimited)}"
+              .new__items__container__box__item_body
+                %h3 
+                  = lady.name
+
   %section.new__items
     .new__items-genre
       %h3
@@ -60,17 +61,17 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @men.each do |man|
-        = link_to item_path(man.id) do
-          .new__items__container__box
-            %figure
-              = image_tag man.images[0].image.url , class:'new__items__container__box-item_phot'
-              %p.new__items__container__box-price
-                = "¥#{man.price.to_s(:delimited)}"
-            .new__items__container__box__item_body
-              %h3 
-                = man.name
-
+      - if @men.present?
+        - @men.each do |man|
+          = link_to item_path(man.id) do
+            .new__items__container__box
+              %figure
+                = image_tag man.images[0].image.url , class:'new__items__container__box-item_phot'
+                %p.new__items__container__box-price
+                  = "¥#{man.price.to_s(:delimited)}"
+              .new__items__container__box__item_body
+                %h3 
+                  = man.name
   %section.new__items
     .new__items-genre
       %h3
@@ -80,16 +81,17 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @homes.each do |home|
-        = link_to item_path(home.id) do
-          .new__items__container__box
-            %figure
-              = image_tag home.images[0].image.url , class:'new__items__container__box-item_phot'
-              %p.new__items__container__box-price
-                = "¥#{home.price.to_s(:delimited)}"
-            .new__items__container__box__item_body
-              %h3 
-                = home.name
+      - if @homes.present?
+        - @homes.each do |home|
+          = link_to item_path(home.id) do
+            .new__items__container__box
+              %figure
+                = image_tag home.images[0].image.url , class:'new__items__container__box-item_phot'
+                %p.new__items__container__box-price
+                  = "¥#{home.price.to_s(:delimited)}"
+              .new__items__container__box__item_body
+                %h3 
+                  = home.name
 
   %section.new__items
     .new__items-genre
@@ -100,16 +102,17 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @toys.each do |toy|
-        = link_to item_path(toy.id) do
-          .new__items__container__box
-            %figure
-              = image_tag toy.images[0].image.url , class:'new__items__container__box-item_phot'
-              %p.new__items__container__box-price
-                = "¥#{toy.price.to_s(:delimited)}"
-            .new__items__container__box__item_body
-              %h3 
-                = toy.name
+      - if @toys.present?
+        - @toys.each do |toy|
+          = link_to item_path(toy.id) do
+            .new__items__container__box
+              %figure
+                = image_tag toy.images[0].image.url , class:'new__items__container__box-item_phot'
+                %p.new__items__container__box-price
+                  = "¥#{toy.price.to_s(:delimited)}"
+              .new__items__container__box__item_body
+                %h3 
+                  = toy.name
 
   .top__header__area
     .top__header__area__popularity
@@ -128,16 +131,17 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @chanels.each do |chanel|
-        = link_to item_path(chanel.id) do
-          .new__items__container__box
-            %figure
-              = image_tag chanel.images[0].image.url, class:'new__items__container__box-item_phot'
-              %p.new__items__container__box-price
-                = "¥#{chanel.price.to_s(:delimited)}"
-            .new__items__container__box__item_body
-              %h3 
-                = chanel.name
+      - if @chanels.present?
+        - @chanels.each do |chanel|
+          = link_to item_path(chanel.id) do
+            .new__items__container__box
+              %figure
+                = image_tag chanel.images[0].image.url, class:'new__items__container__box-item_phot'
+                %p.new__items__container__box-price
+                  = "¥#{chanel.price.to_s(:delimited)}"
+              .new__items__container__box__item_body
+                %h3 
+                  = chanel.name
 
   %section.new__items
     .new__items-genre
@@ -148,16 +152,17 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @lvs.each do |lv|
-        = link_to item_path(lv.id) do
-          .new__items__container__box
-            %figure
-              = image_tag lv.images[0].image.url, class:'new__items__container__box-item_phot'
-              %p.new__items__container__box-price
-                = "¥#{lv.price.to_s(:delimited)}"
-            .new__items__container__box__item_body
-              %h3 
-                = lv.name
+      - if @lvs.present?
+        - @lvs.each do |lv|
+          = link_to item_path(lv.id) do
+            .new__items__container__box
+              %figure
+                = image_tag lv.images[0].image.url, class:'new__items__container__box-item_phot'
+                %p.new__items__container__box-price
+                  = "¥#{lv.price.to_s(:delimited)}"
+              .new__items__container__box__item_body
+                %h3 
+                  = lv.name
 
   %section.new__items
     .new__items-genre
@@ -168,16 +173,17 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @supremes.each do |supreme|
-        = link_to item_path(supreme.id) do
-          .new__items__container__box
-            %figure
-              = image_tag supreme.images[0].image.url, class:'new__items__container__box-item_phot'
-              %p.new__items__container__box-price
-                = "¥#{supreme.price.to_s(:delimited)}"
-            .new__items__container__box__item_body
-              %h3 
-                = supreme.name
+      - if @supremes.present?
+        - @supremes.each do |supreme|
+          = link_to item_path(supreme.id) do
+            .new__items__container__box
+              %figure
+                = image_tag supreme.images[0].image.url, class:'new__items__container__box-item_phot'
+                %p.new__items__container__box-price
+                  = "¥#{supreme.price.to_s(:delimited)}"
+              .new__items__container__box__item_body
+                %h3 
+                  = supreme.name
 
   %section.new__items
     .new__items-genre
@@ -188,16 +194,17 @@
         %i.fas.fa-angle-right
   %section.new__items
     .new__items__container
-      - @nikes.each do |nike|
-        = link_to item_path(nike.id) do
-          .new__items__container__box
-            %figure
-              = image_tag nike.images[0].image.url, class:'new__items__container__box-item_phot'
-              %p.new__items__container__box-price
-                = "¥#{nike.price.to_s(:delimited)}"
-            .new__items__container__box__item_body
-              %h3 
-                = nike.name
+      - if @nikes.present?
+        - @nikes.each do |nike|
+          = link_to item_path(nike.id) do
+            .new__items__container__box
+              %figure
+                = image_tag nike.images[0].image.url, class:'new__items__container__box-item_phot'
+                %p.new__items__container__box-price
+                  = "¥#{nike.price.to_s(:delimited)}"
+              .new__items__container__box__item_body
+                %h3 
+                  = nike.name
 
 
 

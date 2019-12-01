@@ -99,7 +99,7 @@
 |item|references|null: false, foreign_key: true|
 ​
 ### Association
-- bolongs_to :item
+- belongs_to :item
 ​
 ​
 ## likesテーブル
@@ -109,8 +109,8 @@
 |user|references|foreign_key: true|
 ​
 ### Association
-- bolongs_to :item
-- bolongs_to :user
+- belongs_to :item
+- belongs_to :user
 ​
 ​
 ## sizesテーブル
