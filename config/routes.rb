@@ -14,10 +14,10 @@ Rails.application.routes.draw do
     end  
   
   resources :credits, only: [:index, :new, :create]
-  resources :sellings, only: [:index, :show, :edit, :destroy]
+  resources :sellings, only: [:index, :show, :destroy]
   end
 
-  resources :items do
+  resources :items, only: [:index, :show,:edit, :new,:create,:update] do
 
     member do
       get 'confirmation'

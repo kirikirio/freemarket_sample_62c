@@ -86,10 +86,9 @@
     .item__description
       %p.item__description-text
         = @item.description
-
   %section.comment__container
     .comment__container__lis.asd
-      = link_to edit_user_selling_path, class: "buy-button" do
+      = link_to edit_item_path, class: "buy-button"   do
         %p.buy-text 商品の編集
     %p.text-cener or
     .comment__container__lis
@@ -106,5 +105,5 @@
         
     %button.comment__container__submit{type: "submit"}
       %span コメントする
-
+  
 = render partial: 'shared/footer'
