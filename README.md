@@ -40,7 +40,7 @@
 |item_status|references|null: false, foreign_key: true|
 |sale_status|references|null: false, foreign_key: true|
 |size|references|null: false, foreign_key: true|
-|brand|references|null: false, foreign_key: true|
+|brand|references|foreign_key: true|
 |delivery_status|references|null: false, foreign_key: true|
 |prefecture|string|null: false|
 |user|references|null: false, foreign_key: true|
