@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
 
   belongs_to :user
-  belongs_to :brand
+  belongs_to :brand, optional: true
   belongs_to :size
   belongs_to :item_status
   belongs_to :sale_status

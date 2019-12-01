@@ -148,7 +148,7 @@
     .hensyu-box-last
       %button.button-red
         変更する
-      %p.button-gray
-        = link_to "キャンセル", "#"
+      = link_to user_selling_path(current_user, @item) do
+        %p.button-gray キャンセル
       
 = render 'shared/sub-footer'

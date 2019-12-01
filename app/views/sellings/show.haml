@@ -44,13 +44,15 @@
                 = link_to "###" do
                   = @item.category.path[0].name
               %div
-                = link_to "###" do
-                  %i.fas.fa-chevron-right>
-                  = @item.category.path[1].name
+                - if @item.category.path[1]
+                  = link_to "###" do
+                    %i.fas.fa-chevron-right>
+                      = @item.category.path[1].name
               %div
-                = link_to "###" do
-                  %i.fas.fa-chevron-right>
-                  = @item.category.path[2].name
+                - if @item.category.path[2]
+                  = link_to "###" do
+                    %i.fas.fa-chevron-right>
+                      = @item.category.path[2].name
           %tr
             %th ブランド
             %td
