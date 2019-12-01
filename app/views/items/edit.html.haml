@@ -133,15 +133,17 @@
                 = f.text_field :price,{placeholder: '例）300円', class: 'price-input'}
           %li.clear-fix.fee-area
             .p-left 
-              販売手数料(10%)
-            .p-right
+              販売手数料(10%) 
+            .p-right 
               %p.fee-area__tax-rate 
+                ¥
                 = @tesuryo.floor.to_s(:delimited)
           %li.clear-fix.profit-area
             .p-left 
               %p 販売利益
             .p-right 
-              %p.profit-area__text
+              %p.profit-area__text 
+                ¥
                 = @rieki.floor.to_s(:delimited)
     .hensyu-box-last
       %button.button-red

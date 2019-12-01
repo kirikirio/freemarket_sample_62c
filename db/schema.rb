@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_085503) do
     t.bigint "item_status_id", null: false
     t.bigint "sale_status_id", default: 1, null: false
     t.bigint "size_id", null: false
-    t.bigint "brand_id", null: false
+    t.bigint "brand_id"
     t.bigint "delivery_status_id", null: false
     t.integer "prefecture_id", null: false
     t.bigint "user_id", null: false
