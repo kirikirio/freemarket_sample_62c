@@ -45,19 +45,21 @@
         list-style: none;
         line-height: 36px;
         font-size: 14px;
-        font-weight: bold; 
+        font-weight: bold;
         .fa{
           color: $accent;
         }
         &__category{
           float: left;
           padding-right: 20px;
+          cursor: pointer;
         }
         &__category:hover{
           color: $link;
         }
         &__brand{
           float: right;
+          cursor: pointer;
         }
         &__brand:hover{
           color: $link;
@@ -154,12 +156,14 @@
         &__category{
           float: left;
           padding-right: 20px;
+          cursor: pointer;
         }
         &__category:hover{
           color: $link;
         }
         &__brand{
           float: right;
+          cursor: pointer;
         }
         &__brand:hover{
           color: $link;

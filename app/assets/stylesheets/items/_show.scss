@@ -200,6 +200,7 @@
         -webkit-transition: all ease-out .3s;
         transition: all ease-out .3s;
           &-like{
+            cursor: pointer;
             padding:0 ;
           }
           .fa-heart{
