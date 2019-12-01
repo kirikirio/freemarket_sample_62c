@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function () {
   const appendHTML = (child, target) => {
     const html = `<option value='${child.id}'>${child.name}</option>`
     $(`#${target}`).append(html)
@@ -6,11 +6,11 @@ $(function () {
   }
   const url = '/items/new';
 
-  $('#parent').on('change', function () {
+  $('#parent').on('change', (e) => {
     $('#children').empty();
-    let parentId = $(this).val();
-    // 0だったら、true
-    // ０でなく、aprentIdがfalsyならtrue
+    let parentId = $(e.currentTarget).val();
+    // 0だったらもしくは
+    // aprentIdがfalsyなら
     if (parentId === '0' || !(parentId)) {
       $('#children').parent().hide();
       $('#grandchildren').parent().hide();
@@ -24,7 +24,10 @@ $(function () {
         .done(data => {
           $('#children').parent().show();
           let target = 'children'
-          $(`#${target}`).append('<option value=0>---</option>')
+          $(`#${target}`).append('<option value=0>---</option>');
+          $('#grandchildren').empty();
+          $('#grandchildren').append('<option value=0>---</option>');
+
           data.forEach(d => {
             appendHTML(d, target);
           })
@@ -36,13 +39,12 @@ $(function () {
   })
 
 
-  $('#children').on('change', function () {
+  $('#children').on('change', (e) => {
     $('#grandchildren').empty();
-    let parentId = $(this).val();
-    //  0だったら、true
-    // ０でなく、aprentIdがfalsyならtrue
+    let parentId = $(e.currentTarget).val();
+    // 0だったらもしくは
+    // aprentIdがfalsyなら
     if (parentId === '0' || !(parentId)) {
-      console.log('0desu')
       $('#grandchildren').parent().hide();
     } else {
       $.ajax({
@@ -52,9 +54,10 @@ $(function () {
         dataType: 'json'
       })
         .done(data => {
-          $('#grandchildren').parent().show();
           let target = 'grandchildren'
+          $(`#${target}`).parent().show();
           $(`#${target}`).append('<option value=0>---</option>')
+          $('#size-area').hide();
           data.forEach(d => {
             appendHTML(d, target);
           })
@@ -65,8 +68,8 @@ $(function () {
     }
   })
 
-  $('#grandchildren').on('change', (event) => {
-    let select = $(event.currentTarget).val();
+  $('#grandchildren').on('change', (e) => {
+    let select = $(e.currentTarget).val();
     if (!(select === '0')) {
       $('#size-area').show();
       $('#brand-area').show();

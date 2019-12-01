@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function () {
   $('.price-input').on('keyup', (e) => {
     const price = $(e.currentTarget).val();
     const taxRate = 0.1;

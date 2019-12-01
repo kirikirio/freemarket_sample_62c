@@ -18,22 +18,22 @@ DeliveryStatus.create!([{status: '1~2日で発送'},{status: '2~3日で発送'},
 
 SaleStatus.create!([{status: '出品中'},{status: '取引中'},{status: 'sold out'}])
 
-user = User.create!(
-  {
-    firstname: '肉',
-    lastname: '郎',
-    firstname_kana: 'ヤク',
-    lastname_kana: 'タ',
-    nickname: 'tamura',
-    password: '12345678',
-    email: 'gfsssxxsaa@example.com',
-    user_image: '',
-    postal_code: 'aiueo',
-    point: 0,
-    birthday: 20191120,
-    profile:'あいう'
-  }
-)
+# user = User.create!(
+#   {
+#     firstname: '肉',
+#     lastname: '郎',
+#     firstname_kana: 'ヤク',
+#     lastname_kana: 'タ',
+#     nickname: 'tamura',
+#     password: '12345678',
+#     email: 'gfsssxxsaa@example.com',
+#     user_image: '',
+#     postal_code: 'aiueo',
+#     point: 0,
+#     birthday: 20191120,
+#     profile:'あいう'
+#   }
+# )
 
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
@@ -362,4 +362,3 @@ others_8 = others.children.create(name: "事務/店舗用品")
 others_8.children.create([{name: "オフィス用品一般"},{name: "オフィス家具"},{name: "店舗用品"},{name: "OA機器"},{name: "ラッピング/包装"},{name: "その他"}])
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
-

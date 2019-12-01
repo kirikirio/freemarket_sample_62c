@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function () {
 
   const imagePreview = (input) => {
     const reader = new FileReader();
@@ -7,7 +7,7 @@ $(function () {
     reader.onload = (e) => {
 
       const html = `<img
-                  src=${e.target.result}
+                  src=${e.currentTarget.result}
                   class="preview"
                   >`
       $('.preview-image > .figure').empty();
@@ -27,7 +27,7 @@ $(function () {
     imagePreview(e.target);
   })
   // プレビュー画像の削除 + ファイル選択の解除
-  $('.removePreviewBtn').on('click', function () {
+  $('.removePreviewBtn').on('click', () => {
     $('.preview-image').hide();
     $('.fileField').val('');
 
