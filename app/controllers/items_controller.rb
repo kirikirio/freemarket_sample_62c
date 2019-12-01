@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_submodel, only: [:new, :create, :edit, :update]
-
+  before_action :selling_to_show, only: [:edit]
   def index
     @ladies_ids = Category.find(1).subtree_ids
     @ladies = Item.limit(10).where(category_id: @ladies_ids).order("created_at DESC")
@@ -64,6 +64,40 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+  def edit
+    @item = Item.find(params[:id])
+    @items = Item.all
+    @categorys = Category.all
+    @oya = Category.find(@item.category_id).parent.parent.siblings
+    @mago = Category.find(@item.category_id).siblings
+    @childrens = Category.find(@item.category_id).root.children
+    @tesuryo = (@item.price)*(0.1)
+    @rieki = (@item.price) - (@item.price)*(0.1)
+    @parents = Category.roots
+    @sizes = Size.all
+    @brands = Brand.all
+    @item_statuses = ItemStatus.all
+    @prefectures = Prefecture.all
+    @delivery_statuses = DeliveryStatus.all
+    @delivery_methods = DeliveryMethod.all
+    @delivery_fee = ['着払い','送料込み']
+  end
+
+  def update
+
+    @item = Item.find(params[:id])
+    if @item.images.blank?
+      @item.images.build
+      flash.now[:alert] = '画像をアップロードしてください。'
+      render 'items/edit' and return
+    end
+    if @item.update(item_params)
+      redirect_to user_selling_path(current_user.id)
+    else
+      render :edit
+    end
+  end
+
 
   def delete
   end
@@ -141,6 +175,11 @@ class ItemsController < ApplicationController
     @delivery_methods = DeliveryMethod.all
     @delivery_fee = ['着払い','送料込み']
   end
-
+  def selling_to_show
+    item = Item.find_by(id: params[:id])
+    if item.user_id != current_user.id
+      redirect_to root_path
+    end
+  end
 end
 
