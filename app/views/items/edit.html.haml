@@ -80,7 +80,7 @@
             = f.label :brand do
               ブランド
               %span.nini 任意    
-            = f.collection_select :brand_id, @brands, :id, :name, {}, class: 'select-default'
+            = f.collection_select :brand_id, @brands, :id, :name, {include_blank: '---'}, class: 'select-default'
             %i.fa.fa-angle-down.fa-lg.fa-down.icon
           .select-wrap2  
             = f.label :item_status do
