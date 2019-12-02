@@ -93,9 +93,9 @@ class ItemsController < ApplicationController
     @rieki = (@item.price) - (@item.price)*(0.1)
 
     @item = Item.find(params[:id])
-    binding.pry
-
-    if @item.images.blank?
+    image_presence = params[:item][:images_attributes]['0'][:_destroy] == 'true'
+    
+    if image_presence
       @item.images.build
       flash.now[:alert] = '画像をアップロードしてください。'
       render 'items/edit' and return
