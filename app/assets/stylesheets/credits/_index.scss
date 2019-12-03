@@ -1,0 +1,76 @@
+.main-content {
+  float: right;
+  .payment-content {
+    
+    .payment-container {
+      background: #fff;
+      margin: 0 auto;
+      width: 700px;
+      text-align: center;
+      .payment-head{
+        font-size: 24px;
+        padding: 8px 24px;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
+        line-height: 1.4;
+      }
+      .payment-inner {
+        border-top: 1px solid #f5f5f5;
+        padding: 64px;
+        .single-content {
+          font-size: 16px;
+          max-width: 320px;
+          margin: 0 auto;
+          .head-menu {
+            text-align: left;
+          }
+        }
+        .credit-display {
+          width: 572px;
+          height: 115px;
+          margin-top: 24px;
+          border-bottom: 2px solid #f5f5f5;
+          &__box{
+            width: 320px;
+            margin: 0 auto;
+            &__left{
+              float: left;
+              text-align: left;
+              font-size: 16px;
+              &__number{
+                margin-top: 8px;
+              }
+              &__deadline{
+                margin-top: 8px;
+              }
+            }
+            &__right{
+              float: right;
+              padding: 4px 6px;
+              margin-top: 8px;
+              color: $accent;
+              border: 1px solid $accent;
+              border-radius: 3px;
+            }
+          }
+        }
+        .payment-method {
+          a {
+            display: block;
+            margin: 40px 0 0;
+            text-align: right;
+            color: #0099e8;
+          }
+          a:hover {
+            text-decoration: underline;
+            opacity: .7;
+            cursor: not-allowed;
+          }
+          .fa-chevron-right {
+            margin: 0 0 0 8px;
+          }
+        }
+      }
+    }
+  }
+}
