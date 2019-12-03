@@ -54,7 +54,7 @@ footer{
         ul{
           @include footer-ul();
           li{
-            cursor: pointer;
+            cursor: no-drop;
             height: 14px;
             margin-top: 16px;
             &:hover{
@@ -65,7 +65,7 @@ footer{
         &__icon{
           display: flex;
           &__left{
-            cursor: pointer;
+            cursor: no-drop;
             margin-top: 30px;
             margin-right: 20px;
             .fa-twitter{
@@ -73,7 +73,7 @@ footer{
             }
           }
           &__right{
-            cursor: pointer;
+            cursor: no-drop;
             margin-top: 30px;
             .fa-facebook-official {
               font-size: 31px;
@@ -91,7 +91,7 @@ footer{
         ul{
           @include footer-ul();
           li{
-            cursor: pointer;
+            cursor: no-drop;
             height: 14px;
             margin-top: 16px;
             &:hover{
@@ -114,7 +114,7 @@ footer{
             padding-right: 10px;
             @include footer-ul();
             li{
-              cursor: pointer;
+              cursor: no-drop;
               height: 14px;
               margin-top: 16px;
               &:hover{
@@ -127,7 +127,7 @@ footer{
           ul{
             @include footer-ul();
             li{
-              cursor: pointer;
+              cursor: no-drop;
               height: 14px;
               margin-top: 16px;
               &:hover{
@@ -150,7 +150,7 @@ footer{
         ul{
           @include footer-ul();
           li{
-            cursor: pointer;
+            cursor: no-drop;
             height: 14px;
             margin-top: 16px;
             &:hover{

@@ -48,6 +48,7 @@
           color: $accent;
         }
         &__category{
+          cursor: no-drop;
           float: left;
           padding-right: 20px;
         }
@@ -55,6 +56,7 @@
           color: $link;
         }
         &__brand{
+          cursor: no-drop;
           float: right;
         }
         &__brand:hover{
@@ -148,6 +150,7 @@
           color: $accent;
         }
         &__category{
+          cursor: no-drop;
           float: left;
           padding-right: 20px;
         }
@@ -155,6 +158,7 @@
           color: $link;
         }
         &__brand{
+          cursor: no-drop;
           float: right;
         }
         &__brand:hover{
@@ -175,6 +179,7 @@
             @include header-icon();
           }
           &--text{
+            cursor: no-drop;
             float: right;
           }
         }
@@ -192,6 +197,7 @@
             @include header-icon();
           }
           &--text{
+            cursor: no-drop;
             float: right;
           }
         }
@@ -209,6 +215,7 @@
             @include header-icon();
           }
           &--text{
+            cursor: no-drop;
             float: right;
           }
         }
@@ -228,6 +235,7 @@
             }
           }
           &--text{
+            
             float: right;
           }
           &--text:hover{

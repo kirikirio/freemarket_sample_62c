@@ -86,11 +86,13 @@
           padding: 15px 10px;
 
           p{
+            cursor: no-drop;
             line-height: 0.5;
           }
         }   
     }
     a{
+      cursor: no-drop;
       text-decoration: none;
       color:$link;
     }
@@ -160,6 +162,7 @@
       line-height: 60px;
      }
       a{
+        cursor: no-drop;
         text-decoration: none;
       }
       .buy-text:hover{
@@ -250,6 +253,7 @@
     line-height: 48px;
     background: #aaa;
     margin: 16px 0 16px 0;
+    
     a{
       color: #fff;
       p{
@@ -257,11 +261,15 @@
       }
     }
   }
+  .buy-button.stop{
+    cursor: no-drop;
+  }
   &__box{
     margin: 15px 0;
     padding: 10px ;
     width: 100%;
     background-color: #fff6de;
+    
   }
   
   
@@ -290,7 +298,7 @@
     border: 1px solid #aaa;
     color: #fff;
     outline: 0;
-    cursor: pointer;
+    cursor: no-drop;
   }
 }
 

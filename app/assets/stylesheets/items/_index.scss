@@ -119,6 +119,7 @@
       }
 
       &__category{
+        
         margin: 0 auto;
         list-style: none;
         display:flex;
@@ -130,7 +131,7 @@
             padding: 8px 15px;
             background-color: #e6e6e6;
             font-weight: bold;
-            cursor: pointer;
+            cursor: no-drop;
             border-radius: 25px;
               }
           }
@@ -169,6 +170,7 @@
           }
 
           a{
+            cursor: no-drop;
             color: $link;
             text-decoration: none;
           }

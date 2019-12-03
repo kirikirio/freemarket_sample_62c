@@ -67,11 +67,14 @@
             }
           }
           .article{
+            cursor: pointer;
             display: flex;
             .right-link{
+              cursor: no-drop	;
               border-left: 1px solid #eee;
             }
             button{
+              cursor: no-drop	;
               padding: 0;
               outline: 0;
               border: 1px solid transparent;
@@ -79,7 +82,6 @@
               width: 50%;
               text-align: center;
               color: $link;
-              cursor: pointer;
               &:hover{
                 @include opacity;
               }
