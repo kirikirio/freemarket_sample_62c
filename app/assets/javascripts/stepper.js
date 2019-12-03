@@ -1,4 +1,9 @@
 $(document).on('turbolinks:load', function() {
+  if(document.URL.match("/signup/")) {
+    $('.sub-header a').css('pointer-events', 'none')
+    $('.sub-footer a').css('pointer-events', 'none')
+  }
+
   if($("h1").text() == "会員情報入力") {
     $('.stepper li').each(function(i, val) {
       $(".stepper li").eq(i).css({'color':'#ea352d','font-weight':'600'})
