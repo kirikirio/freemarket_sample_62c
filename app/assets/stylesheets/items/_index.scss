@@ -140,7 +140,6 @@
    .new__items{
      width: 1020px;
      margin: 15px auto;
-     display: flex;
      flex-direction: row;
      justify-content: space-between;
 
@@ -180,9 +179,15 @@
         max-width: 1020px;
         margin: 0 auto;
         display: flex;
-        justify-content: space-between;
         flex-direction: row;
         flex-wrap:wrap;
+        a {
+          margin-right: 17.5px;
+        }
+        a:nth-child(5n) {
+          color: #333;
+          margin-right: 0;
+        }
 
         &__box{
           width: 190px;
@@ -196,7 +201,6 @@
           overflow: hidden;
           filter:drop-shadow(1px 3px 3px #ccc); 
           padding-bottom: 5px;
-          
 
           &-item_phot{
             width: 190px;
@@ -253,6 +257,5 @@
             outline: solid 1px $link ;
           }
       }
-       
 }
     
