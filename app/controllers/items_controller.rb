@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_submodel, only: [:new, :create, :edit, :update]
   before_action :selling_to_show, only: [:edit]
+  before_action :clear_session, only: :index
+
   def index
     @ladies_ids = Category.find(1).subtree_ids
     @ladies = Item.limit(10).where(category_id: @ladies_ids).where.not(user_id:current_user,sale_status_id:2).order("created_at DESC")
