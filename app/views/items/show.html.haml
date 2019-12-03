@@ -148,40 +148,10 @@
   %h2.related__item-head
     = link_to "###" do
       = "#{@item.user.nickname}のその他の出品"
-    .items__container
-      = link_to "###" do
-        .items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'items__container__box-item_phot'
-          .items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-            .items__container__box__item_body__info
-              .items__container__box__item_body__info-price ¥85,000
-              .items__container__box__item_body__info-like
-                %i.far.fa-heart
-                %span 68
-      = link_to "###" do
-        .items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'items__container__box-item_phot'
-          .items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-            .items__container__box__item_body__info
-              .items__container__box__item_body__info-price ¥85,000
-              .items__container__box__item_body__info-like
-                %i.far.fa-heart
-                %span 68
-      = link_to "###" do
-        .items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'items__container__box-item_phot'
-          .items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-            .items__container__box__item_body__info
-              .items__container__box__item_body__info-price ¥85,000
-              .items__container__box__item_body__info-like
-                %i.far.fa-heart
-                %span 68
+
+  %section.items__container
+    - @items.each do |item|
+      = render partial:"user_items", locals: { item: item }
 .bottom__nav
   %ul.bottom__nav__crumbs
     %li.bottom__nav__crumbs__crumbs-list

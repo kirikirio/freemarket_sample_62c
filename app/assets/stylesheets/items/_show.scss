@@ -420,6 +420,7 @@
 
       &-item_phot{
         width: 220px;
+        height: 220px;
       }
 
       &__item_body{
@@ -452,24 +453,23 @@
           }
         }
 
-        h3{
-          font-size: 16px;
-          font-weight: lighter;
-        }      
-        }
-        
+          h3{
+            font-size: 16px;
+            font-weight: lighter;
+          }
+        }  
       }  
-      a{
-        color:#333;
-        background-color: #fff;
+        a{
+          color:#333;
+          background-color: #fff;
+        }
+        a:hover{
+          color:#333;
+          text-decoration: none;
+          background-color:#fff;
+          opacity: 1;
+        }
       }
-      a:hover{
-        color:#333;
-        text-decoration: none;
-        background-color:#fff;
-        opacity: 1;
-      }
-  }
 
 .bottom__nav{
   background-color:$main;
