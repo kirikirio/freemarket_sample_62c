@@ -5,83 +5,30 @@
 = render 'shared/breadcrumbs'
 = render 'shared/post'
 
-.content
-  %section.new__items
-    .new__items-genre
-      %h3
-        レディースの商品一覧
-  %section.new__items
-    .new__items__container
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
-      = link_to "###" do
-        .new__items__container__box
-          %figure
-            = image_tag 'items/item04.jpg', class:'new__items__container__box-item_phot'
-            %p.new__items__container__box-price ¥2,500
-          .new__items__container__box__item_body
-            %h3 ルイヴィトン ダミエ リビラ
+- if @searches.present?
+  .content
+    %section.new__items
+      .new__items-genre
+        %h3
+          = "#{@search_word}  の検索結果"
+    %section.new__items
+      .new__items__container
+        - @searches.each do |search|
+          = link_to item_path(search.id) do
+            .new__items__container__box
+              %figure
+                = image_tag search.images[0].image.url, class:'new__items__container__box-item_phot'
+                %p.new__items__container__box-price
+                  = "¥#{search.price.to_s(:delimited)}"
+              .new__items__container__box__item_body
+                %h3
+                  = search.name
 
+- else
+  .content
+    %section.new__items
+      .new__items-genre
+        %h3
+          該当する商品が見つかりません。検索条件を変えて、再度お試しください。
 
 = render 'shared/footer'

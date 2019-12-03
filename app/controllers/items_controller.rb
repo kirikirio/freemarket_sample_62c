@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :list]
   before_action :set_submodel, only: [:new, :create, :edit, :update]
   before_action :selling_to_show, only: [:edit]
   def index
@@ -159,6 +159,8 @@ class ItemsController < ApplicationController
   end
 
   def list
+    @search_word = params[:search]
+    @searches = Item.where('CONCAT(name,description) LIKE(?)', "%#{params[:search]}%").limit(20).where.not(user_id: current_user)if @search_word.present?
   end
 
   private

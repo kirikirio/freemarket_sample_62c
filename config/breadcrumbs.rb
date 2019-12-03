@@ -54,9 +54,7 @@ end
 
 # 親カテゴリー
 crumb :items_list do
-  category = Category.find(1)
-  # findの中はparamsのidを入れる
-  link category.name
-  parent :items
+  link "商品検索結果"
+  parent :root
 end
 
