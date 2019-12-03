@@ -16,13 +16,32 @@
           %section
             .single-content
               %h3.head-menu クレジットカード一覧
-          %section.add-credit
-            .single-content
-              = link_to "#", class: "btn-credit" do
-                %i.fa.fa-credit-card
-                クレジットカードを追加する
+          %section.credit-display
+            .credit-display__box
+              .credit-display__box__left
+                .credit-display__box__left__logo
+                  - case @card_information.brand
+                  - when "Visa"
+                    = image_tag "credits/visa.svg", width: "49", height: "49"
+                  - when "MasterCard"
+                    = image_tag "credits/master-card.svg", width: "49", height: "49"
+                  - when "JCB"
+                    = image_tag "credits/jcb.svg", width: "49", height: "49"
+                  - when "American Express"
+                    = image_tag "credits/american_express.svg", width: "49", height: "49"
+                  - when "Diners Club"
+                    = image_tag "credits/dinersclub.svg", width: "49", height: "49"
+                  - when "Discover"
+                    = image_tag "credits/discover.svg", width: "49", height: "49"
+                .credit-display__box__left__number
+                  = "**** - **** - **** - #{@card_information.last4}"
+                .credit-display__box__left__deadline
+                  = "0#{@card_information.exp_month}/#{@card_information.exp_year.to_s.slice!(2..3)}"
+              .credit-display__box__right
+                削除する
+
           .payment-method
-            = link_to "#" do
+            %a
               %span 支払い方法について
               %i.fa.fa-chevron-right
 = render partial: 'shared/footer'

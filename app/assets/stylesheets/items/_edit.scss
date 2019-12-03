@@ -418,12 +418,14 @@
         }
       }
       .article{
+        cursor: pointer;
         display: flex;
         .edit-link{
           cursor: not-allowed;
           border-left: 1px solid #eee;
         }
         button{
+          cursor: no-drop	;
           padding: 0;
           border: 1px solid transparent;
           background-color: $main;

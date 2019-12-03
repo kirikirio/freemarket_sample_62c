@@ -1,24 +1,11 @@
-// 支払い方法
-
-.payment-section {
-  margin: 40px auto 0;
-  width: 1020px;
-  height: 1292px;
-  margin: 40px auto 0;
-}
-
 .main-content {
   float: right;
   .payment-content {
     
     .payment-container {
-      
       background: #fff;
       margin: 0 auto;
-      // border-style: solid;
-      // border-width: 0;
       width: 700px;
-      // float: right;
       text-align: center;
       .payment-head{
         font-size: 24px;
@@ -38,29 +25,37 @@
             text-align: left;
           }
         }
-        .add-credit {
-          padding: 24px 0;
-          border-bottom: 1px solid #eee;
-          .btn-credit {
-            background: #ea352d;
-            border: 1px solid #ea352d;
-            color: #fff;
-            display: block;
-            width: 100%;
-            line-height: 48px;
-            font-size: 14px;
-            margin-bottom: 8px !important;
-            .fa-credit-card {
-              margin-right: 16px;
+        .credit-display {
+          width: 572px;
+          height: 115px;
+          margin-top: 24px;
+          border-bottom: 2px solid #f5f5f5;
+          &__box{
+            width: 320px;
+            margin: 0 auto;
+            &__left{
+              float: left;
+              text-align: left;
+              font-size: 16px;
+              &__number{
+                margin-top: 8px;
+              }
+              &__deadline{
+                margin-top: 8px;
+              }
             }
-          }
-          .btn-credit:hover {
-            opacity: .7;
+            &__right{
+              float: right;
+              padding: 4px 6px;
+              margin-top: 8px;
+              color: $accent;
+              border: 1px solid $accent;
+              border-radius: 3px;
+            }
           }
         }
         .payment-method {
           a {
-            cursor: no-drop;
             display: block;
             margin: 40px 0 0;
             text-align: right;
@@ -69,6 +64,7 @@
           a:hover {
             text-decoration: underline;
             opacity: .7;
+            cursor: not-allowed;
           }
           .fa-chevron-right {
             margin: 0 0 0 8px;

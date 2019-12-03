@@ -52,14 +52,14 @@
         &__category{
           float: left;
           padding-right: 20px;
-          cursor: pointer;
+          cursor: no-drop;
         }
         &__category:hover{
           color: $link;
         }
         &__brand{
           float: right;
-          cursor: pointer;
+          cursor: no-drop;
         }
         &__brand:hover{
           color: $link;
@@ -156,14 +156,14 @@
         &__category{
           float: left;
           padding-right: 20px;
-          cursor: pointer;
+          cursor: no-drop;
         }
         &__category:hover{
           color: $link;
         }
         &__brand{
           float: right;
-          cursor: pointer;
+          cursor: no-drop;
         }
         &__brand:hover{
           color: $link;
@@ -183,6 +183,7 @@
             @include header-icon();
           }
           &--text{
+            cursor: no-drop;
             float: right;
           }
         }
@@ -200,6 +201,7 @@
             @include header-icon();
           }
           &--text{
+            cursor: no-drop;
             float: right;
           }
         }
@@ -217,6 +219,7 @@
             @include header-icon();
           }
           &--text{
+            cursor: no-drop;
             float: right;
           }
         }

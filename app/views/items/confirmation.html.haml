@@ -23,7 +23,6 @@
             .purchase_confirmation__contents__buy__inner__buying-form__payment-pay_amount-text 支払い金額
             .purchase_confirmation__contents__buy__inner__buying-form__payment-pay_amount-price_cell
               = "¥#{@item.price}"
-        -# %p.purchase_confirmation__contents__buy__inner__buying-form-error_text この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
         = link_to "購入する", buy_item_path,  method: :patch, class:"purchase_confirmation__contents__buy__inner__buying-form-btn"
         - if flash[:credit] == "クレジットカードが登録されていません"
           .form-group__error

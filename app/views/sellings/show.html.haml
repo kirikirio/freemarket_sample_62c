@@ -95,7 +95,7 @@
         %p.buy-text 商品の編集
     %p.text-cener or
     .comment__container__lis
-      = link_to "###", class: "buy-button" do
+      = link_to "###", class: "buy-button stop" do
         %p.buy-text 出品を一旦停止する
     .comment__container__lis
       = link_to user_selling_path, class: "text-danger", method: :delete, data: {confirm: '削除すると二度と復活できません。',cancel: 'やめる', commit: '削除'}, title: '確認' do

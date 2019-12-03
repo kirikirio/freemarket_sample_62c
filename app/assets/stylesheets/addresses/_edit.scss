@@ -36,6 +36,7 @@
           a {
             color: #0099e8;
             text-decoration: none;
+            cursor: no-drop;
           }
           a:hover {
             text-decoration: underline;
@@ -92,7 +93,7 @@
               font-size: 26px;
               cursor: pointer;
             }
-            .select-personal-info {
+            select {
               width: 100%;
               height: 48px;
               padding: 0 16px;
@@ -105,6 +106,19 @@
               -webkit-appearance: none;
               -moz-appearance: none;
             }
+            // .select-default{
+            //   position: relative;
+            //   -webkit-appearance: none;
+            //   -moz-appearance: none;
+            //   appearance: none;
+            //   border: 1px solid #ccc;
+            //   border-radius: 4px;
+            //   margin: 8px 0 0;
+            //   padding: 0 16px;
+            //   height: 48px;
+            //   width: 400px;
+            //   cursor:pointer;
+            //   }
             .select-personal-info:focus {
               border: solid 1px $link;
               outline: 0;

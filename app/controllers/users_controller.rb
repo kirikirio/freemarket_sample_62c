@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: :select_singup
+  before_action :clear_flash, only: :select_singup
   before_action  :clear_session, only: :select_singup
 
   def show
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(current_user.id)
+    @prefectures = Prefecture.all
   end
 
 end
