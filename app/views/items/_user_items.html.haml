@@ -1,0 +1,17 @@
+= link_to item_path(item.id) do
+  .items__container__box
+    - if item.sale_status_id == 2
+      .triangle
+      .sold
+        SOLD
+    %figure
+      = image_tag item.images[0].image.url, class:'items__container__box-item_phot'
+    .items__container__box__item_body
+      %h3
+        = item.name
+      .items__container__box__item_body__info
+        .items__container__box__item_body__info-price 
+          = "¥#{item.price.to_s(:delimited)}"
+        .items__container__box__item_body__info-like
+          %i.far.fa-heart
+            %span 68

@@ -55,6 +55,7 @@ class ItemsController < ApplicationController
         @item = Item.find(params[:id]) 
       end
     end
+    @items = Item.where(user_id: @item.user_id).order("rand()").limit(3).where.not(id: @item.id)
   end
   
 
