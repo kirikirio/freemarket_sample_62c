@@ -69,8 +69,8 @@
           .article{
             cursor: pointer;
             display: flex;
-            .right-link{
-              cursor: no-drop	;
+            .edit-link{
+              cursor: not-allowed;
               border-left: 1px solid #eee;
             }
             button{
