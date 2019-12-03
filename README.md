@@ -39,7 +39,7 @@
 |description|text|null: false|
 |item_status|references|null: false, foreign_key: true|
 |sale_status|references|null: false, foreign_key: true|
-|size|references|foreign_key: true|
+|size|references|foreign_key: true, default: ""|
 |brand|references|foreign_key: true|
 |delivery_status|references|null: false, foreign_key: true|
 |prefecture_id|integer|null: false|
