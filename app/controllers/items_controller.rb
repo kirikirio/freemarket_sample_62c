@@ -48,9 +48,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id]) 
     if current_user.present?
       if @item.user.id == current_user.id
-      redirect_to action: 'index'
+        redirect_to action: 'index'
       else
-      @item = Item.find(params[:id]) 
+        @item = Item.find(params[:id]) 
       end
     end
   end
@@ -62,7 +62,7 @@ class ItemsController < ApplicationController
     
     if image_presence
       @item.images.build
-      flash.now[:alert] = '必須項目を入力してください。'
+      flash.now[:alert] = '画像をアップロードしてください。'
       render 'items/new' and return
     end
     
@@ -93,14 +93,16 @@ class ItemsController < ApplicationController
     @rieki = (@item.price) - (@item.price)*(0.1)
 
     @item = Item.find(params[:id])
-    image_presence = params[:item][:images_attributes]['0'][:_destroy] == 'true'
+    delete_flag = params[:item][:images_attributes]['0'][:_destroy] == 'true'
     
-    if image_presence
-      @item.images.build
+    if delete_flag
+      
       flash.now[:alert] = '画像をアップロードしてください。'
       render 'items/edit' and return
     end
+    
     if @item.update(item_params)
+      
       redirect_to user_selling_path(current_user.id)
     else
       flash.now[:alert] = '必須項目を入力してください。'
@@ -177,7 +179,7 @@ class ItemsController < ApplicationController
                             :category_id,
                             :delivery_fee,
                             :delivery_method_id,
-                            images_attributes: [:id, :image, :_destory]
+                            images_attributes: [:id, :image]
                           ).merge(
                             user_id: current_user.id
                           )
