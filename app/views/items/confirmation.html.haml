@@ -53,9 +53,24 @@
       %h3 支払い方法
       %address.purchase_confirmation__contents__buyer_info-payway
         %br/
-        = @card_information.brand
-        %br/
+        -# = @card_information.brand
         = "**** - **** - **** - #{@card_information.last4}"
+        %br/
+        = "0#{@card_information.exp_month}/#{@card_information.exp_year.to_s.slice!(2..3)}"
+        %br/
+        - case @card_information.brand
+        - when "Visa"
+          = image_tag "credits/visa.svg", width: "49", height: "30"
+        - when "MasterCard"
+          = image_tag "credits/master-card.svg", width: "49", height: "30"
+        - when "JCB"
+          = image_tag "credits/jcb.svg", width: "49", height: "30"
+        - when "American Express"
+          = image_tag "credits/american_express.svg", width: "49", height: "30"
+        - when "Diners Club"
+          = image_tag "credits/dinersclub.svg", width: "49", height: "30"
+        - when "Discover"
+          = image_tag "credits/discover.svg", width: "49", height: "30"
       %a.purchase_confirmation__contents__buyer_info-change
         %span 変更する
         %i.fas.fa-angle-right
