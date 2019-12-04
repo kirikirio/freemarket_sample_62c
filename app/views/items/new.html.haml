@@ -65,7 +65,7 @@
         .main-box__select-group#size-area
           = f.label :size_id do
             サイズ
-            %span.hissu 必須
+            %span.optional 任意
           %div
             .select-box
               = f.collection_select :size_id, @sizes, :id, :size, {include_blank: '---'}, class: 'select-default', id: 'selectSize'

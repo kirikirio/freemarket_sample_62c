@@ -61,7 +61,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     image_presence = params[:item][:images_attributes].nil?
-    
     if image_presence
       @item.images.build
       flash.now[:alert] = '画像をアップロードしてください。'
@@ -69,7 +68,7 @@ class ItemsController < ApplicationController
     end
     
     if @item.save
-      redirect_to root_path, notice: '送信しました'
+      redirect_to root_path
     else
       flash.now[:alert] = '必須項目を入力してください。'
       render :new
@@ -98,13 +97,11 @@ class ItemsController < ApplicationController
     delete_flag = params[:item][:images_attributes]['0'][:_destroy] == 'true'
     
     if delete_flag
-      
       flash.now[:alert] = '画像をアップロードしてください。'
       render 'items/edit' and return
     end
     
     if @item.update(item_params)
-      
       redirect_to user_selling_path(current_user.id)
     else
       flash.now[:alert] = '必須項目を入力してください。'

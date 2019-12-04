@@ -2,7 +2,7 @@ class Item < ApplicationRecord
 
   belongs_to :user
   belongs_to :brand, optional: true
-  belongs_to :size
+  belongs_to :size, optional: true
   belongs_to :item_status
   belongs_to :sale_status
   belongs_to :delivery_status
@@ -28,7 +28,6 @@ class Item < ApplicationRecord
             :description,
             :item_status_id,
             :sale_status_id,
-            :size_id,
             :delivery_status_id,
             :prefecture_id,
             :category_id,

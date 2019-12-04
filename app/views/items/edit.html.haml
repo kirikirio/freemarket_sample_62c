@@ -73,13 +73,13 @@
           .select-wrap2#size-area
             = f.label :size do
               サイズ
-              %span.hissu 必須   
+              %span.nini 任意
             = f.collection_select :size_id, @sizes, :id, :size, {include_blank: '---'}, class: 'select-default', id: 'selectSize'
             %i.fa.fa-angle-down.fa-lg.fa-down.icon
           .select-wrap2
             = f.label :brand do
               ブランド
-              %span.nini 任意    
+              %span.nini 任意
             = f.collection_select :brand_id, @brands, :id, :name, {include_blank: '---'}, class: 'select-default'
             %i.fa.fa-angle-down.fa-lg.fa-down.icon
           .select-wrap2  
