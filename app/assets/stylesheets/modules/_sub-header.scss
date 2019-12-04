@@ -31,6 +31,17 @@
           position: absolute;
           margin-left: 818px;
           line-height: 40px;
+          button{
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            .fa-search{
+              font-size: 14px;
+            }
+          }
+          button:hover{
+            cursor: pointer;
+          }
         }
       }
     }
@@ -133,6 +144,17 @@
           position: absolute;
           margin-left: 818px;
           line-height: 40px;
+          button{
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            .fa-search{
+              font-size: 14px;
+            }
+          }
+          button:hover{
+            cursor: pointer;
+          }
         }
       }
     }

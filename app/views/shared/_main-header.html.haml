@@ -6,9 +6,10 @@
           = link_to items_path do
             = image_tag "logo/fmarket_logo_red.svg", width: "134", height: "36"
         .contents__top__search
-          .contents__top__search--icon
-            = fa_icon 'search'
           = form_with url: list_path do |form|
+            .contents__top__search--icon
+              = button_tag type: 'submit' do
+                = fa_icon 'search'
             = form.text_field :search, {class: 'contents__top__search--box', placeholder:"何をお探しですか？"}
 
       .contents__bottom
@@ -53,9 +54,10 @@
           = link_to items_path do
             = image_tag "logo/fmarket_logo_red.svg", width: "134", height: "36"
         .contents__top__search
-          .contents__top__search--icon
-            = fa_icon 'search'
           = form_with url: list_path do |form|
+            .contents__top__search--icon
+              = button_tag type: 'submit' do
+                = fa_icon 'search'
             = form.text_field :search, {class: 'contents__top__search--box', placeholder:"何をお探しですか？"}
 
       .contents__bottom
