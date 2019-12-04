@@ -160,7 +160,7 @@ class ItemsController < ApplicationController
 
   def list
     @search_word = params[:search]
-    @searches = Item.where('CONCAT(name,description) LIKE(?)', "%#{params[:search]}%").limit(20).where.not(user_id: current_user)if @search_word.present?
+    @searches = Item.where('CONCAT(name,description) LIKE(?)', "%#{params[:search]}%").limit(50).where.not(user_id: current_user)if @search_word.present?
   end
 
   private
