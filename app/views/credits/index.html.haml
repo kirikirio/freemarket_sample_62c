@@ -18,11 +18,11 @@
               %h3.head-menu クレジットカード一覧
           %section.add-credit
             .single-content
-              = link_to "#", class: "btn-credit" do
+              %a.btn-credit
                 %i.fa.fa-credit-card
                 クレジットカードを追加する
           .payment-method
-            = link_to "#" do
+            %a
               %span 支払い方法について
               %i.fa.fa-chevron-right
 = render partial: 'shared/footer'

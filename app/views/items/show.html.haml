@@ -43,18 +43,18 @@
           %th カテゴリー
           %td
             %div
-              = link_to "###" do
-                = @item.category.path[0].name
+              %a
+              = @item.category.path[0].name
             %div
               - if @item.category.path[1]
-                = link_to "###" do
+                %a
                   %i.fas.fa-chevron-right>
-                    = @item.category.path[1].name
+                  = @item.category.path[1].name
             %div
               - if @item.category.path[2]
-                = link_to "###" do
+                %a
                   %i.fas.fa-chevron-right>
-                    = @item.category.path[2].name
+                  = @item.category.path[2].name
         %tr
           %th ブランド
           %td

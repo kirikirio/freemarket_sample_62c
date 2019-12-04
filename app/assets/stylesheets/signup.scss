@@ -190,6 +190,7 @@
     color: #333;
 
     a {
+      cursor: no-drop;
       color: #333;
     }
 
@@ -398,6 +399,7 @@
           margin: 0;
         }
         .text-right {
+          cursor: no-drop;
           text-align: right;
         }
         // 本人情報はただしく、、、という説明文
@@ -411,6 +413,7 @@
         p {
           text-align: center;
           a {
+            cursor: no-drop;
             color: $link;
             &:hover {
               color: $link;
@@ -475,6 +478,9 @@
         ////////////////////
         &__info-link {
           @extend %info-link;
+          a{
+            cursor: no-drop;
+          }
           .icon-arrow-right {
             @include icon-arrow-right;
           }
@@ -600,6 +606,7 @@
           margin-top: 8px;
         }
         &__info-link {
+          cursor: no-drop;
           @extend %info-link;
           .icon-question {
             color: $link;

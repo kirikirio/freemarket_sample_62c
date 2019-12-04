@@ -105,13 +105,13 @@
         .form-group
           %p{class: 'registration-box__contents__form__info'}
             「次へ進む」のボタンを押すことにより、
-            = link_to "利用規約", "#",{class: 'terms'}
+            %a.terms 利用規約
             に同意したものとみなします
         = f.submit "次へ進む", class: 'btn registration-box__contents__form__submit'
         
         .form-group.text-right
           .registration-box__contents__form__info-link
-            = link_to '#' do
+            %a
               本人情報の登録について
               %i{class: 'icon-arrow-right fa fa-chevron-right'}
 

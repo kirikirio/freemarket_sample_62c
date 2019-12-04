@@ -61,6 +61,7 @@
               font-weight: 400;              
             }
             &__pointbox{
+              cursor: default;
               margin: 18px 0;
               width: 100%;
               list-style: none;
@@ -121,10 +122,12 @@
               justify-content: center;
 
               &-size-apple{
+                cursor: no-drop;
                 width: 66px;
                 margin: 0 2px;
               }
               &-size-google{
+                cursor: no-drop;
                 width: 60px;
                 margin: 0 2px;
               }
@@ -156,6 +159,7 @@
           line-height: 1.4;
         }
         &-change {
+          cursor: no-drop;
           margin: 10px 0 ;
           display: block;
           text-align: right;

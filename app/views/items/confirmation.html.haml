@@ -33,9 +33,9 @@
             = flash[:buy]
         %p.purchase_confirmation__contents__buy__inner__buying-form-apprecommend アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
         .purchase_confirmation__contents__buy__inner__buying-form-app-icon
-          = link_to "###" do
+          %a
             = image_tag 'logo/app-store.svg', class:'purchase_confirmation__contents__buy__inner__buying-form-app-icon-size-apple'
-          = link_to "###" do
+          %a
             = image_tag 'logo/google-play.svg', class:'purchase_confirmation__contents__buy__inner__buying-form-app-icon-size-google'
   %section.purchase_confirmation__contents__buy
     .purchase_confirmation__contents__buyer_info
@@ -46,7 +46,7 @@
         = "#{current_user.prefecture.name}  " + "#{current_user.city}  " + "#{current_user.city_block}  " + "#{current_user.building}  "
         %br/
         = "#{current_user.lastname}  " + "#{current_user.firstname}  "
-      = link_to "###", class: "purchase_confirmation__contents__buyer_info-change" do
+      %a.purchase_confirmation__contents__buyer_info-change
         %span 変更する
         %i.fas.fa-angle-right
   %section.purchase_confirmation__contents__buy
@@ -57,7 +57,7 @@
         = @card_information.brand
         %br/
         = "**** - **** - **** - #{@card_information.last4}"
-      = link_to "###", class: "purchase_confirmation__contents__buyer_info-change" do
+      %a.purchase_confirmation__contents__buyer_info-change
         %span 変更する
         %i.fas.fa-angle-right
 = render 'shared/sub-footer'

@@ -18,7 +18,7 @@
           %tr
             %th 出品者
             %td
-              = link_to "###" do
+              %a
                 %p 
                   = @item.user.nickname
               %br/
@@ -41,23 +41,23 @@
             %th カテゴリー
             %td
               %div
-                = link_to "###" do
+                %a
                   = @item.category.path[0].name
               %div
                 - if @item.category.path[1]
-                  = link_to "###" do
+                  %a
                     %i.fas.fa-chevron-right>
-                      = @item.category.path[1].name
+                    = @item.category.path[1].name
               %div
                 - if @item.category.path[2]
-                  = link_to "###" do
+                  %a
                     %i.fas.fa-chevron-right>
-                      = @item.category.path[2].name
+                    = @item.category.path[2].name
           %tr
             %th ブランド
             %td
               - if @item.brand
-                = link_to "###" do
+                %a
                   = @item.brand.name
           %tr
             %th 商品の状態
@@ -74,7 +74,7 @@
           %tr
             %th 配送元地域
             %td
-              = link_to "###" do
+              %a
                 = @item.prefecture.name
           %tr
             %th 発送日の目安
@@ -95,7 +95,7 @@
         %p.buy-text 商品の編集
     %p.text-cener or
     .comment__container__lis
-      = link_to "###", class: "buy-button stop" do
+      %a.buy-button.stop
         %p.buy-text 出品を一旦停止する
     .comment__container__lis
       = link_to user_selling_path, class: "text-danger", method: :delete, data: {confirm: '削除すると二度と復活できません。',cancel: 'やめる', commit: '削除'}, title: '確認' do
