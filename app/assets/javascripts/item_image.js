@@ -12,11 +12,7 @@ $(document).on('turbolinks:load', function () {
                   >`
       $('.preview-image > .figure').empty();
       $('.preview-image >.figure').append(html);
-      // モデルに画像があり、viewに表示されているか
-      const visivility = $('.saved-image').css('display') === 'list-item'
-      if (visivility) {
-        $('.saved-image').hide();
-      }
+
     }
     reader.readAsDataURL(file);
   }
@@ -25,6 +21,12 @@ $(document).on('turbolinks:load', function () {
 
     $('.preview-image').show();
     imagePreview(e.target);
+    // モデルに画像があり、viewに表示されているか
+    const visivility = $('.saved-image').css('display') === 'list-item'
+    if (visivility) {
+      $('.saved-image').hide();
+    }
+    $('.submitBtn').attr('disabled', false);
   })
   // プレビュー画像の削除 + ファイル選択の解除
   $('.removePreviewBtn').on('click', () => {
@@ -32,10 +34,12 @@ $(document).on('turbolinks:load', function () {
     $('.fileField').val('');
 
   })
-  // モデルの画像の削除
+  // モデルに保存されている画像の削除
   $('.removeBtn').on('click', () => {
+    // :_destroyにtrueを渡す
     $('.removeField').val(true);
 
     $('.saved-image').hide();
+    $('.submitBtn').attr('disabled', true);
   })
 });

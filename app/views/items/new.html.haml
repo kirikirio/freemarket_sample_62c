@@ -23,7 +23,7 @@
                   .article
                     %button.removePreviewBtn{type: 'button'}
                       削除
-                    %button.right-link{type: 'button'}
+                    %button.edit-link{type: 'button'}
                       編集
           = image.label :image do
             .image-area__input
@@ -68,7 +68,7 @@
             %span.hissu 必須
           %div
             .select-box
-              = f.collection_select :size_id, @sizes, :id, :size, {include_blank: '---'}, class: 'select-default'
+              = f.collection_select :size_id, @sizes, :id, :size, {include_blank: '---'}, class: 'select-default', id: 'selectSize'
 
         .main-box__select-group#brand-area
           = f.label :brand_id do
@@ -92,7 +92,7 @@
       .haisou-box
         .haisou-futan
           = f.label :delivery_fee do
-            配送料の負担 
+            配送料の負担
             %span.hissu 必須
           %div
             .select-box
@@ -165,7 +165,7 @@
           = link_to '' do
             加盟店規約
           に同意したことになります。
-      %button{type: 'submit'}
+      %button{type: 'submit', class: 'submitBtn'}
         出品する
 
       = link_to root_path do

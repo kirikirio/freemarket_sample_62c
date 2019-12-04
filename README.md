@@ -8,12 +8,12 @@
 |firstname_kana|string|null: false|
 |lastname_kana|string|null: false|
 |nickname|string|null: false|
-|profile|text|null: false|
-|birthday|integer|null: false|
-|user_image|string|null: false|
-|point|integer|null: false|
+|profile|text|default: ""|
+|birthday|string|null: false|
+|user_image|string|default: "", null: false|
+|point|integer|default: 0, null: false|
 |postal_code|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_id|integer|default: ""|
 |city|string|null: false|
 |city_block|string|null: false|
 |building|string|null: false, default: ""|
@@ -39,10 +39,10 @@
 |description|text|null: false|
 |item_status|references|null: false, foreign_key: true|
 |sale_status|references|null: false, foreign_key: true|
-|size|references|null: false, foreign_key: true|
+|size|references|foreign_key: true, default: ""|
 |brand|references|foreign_key: true|
 |delivery_status|references|null: false, foreign_key: true|
-|prefecture|string|null: false|
+|prefecture_id|integer|null: false|
 |user|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
 |delivery_fee|string|null: false|
@@ -125,7 +125,7 @@
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, index: true, unique: true|
+|name|string|null: false, index: true|
 ​
 ### Association
 - has_many :items

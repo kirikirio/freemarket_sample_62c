@@ -69,12 +69,11 @@
           .article{
             cursor: pointer;
             display: flex;
-            .right-link{
-              cursor: no-drop	;
+            .edit-link{
+              cursor: not-allowed;
               border-left: 1px solid #eee;
             }
             button{
-              cursor: no-drop	;
               padding: 0;
               outline: 0;
               border: 1px solid transparent;
@@ -85,7 +84,6 @@
               &:hover{
                 @include opacity;
               }
-              
             }
           }
         }
@@ -156,6 +154,7 @@
   .input-text{
     height: 48px;
     width: 620px;
+    font-size:16px;
     margin: 8px 0 0 0;
     padding: 10px 16px 8px;
     border: 1px solid #ccc;
@@ -171,7 +170,9 @@
     width: 620px;
     margin: 8px 0 0 0 ;
     padding:10px;
+    font-size:16px;
     line-height: 1.5;
+    border: 1px solid #ccc;
     min-height: 104px;
   }
   ::placeholder {

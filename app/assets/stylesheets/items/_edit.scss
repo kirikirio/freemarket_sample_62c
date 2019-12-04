@@ -370,6 +370,9 @@
     background:red;
     color: white;
     cursor: pointer;
+    &[disabled]{
+      cursor: not-allowed;
+    }
   }
   a{
     color: white;
@@ -417,12 +420,11 @@
       .article{
         cursor: pointer;
         display: flex;
-        .right-link{
-          cursor: no-drop	;
+        .edit-link{
+          cursor: not-allowed;
           border-left: 1px solid #eee;
         }
         button{
-          cursor: no-drop	;
           padding: 0;
           border: 1px solid transparent;
           background-color: $main;
@@ -431,6 +433,7 @@
           text-align: center;
           color: $link;
           outline: 0;
+          cursor: pointer;
           &:hover{
             @include opacity;
           }

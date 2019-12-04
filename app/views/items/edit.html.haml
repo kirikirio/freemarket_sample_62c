@@ -23,15 +23,15 @@
                     .figure
                       = image_tag i.url, class: 'image-item'
                     .article
-                      %button.right-link{type: 'button'}
+                      %button.edit-link{type: 'button'}
                         編集
-                      %button.removeBtnn{type: 'button'}
+                      %button.removeBtn{type: 'button'}
                         削除
                 %li.preview-image
                   .figure
                     
                   .article
-                    %button.right-link{type: 'button'}
+                    %button.edit-link{type: 'button'}
                       編集
                     %button.removePreviewBtn{type: 'button'}
                       削除
@@ -62,19 +62,19 @@
           %span.hissu 必須
         %div
           .select-wrap
-            = f.collection_select :category_id, @oya, :id, :name, {include_blank: '---',selected: Category.find(@item.category_id).parent.parent.id},class: 'select-default', id: 'parent'
+            = f.collection_select :c, @oya, :id, :name, {include_blank: '---',selected: Category.find(@item.category_id).parent.parent.id},class: 'select-default', id: 'parent'
             %i.fa.fa-angle-down.fa-lg.fa-down.icon
           .select-wrap
-            = f.collection_select :category_id, @childrens, :id, :name, {include_blank: '---',selected: Category.find(@item.category_id).parent.id}, class: 'select-default', id: 'children'
+            = f.collection_select :c, @childrens, :id, :name, {include_blank: '---',selected: Category.find(@item.category_id).parent.id}, class: 'select-default', id: 'children'
             %i.fa.fa-angle-down.fa-lg.fa-down.icon
           .select-wrap
             = f.collection_select :category_id, @mago, :id, :name, {include_blank: '---'}, class: 'select-default', id: 'grandchildren'
             %i.fa.fa-angle-down.fa-lg.fa-down.icon
-          .select-wrap2  
+          .select-wrap2#size-area
             = f.label :size do
               サイズ
               %span.hissu 必須   
-            = f.collection_select :size_id, @sizes, :id, :size, {}, class: 'select-default'
+            = f.collection_select :size_id, @sizes, :id, :size, {include_blank: '---'}, class: 'select-default', id: 'selectSize'
             %i.fa.fa-angle-down.fa-lg.fa-down.icon
           .select-wrap2
             = f.label :brand do
@@ -146,7 +146,7 @@
                 ¥
                 = @rieki.floor.to_s(:delimited)
     .hensyu-box-last
-      %button.button-red
+      %button.button-red.submitBtn
         変更する
       = link_to user_selling_path(current_user, @item) do
         %p.button-gray キャンセル

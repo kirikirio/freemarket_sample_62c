@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :list]
   before_action :set_submodel, only: [:new, :create, :edit, :update]
   before_action :selling_to_show, only: [:edit]
   before_action :clear_session, only: :index
@@ -50,11 +50,12 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id]) 
     if current_user.present?
       if @item.user.id == current_user.id
-      redirect_to action: 'index'
+        redirect_to action: 'index'
       else
-      @item = Item.find(params[:id]) 
+        @item = Item.find(params[:id]) 
       end
     end
+    @items = Item.where(user_id: @item.user_id).order("rand()").limit(3).where.not(id: @item.id)
   end
   
 
@@ -64,7 +65,7 @@ class ItemsController < ApplicationController
     
     if image_presence
       @item.images.build
-      flash.now[:alert] = '必須項目を入力してください。'
+      flash.now[:alert] = '画像をアップロードしてください。'
       render 'items/new' and return
     end
     
@@ -95,14 +96,16 @@ class ItemsController < ApplicationController
     @rieki = (@item.price) - (@item.price)*(0.1)
 
     @item = Item.find(params[:id])
-    image_presence = params[:item][:images_attributes]['0'][:_destroy] == 'true'
+    delete_flag = params[:item][:images_attributes]['0'][:_destroy] == 'true'
     
-    if image_presence
-      @item.images.build
+    if delete_flag
+      
       flash.now[:alert] = '画像をアップロードしてください。'
       render 'items/edit' and return
     end
+    
     if @item.update(item_params)
+      
       redirect_to user_selling_path(current_user.id)
     else
       flash.now[:alert] = '必須項目を入力してください。'
@@ -161,6 +164,8 @@ class ItemsController < ApplicationController
   end
 
   def list
+    @search_word = params[:search]
+    @searches = Item.where('CONCAT(name,description) LIKE(?)', "%#{params[:search]}%").limit(50).where.not(user_id: current_user)if @search_word.present?
   end
 
   private
@@ -179,7 +184,7 @@ class ItemsController < ApplicationController
                             :category_id,
                             :delivery_fee,
                             :delivery_method_id,
-                            images_attributes: [:id, :image, :_destory]
+                            images_attributes: [:id, :image]
                           ).merge(
                             user_id: current_user.id
                           )
