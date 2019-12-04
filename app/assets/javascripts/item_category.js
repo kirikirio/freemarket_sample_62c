@@ -84,8 +84,12 @@ $(document).on('turbolinks:load', function () {
     if (!(select === '0')) {
       $('#brand-area').show();
     }
-    if (childWithSize.includes(childId) && !grandchildWithoutSize.includes(Number(select))) {
-      $('#size-area').show();
+    if (childWithSize.includes(childId)) {
+      if (grandchildWithoutSize.includes(Number(select))) {
+        $('#size-area').hide();
+      } else {
+        $('#size-area').show();
+      }
     }
   })
 });
