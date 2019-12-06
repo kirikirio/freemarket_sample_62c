@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id]) 
-    if @item.user.id == current_user.id
+    if user_signed_in? && @item.user.id == current_user.id
       redirect_to action: 'index'
     else
       @item = Item.find(params[:id]) 
