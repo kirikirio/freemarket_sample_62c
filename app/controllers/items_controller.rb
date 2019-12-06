@@ -45,15 +45,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  
   def show
     @item = Item.find(params[:id]) 
-    if current_user.present?
-      if @item.user.id == current_user.id
-        redirect_to action: 'index'
-      else
-        @item = Item.find(params[:id]) 
-      end
+    if @item.user.id == current_user.id
+      redirect_to action: 'index'
+    else
+      @item = Item.find(params[:id]) 
     end
     @items = Item.where(user_id: @item.user_id).order("rand()").limit(3).where.not(id: @item.id)
   end
@@ -115,21 +112,14 @@ class ItemsController < ApplicationController
   end
 
   def confirmation
-    if current_user.present?
-      if @item = Item.find(params[:id])
-        if @item[:user_id] == current_user.id
-        redirect_to action: 'index'
-        else
-        if user_signed_in?
-          Payjp.api_key = ENV['PAYJP_API_KEY']
-          @item = Item.find(params[:id])
-          customer = Payjp::Customer.retrieve(current_user.customer_id)
-          @card_information = customer.cards.retrieve(current_user.card_id)
-        else
-          redirect_to new_user_session_path
-          end
-        end
-      end
+    @item = Item.find(params[:id])
+    if @item[:user_id] == current_user.id
+      redirect_to action: 'index'
+    else
+        Payjp.api_key = ENV['PAYJP_API_KEY']
+        @item = Item.find(params[:id])
+        customer = Payjp::Customer.retrieve(current_user.customer_id)
+        @card_information = customer.cards.retrieve(current_user.card_id)
     end
   end
 
